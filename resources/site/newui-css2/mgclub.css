@@ -1,0 +1,193 @@
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+
+
+.title-info {
+    margin-bottom: 50px;
+}
+.title-logo-mgclub{
+    width: 80px;
+    height: 80px;
+
+}
+.mgclub-title{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.mechanics-box{
+    border: 2px solid black;
+    padding: 30px 45px 35px;
+}
+.mechanics-box h3{
+    font-size: 23px;
+    margin-bottom:15px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-weight: 600;
+}
+.mechanics-box p{
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-family: 'Karla', Arial, sans-serif;
+    text-align: justify;
+}
+
+.sec-container{
+    padding-top: 40px;
+    margin-bottom: 100px;
+}
+.partner-descrip{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font: 20px;
+}
+.slider-partner{
+    margin-bottom: 50px;
+}
+.slick-dots li button:before{
+    font-size: 20px;
+}
+.partner-btn{
+    color: black;
+    width: 290px;
+    /* margin-left: 60px; */
+    font-size: 24px;
+    font-family: 'Karla', Arial, sans-serif;
+    border: 2px solid black;
+}
+.more-desc{
+    font-size: 32px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.title-slider {
+    font-size: 33px;
+}
+.more-section{
+    margin-bottom: 40px;
+    margin-bottom: 40px;
+    padding-top: 25px;
+}
+.partner-img-slide{
+    display: unset!important;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+/* tablet desktop transition  */
+@media only screen and (max-width: 990px){
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+}
+/* big tablet view */
+@media only screen and (max-width: 900px){
+
+}
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+
+}
+/* regular tablet view */
+@media only screen and (max-width:768px){
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}
+
+/* resize small web windows 1*/
+@media only screen and (max-width: 650px){
+
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    .slick-next, .slick-prev {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+    .mechanics-box {
+        border: 2px solid black;
+        padding: 30px 15px 35px;
+    }
+    .more-desc {
+        font-size: 32px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+}
+/* pixel 2  size*/
+@media only screen and (max-width: 414px){
+
+}
+/* pixel 1 size */
+@media only screen and (max-width: 411px){
+    
+}
+/* medium mobile device 2*/
+@media only screen and (max-width:375px){
+
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+    .slick-slide img {
+        width: 100%;
+        height: auto;
+    }
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+
+}

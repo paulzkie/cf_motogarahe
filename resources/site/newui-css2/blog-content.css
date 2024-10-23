@@ -1,0 +1,245 @@
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.back-btn{
+    font-family: 'karla', Arial, sans-serif;
+    color: black;
+    font-size: 17px;
+    
+}
+.back-btn:hover{
+    text-decoration: none;
+}
+.b-icon{
+    font-size: 36px;
+    vertical-align: sub;
+}
+.blog-details h1{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36.5px;
+    /* text-align: center; */
+}
+.blog-details h6{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 16.5px;
+    /* text-align: center; */
+    /* margin-right: 380px; */
+
+}
+.blog-details p {
+    font-family: 'karla';
+    font-size: 16.5px;
+    text-align: justify;
+}
+.subscribe-sec h1{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36.5px;
+    text-align: center;
+}
+.subscribe-sec p{
+  font-family: 'karla';
+  font-size: 16.5px;
+  padding: 0 230px;
+
+}
+.subs-email{
+  width: 40%;
+  border: 1px solid black;
+  font-family: 'karla', Arial, sans-serif;
+  padding: 5px;
+  margin-bottom: 20px;
+
+}
+.signup-btn{
+  font-family: 'karla', Arial, sans-serif;
+  width: 15%;
+  color: black;
+  font-size: 17px;
+}
+.nav-back{
+  margin-top: 20px;
+}
+.blog-details img{
+  width: 80%;
+  height: auto;
+  margin-bottom: 50px;
+}
+.subscribe-sec{
+  margin-top: 130px;
+  margin-bottom: 75px;
+}
+.subs-form{
+  margin-top: 50px;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+/* tablet desktop transition  */
+@media only screen and (max-width: 990px){
+  .subscribe-sec p {
+      padding: 0 120px;
+  } 
+}
+/* big tablet view */
+@media only screen and (max-width: 900px){
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+}
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+
+}
+ /* regular tablet view */
+@media only screen and (max-width:768px){
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+/* transition to small web browser view */
+@media only screen and (max-width:760px){
+    .blog-details h6 {
+        text-align: center;
+    }
+    .blog-details h1 {
+        text-align: center;
+    }
+
+}
+ 
+
+/* resize small web windows 1*/
+@media only screen and (max-width: 650px){
+  .subscribe-sec p {
+      padding: 0 80px;
+  } 
+  .subs-email {
+      width: 100%;
+      border: 1px solid black;
+      font-family: 'karla', Arial, sans-serif;
+      padding: 5px;
+      margin-bottom: 20px;
+  }
+  .signup-btn {
+      font-family: 'karla', Arial, sans-serif;
+      width: 100%;
+      color: black;
+      font-size: 17px;
+  }
+ 
+
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    
+}
+ /* resize small web mac */
+@media only screen and (max-width: 500px){
+  .subscribe-sec h1 {
+      font-family: 'Bebas Neue', Arial, sans-serif;
+      font-size: 25.5px;
+      text-align: center;
+  }
+  .subscribe-sec p {
+      padding: 0 10px;
+  }
+  .subscribe-sec {
+      margin-top: 70px;
+      margin-bottom: 75px;
+  }
+  .subs-email {
+      width: 100%;
+      border: 1px solid black;
+      font-family: 'karla', Arial, sans-serif;
+      padding: 5px;
+      margin-bottom: 20px;
+  }
+  .signup-btn {
+      font-family: 'karla';
+      width: 100%;
+      color: black;
+      font-size: 17px;
+  }
+  .blog-details img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+}
+/* pixel 2  size*/
+@media only screen and (max-width: 414px){
+
+}
+/* pixel 1 size */
+@media only screen and (max-width: 411px){
+  
+}
+/* medium mobile device 2*/
+@media only screen and (max-width:375px){
+
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+    .subscribe-sec {
+        margin-top: 80px;
+        margin-bottom: 75px;
+    }
+    .subscribe-sec h1 {
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        font-size: 26.5px;
+        text-align: center;
+    }
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+
+}

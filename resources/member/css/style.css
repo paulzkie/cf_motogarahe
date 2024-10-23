@@ -1,0 +1,98 @@
+
+.form-control {
+    border-color: green ;
+}
+
+.layout-boxed {
+    background: url( ../../admin/lte/dist/img/boxed-bg-orig.jpg) repeat fixed;
+}
+
+.hide_alert {
+	display: none;
+}
+
+.show_alert{
+	display: block;
+}
+
+.alert {
+	margin-bottom: 0px;
+	position: absolute;
+    bottom: 50px;
+    z-index: 1;
+    width: 60%;
+    right: 10px;
+}
+
+.box-body table input[type=checkbox], input[type=radio] {
+    margin: 4px 7px 0;
+}
+
+.form-control[readonly] {
+    background-color: #f4f4f4;
+}
+
+.filter-box button {
+	background-color: #fff;
+	text-align: left;
+}
+
+.box-body table td img{
+	height: 50px;
+}
+
+.pagination {
+	margin: 0;
+	float: right!important;
+}
+
+.skin-red-light .main-header .navbar {
+    background-color: #e80b02;
+}
+
+.skin-red-light .main-header .logo:hover, .skin-red-light .main-header .logo {
+    background-color: #e80b02;
+}
+
+.skin-red-light .sidebar-menu>li:hover>a, .skin-red-light .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #e80b02;
+}
+
+.skin-red-light .sidebar-menu>li.header {
+    color: #848484;
+    background: #ecf0f5;
+}
+
+.skin-red-light .main-header li.user-header {
+    background-color: #e80b02;
+}
+
+.skin-red-light .main-header .navbar .sidebar-toggle:hover {
+    background-color: #e80b02;
+}
+
+footer a:hover,footer a:active,footer a:focus, footer a {
+    outline: none;
+    text-decoration: none;
+    color: #e80b02;
+}
+
+.content-wrapper, .right-side {
+    background-color: #F7F7F7;
+}
+
+.content-header>.breadcrumb>li.active>a {
+    color: #e80b02;
+    font-weight: bold;
+}
+
+.info-box-icon i::before {
+	position: relative;
+    /*top: 20px;*/
+}
+
+.info-box-content {
+    position: relative;
+    /*top: 13px;*/
+}

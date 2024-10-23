@@ -1,0 +1,56 @@
+Customer
+	register
+	login
+	view all tours, travel, hotel accomodation
+	promos
+	booking
+	transaction throug paypal
+	receipt
+
+	page - view history ng bookings
+
+Agency
+	register (plan a = 5 post, plan b = 10 post, plan c = unlipost) FOR 1 YEAR	
+	create tour, travel, hotels (promo or none promo)
+	edit tour
+	soft delete tour
+
+Admin
+	create, edit, delete blog
+	all customers
+	all agencies
+	create tour, travel, hotels (promo or none promo)
+	edit, soft delete
+	sales
+	all bookings
+	approve button (para alm nya na nakita na nya ung booking)
+
+
+Navigations
+	Home
+	Tours and Travel
+	Blog
+	About Us
+	Faqs
+	
+	Customer
+	Agency
+
+HOME
+	Big Banner	
+	Search now
+	beautiful trips
+	Hottest tours
+	Promo slide na mallilit
+
+Serach Now
+	like data
+		place name - category
+
+beautiful trips
+	viewl trips
+
+
+Booking ( cart codeigniter )
+transaction (paypal)
+

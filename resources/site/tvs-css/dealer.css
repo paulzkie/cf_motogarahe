@@ -1,0 +1,458 @@
+.title-info{
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+.selected-dealer{
+    border: solid;
+}
+#asdasd p {
+    padding-bottom: 5px;
+    margin: 0;
+    padding-top: 5px;
+    border-bottom: 1px solid #e2e2e2;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.activeSuggestion {
+    background-color: #fdcf07;
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.title-header{
+    padding: 20px 0;
+}
+#mot-selected h1{
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+
+}
+#mot-selected h6{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 16px;
+    color: #6e6e6e;
+
+}
+.mot-img{
+    width: 80%;
+    height: auto;
+    float: right;
+}
+.btn-outline{
+    border: 1px solid black;
+    font-size: 16.5px;
+    font-family: 'Karla', Arial, sans-serif;
+    margin: 5px;
+    color: black;
+}
+.hr-2{
+    border: 2px solid #5c5c5c;
+}
+.hr-1{
+    border: 1px solid #5c5c5c;
+}
+.loc-btn{
+    width: 40%;
+}
+.loc-btn-div {
+    margin: 10px 90px;
+}
+.rad-30{
+    border-radius: 30px;
+}
+.rad-0{
+    border-radius: 0;
+    width: 15%;
+}
+.active{
+    color: white;
+    background-color: black!important;
+}
+#dealers h3{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 20px;
+}
+#dealers .small-p{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 13px;
+}
+#dealers h4{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 900!important;
+}
+.dealers-box-selected{
+    background: #ededed;
+    padding: 5px;
+}
+.dealers-box-selected{
+    margin: 0 5px;
+}
+.dealers-box-selected:first-child{
+    /* margin: unset; */
+}
+.dealers-selected{
+    display: flex;
+}
+.fa-times:not(.menu-fa){
+    color: black;
+    display: contents;
+}
+.clear-dealer{
+    text-decoration: underline;
+    float: right;
+    color: #616161;
+}
+.submit-dealer{
+    text-decoration: underline;
+    float: right;
+    color: #616161;
+}
+.submit-dealer:hover, .clear-dealer:hover,.view-map:hover{
+    color:#fdcf09;
+}
+
+.result-dealers{
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.card-title{
+    font-size: 14px;
+    margin-bottom: unset;
+    font-weight: 900!important;
+}
+.dealer-box p{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: unset;
+}
+.card-body {
+    padding: 0.5rem;
+}
+.dealer-box{
+    margin-bottom: 30px;
+    height: 350px;
+}
+.pd-0{
+  padding: 0;
+}
+@media only screen and (max-width: 1200px){
+    .dealers-box-selected {
+        font-size: 12px;
+    }
+    .clear-dealer {
+        font-size: 12px;
+    }
+    .submit-dealer {
+        font-size: 12px;
+    }
+    .dealer-box {
+        height: 310px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width:990px){
+    .mot-img {
+        width: 100%;
+        height: 290px;
+        float: right;
+    }
+    .btn-outline {
+        border: 1px solid black;
+        font-size: 13.5px;
+        font-family: 'Karla', Arial, sans-serif;
+        margin: 5px;
+        color: black;
+    }
+    .dealers-box-selected {
+        font-size: 11px;
+    }
+    #dealers h3 {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 16px;
+    }
+    .dealer-box p {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 10px;
+        margin-bottom: unset;
+    }
+    .dealer-box {
+        height: 220px;
+    }
+    .dealers-box-selected:first-child {
+        /* margin: unset;
+        margin-bottom: 5px; */
+    }
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+  
+}
+@media only screen and (max-width: 768px){
+    .loc-btn {
+        width: 40%;
+    }
+    #dealers h3 {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 16px;
+    }
+    .dealer-box p {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 12px;
+        margin-bottom: unset;
+    }
+    .dealer-box {
+        height: 290px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 760px){
+  .dealer-box {
+      height: 370px;
+  }
+  #dealers h3 {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 20px;
+  }
+  .dealer-box p {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 14px;
+      margin-bottom: unset;
+  }
+  .dealers-box-selected {
+      font-size: 10px;
+  }
+  .mob-center {
+      text-align: center;
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 20px;
+  }
+  .hr-1 {
+      border: 1px solid #5c5c5c;
+      margin: 0px 230px;
+  }
+  #dealers .small-p{
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 13px;
+      text-align: center;
+  }
+  .loc-btn {
+      width: 100%;
+  }
+  .dealers-box-selected:first-child {
+      /* margin: unset;
+      margin-bottom: 5px; */
+  }
+  .clear-dealer{
+    margin-right: 5px;
+  }
+}
+@media only screen and (max-width: 650px){
+  .mot-img {
+      width: 100%;
+      height: 200px;
+      float: right;
+  }
+  .loc-btn {
+      width: 80%;
+  }
+  .loc-btn-div {
+    margin: 10px 90px;
+  }
+  #mot-selected h1 {
+      font-size: 25px;
+  }
+  #mot-selected h6 {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 12px;
+      color: #6e6e6e;
+  }
+  .hr-1 {
+      border: 1px solid #5c5c5c;
+      margin: 0px 110px;
+  }
+  .rad-0 {
+      border-radius: 0;
+      width: 20%;
+  }
+  .btn-outline {
+      border: 1px solid black;
+      font-size: 13.5px;
+      font-family: 'Karla', Arial, sans-serif;
+      margin: 5px;
+      color: black;
+  }
+  .dealer-box {
+      height: 380px;
+  }
+  .dealers-box-selected:first-child {
+      /* margin: unset;
+      margin-bottom: 5px; */
+  }
+ 
+  #dealers h3 {
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 25px;
+  }
+  .dealer-box p {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 13px;
+      margin-bottom: unset;
+  }
+  .dealers-box-selected {
+      font-size: 12px;
+  }
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+    .dealer-box {
+        height: 340px;
+    }
+    #dealers h3 {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 414px){
+  .dealers-box-selected {
+      font-size: 9px;
+  }
+  #dealers h3 {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 14px;
+  }
+  .dealer-box p {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 11px;
+      margin-bottom: unset;
+  }
+  .dealer-box {
+      height: 240px;
+  }
+  .hr-1 {
+      border: 1px solid #5c5c5c;
+      margin: 0px 80px;
+  }
+  .mot-img {
+      width: auto;
+      height: 200px;
+      float: right;
+      transform: translateX(40px);
+  }
+}
+@media only screen and (max-width: 411px ){
+    .mot-img {
+      width: auto;
+      height: 220px;
+      float: right;
+      transform: translateX(50px);
+  }
+}
+@media only screen and (max-width: 375px){
+  .dealers-box-selected {
+      font-size: 8px;
+  }
+  #dealers h3 {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 13px;
+  }
+  .dealer-box p {
+      font-family: 'Karla', Arial, sans-serif;
+      font-size: 9px;
+      margin-bottom: unset;
+  }
+  .dealer-box {
+      height: 200px;
+  }
+  .mot-img {
+      width: auto;
+      height: 210px;
+      float: right;
+      transform: translateX(60px);
+  }
+  #mot-selected h1 {
+      font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 360px){
+  #mot-selected h1 {
+      font-size: 22px;
+  }
+  .mot-img {
+      width: auto;
+      height: 190px;
+      float: right;
+      transform: translateX(50px);
+  }
+}
+
+/* small mobile device */
+@media only screen and (max-width:320px){
+    #mot-selected h1 {
+        font-size: 20px;
+    }
+    .rad-0 {
+        border-radius: 0;
+        width: 25%;
+    }
+    .mot-img {
+        width: auto;
+        height: 180px;
+        float: right;
+        transform: translateX(60px);
+    }
+    #mot-selected h6 {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 11px;
+        color: #6e6e6e;
+    }
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+
+
+}

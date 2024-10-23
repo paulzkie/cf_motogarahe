@@ -1,0 +1,211 @@
+{
+	"municipalities":[
+		{
+			"region_name" : "ARMM",
+			"cities":
+			[
+				"Basilan",
+				"Lanao Del Sur",
+				"Maguindanao",
+				"Sulu",
+				"Tawi-Tawi"
+			]
+		},
+		{
+			"region_name" : "CAR",
+			"cities":
+			[
+				"Abra",
+				"Apayao",
+				"Ifugao",
+				"Kalinga",
+				"Mountain Province"
+			]
+		},
+		{
+			"region_name" : "NCR",
+			"cities":
+			[
+				"Caloocan City",
+				"Las Piñas City",
+				"Manila",
+				"Makati City",
+				"Muntinlupa City",
+				"Navotas City",
+				"Pateros",
+				"Parañaque City",
+				"Pasay City",
+				"Taguig City",
+				"Valenzuela City"
+
+			]
+		},
+		{
+			"region_name" : "Region 1",
+			"cities":
+			[
+				"Ilocos Norte",
+				"Ilocos Sur",
+				"La Union",
+				"Pangasinan"
+			]
+		},
+		{
+			"region_name" : "Region 2",
+			"cities":
+			[
+				"Batanes",
+				"Cagayan",
+				"Isabela",
+				"Nueva Vizcaya",
+				"Quirino"
+			]
+		},
+		{
+			"region_name" : "Region 3",
+			"cities":
+			[
+				"Aurora",
+				"Bataan",
+				"Bulacan",
+				"Nueva Ecija",
+				"Pampanga",
+				"Tarlac",
+				"Zambales"
+			]
+		},
+		{
+			"region_name" : "Region 4A",
+			"cities":
+			[
+				"Batangas",
+				"Cavite",
+				"Laguna",
+				"Quezon",
+				"Rizal"
+			]
+		},
+		{
+			"region_name" : "Region 4B",
+			"cities":
+			[
+				"Marinduque",
+				"Occidental Mindoro",
+				"Oriental Mindoro",
+				"Nueva Ecija",
+				"Palawan",
+				"Romblon"
+			]
+		},
+		{
+			"region_name" : "Region 5",
+			"cities":
+			[
+				"Albay",
+				"Camarines Norte",
+				"Camarines Sur",
+				"Catanduanes",
+				"Masbate",
+				"Sorsogon"
+			]
+		},
+		{
+			"region_name" : "Region 6",
+			"cities":
+			[
+				"Aklan",
+				"Antique",
+				"Capiz",
+				"Guimaras",
+				"Iloilo",
+				"Negros Occidental"
+			]
+		},
+		{
+			"region_name" : "Region 7",
+			"cities":
+			[
+				"Bohol",
+				"Cebu",
+				"Negros Oriental",
+				"Siquijor"
+			]
+		},
+		{
+			"region_name" : "Region 8",
+			"cities":
+			[
+				"Biliran",
+				"Eastern Samar",
+				"Leyte",
+				"Northern Samar",
+				"Western Samar",
+				"Southern Leyte"
+			]
+		},
+		{
+			"region_name" : "Region 9",
+			"cities":
+			[
+				"Zamboanga Del Norte",
+				"Zamboanga Del Sur",
+				"Zamboanga Sibugay"
+			]
+		},
+		{
+			"region_name" : "Region 10",
+			"cities":
+			[
+				"Bukidnon",
+				"Camiguin",
+				"Lanao Del Norte",
+				"Misamis Occidental",
+				"Misamis Oriental"
+			]
+		},
+		{
+			"region_name" : "Region 11",
+			"cities":
+			[
+				"Compostela",
+				"Laak (San Vicente)",
+				"Mabini (Doña Alicia)",
+				"Maco",
+				"Maragusan (san mariano)",
+				"Mawab",
+				"Monkayo",
+				"Montevista",
+				"Nabunturan",
+				"New Bataan",
+				"Pantukan",
+				"Davao Del Norte",
+				"Daval Del Sur",
+				"Davao Occidental",
+				"Davao Oriental"
+			]
+		},
+		{
+			"region_name" : "Region 12",
+			"cities":
+			[
+				"Nort Cotabato",
+				"Sarangani",
+				"South Cotabato",
+				"Sultan Kudarat"
+				
+			]
+		},
+		{
+			"region_name" : "Region 13",
+			"cities":
+			[
+				"Agusan Del Norte",
+				"Agusan Del Sur",
+				"Dinagat Island",
+				"Surigao Del Norte",
+				"Surigao Del Sur"
+				
+			]
+		}
+	]
+}

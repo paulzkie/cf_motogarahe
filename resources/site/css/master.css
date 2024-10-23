@@ -1,0 +1,42 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+- FONTS
+- MAIN CSS
+- PLUGIN CSS
+
+Author:     Andrey Sokoltsov
+Profile:    http://themeforest.net/user/andreysokoltsov
+-------------------------------------------------------------------*/
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+
+
+/* MAIN CSS */
+@import url('../css/bootstrap.css');
+@import url('../css/font-awesome.min.css');
+@import url('../css/theme.css');
+@import url('../css/home.css');
+@import url('../css/home-2.css');
+@import url('../css/listings.css');
+@import url('../css/detail.css');
+@import url('../css/compare.css');
+@import url('../css/blog.css');
+@import url('../css/pages.css');
+@import url('../css/submits.css');
+@import url('../css/responsive.css');
+@import url('../css/animate.css');
+@import url('../css/site-colors.css');
+@import url('../css/colors-demo.css');
+@import url('../css/colors.css');
+@import url('../css/custom.css');
+
+
+/* PLUGIN CSS */
+@import url('../assets/owl-carousel/owl.carousel.css');
+@import url('../assets/owl-carousel/owl.theme.css');
+@import url('../assets/bxslider/jquery.bxslider.css');
+

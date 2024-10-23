@@ -1,0 +1,212 @@
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.hr-2{
+    border: 2px solid #737373;
+} 
+#inq h1{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 73px;
+}
+#inq h5{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 16.5px;
+}
+#inq-form input{
+    font-size: 15px;
+}
+#inq-form input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color :black;
+  opacity: 1; /* Firefox */
+}
+#inq-form textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color :black;
+  opacity: 1; /* Firefox */
+}
+
+#inq-form input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+  opacity: 1;
+}
+#inq-form textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+  opacity: 1;
+}
+
+#inq-form input::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+  opacity: 1;
+}
+#inq-form textarea::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+  opacity: 1;
+}
+
+.form-control{
+    color: black!important;
+}
+.inq-sbt{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 18.5px;
+}
+#left-side{
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+#right-side h2 {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.mot-info{
+    padding: 0 100px;
+}
+#right-side p{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+}
+.mot-img{
+  height: auto;
+  width: 100%;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+	.slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+/* tablet desktop transition  */
+@media only screen and (max-width: 990px){
+    .mot-info {
+        padding: 0 40px;
+    }
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+}
+/* big tablet view */
+@media only screen and (max-width: 900px){
+  .mot-info {
+      padding: 0 40px;
+  }
+
+}
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+  .mot-info {
+      padding: 0 40px;
+  }
+}
+/* regular tablet view */
+@media only screen and (max-width:768px){
+    .inq-sbt{
+        width: 40%;
+    }
+    #inq h1 {
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        font-size: 63px;
+        text-align: center;
+    }
+    #inq h5 {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 14.5px;
+    }
+    .mot-info {
+        padding: 0 40px;
+    }
+    .mot-info {
+        padding: 0px 0px;
+        margin-bottom: 40px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+/* transition to small web browser view */
+@media only screen and (max-width:750px){
+  .inq-sbt{
+    width: 100%;
+  }
+}
+
+/* resize small web windows 1*/
+@media only screen and (max-width: 650px){
+  .mot-info {
+      padding: 0px 30px;
+  }
+  #inq h1 {
+      font-family: 'Bebas Neue', Arial, sans-serif;
+      font-size: 53px;
+      text-align: center;
+  }
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+
+}
+/* pixel 2  size*/
+@media only screen and (max-width: 414px){
+
+}
+/* pixel 1 size */
+@media only screen and (max-width: 411px){
+    
+}
+/* medium mobile device 2*/
+@media only screen and (max-width:375px){
+
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+
+}

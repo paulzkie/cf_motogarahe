@@ -1,0 +1,365 @@
+/* @font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue-Regular.woff2");
+    }
+    @font-face {
+        font-family: "Karla";
+        src: url("../fonts/Karla-Regular.ttf") format("ttf"),
+        } */
+.body-content{
+    font-size: 14px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    color: #000;
+}
+h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #000;
+    line-height: 0.8;
+}
+h2 {
+    color: #000;
+}
+h3 {
+   font-size: 30px;
+}
+p {
+    font-size: 16px;
+    font-family: 'Karla', Arial, sans-serif;
+    color: #000;
+    margin: 0 auto;
+}
+span:not(.icon-nav-text,.text-yellow-theme) {
+    font-size: 11px;
+    font-family: 'Karla', Arial, sans-serif;
+    color: #717171;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+.content {
+    margin-top: 28px;
+}
+.fa.fa-star {
+    color: #bcbcbc;
+    margin-right: 3px;
+}
+.offerButton {
+    border: 1px solid #8c8b8b;
+    padding: 5px 25px;
+    color: #8c8b8b;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 13px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.offerButton:hover{
+    /* background-color: #fdcf09; */
+    text-decoration: none;
+    font-weight: 600;
+    border-color: #fdcf09;
+    color: #fdcf09;
+}
+.cstm-select {
+    border: 1px solid #8c8b8b;
+    padding: 5px 25px;
+    color: #8c8b8b;
+    font-size: 17px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 13px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    cursor: pointer;
+}
+.dealers {
+    border: none;
+    background-color: #f9cd0a;
+    color: #000;
+    text-align: center;
+    padding: 5px 25px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.dealers:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+.nav-link {
+    color: #000;
+    font-size: 17px;
+    padding: 7px 14px !important;
+}
+.nav-tabs {
+    border: none;
+}
+.nav-tabs .nav-link:hover {
+    color: #f9cd0a;
+    border-color: #f9cd0a;
+}
+.nav-link.active.show {
+    background-color: #f6f6f6;
+}
+.nav-tabs .nav-link.active {
+    background-color: #f6f6f6;
+    border-color: transparent;
+}
+.tab-content {
+    background-color: #f6f6f6;
+}
+.row.bg-row {
+    background-color: #f6f6f6;
+}
+.bg-row .container .col {
+    padding: 0;
+}
+.tab-pane {
+    padding-top: 44px;
+    padding-bottom: 48px;
+}
+.title-tab {
+    padding-bottom: 38px;
+}
+.descrip-tab {
+    padding-bottom: 48px;
+}
+.title2 {
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+.title3 {
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+.promoButton {
+    border: 1px solid #000;
+    font-size: 14px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 22px;
+    color: #000;
+    width: 336px;
+    height: 60px;
+    margin: 60px auto 20px;
+    padding: 12px;
+}
+.promoButton:hover {
+    text-decoration: none;
+    color: #f9cd0a;
+    border-color: #f9cd0a;
+}
+.img-feature {
+    margin-right: 50px;
+}
+.img-feature img {
+    margin-bottom: 24px;
+}
+.col.sm-icons {
+    margin-bottom: 32px;
+}
+.col.sm-icons img {
+    margin-right: 15px;
+}
+.row.specs .col-6 .row .col-6 strong, .row.specs .col-6 .row .col-6 strong {
+    font-family: 'Karla', Arial, sans-serif;
+}
+.row.specs {
+    font-family: 'Karla', Arial, sans-serif;
+}
+.specs-title {
+    font-weight: 800;
+    border-left: 3px solid #f9cd0a;
+    margin-bottom: 34px;
+}
+.carousel {
+    display: inline-flex;
+}
+#carousel-thumb img {
+    display: block;
+}
+.carousel-indicators {
+    position: relative;
+    display: block;
+    bottom: 0;
+}
+.carousel-indicators li {
+    display: contents;
+}
+.c-thumb img {
+    margin-bottom: 20px;
+}
+.c-thumb img:hover {
+    background-color: #656566;
+    z-index: 1111111;
+    cursor: pointer;
+}
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background-color: none!important;
+}
+.carousel-control-next-icon {
+    background-image: url(../newui-assets2/img/right-arrow.png)
+}
+.carousel-control-prev-icon {
+    background-image: url(../newui-assets2/img/left-arrow.png)
+}
+
+#tabs-3 {
+    background-color: #fff;
+}
+.moto-color {
+    display: none !Important;
+}
+.stars {
+    font-size: 12px;
+}
+.tab-accordion-mb {
+    display: none;
+}
+h1.title.text-center {
+    font-size: 32px;
+}
+/* slider custom css */
+section.slider {
+    background-color: #ededed;
+}
+.slider-bg {
+    padding-top: 41px;
+}
+#slideshow {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.slick.slick-initialized.slick-slider {
+    width: 100% !important;
+}
+.slick-slide img {
+    display: inherit !important;
+}
+ul.slick-dots {
+    top: 270px;
+}
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+@media only screen and (max-width: 425px) {
+    .slick-prev {
+        left: 0 !important;
+    }
+    .slick-next {
+        right: 15px !important;
+    }
+    .promoButton {
+        width: 100%;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .slick-prev {
+        left: 0 !important;
+        z-index: 999;
+    }
+    .slick-next {
+        right: 20px !important;
+        z-index: 999;
+    }
+    .moto-offer {
+        margin-top: 38px;
+    }
+    ol.carousel-indicators {
+        display: none;
+    }
+    .mb-center {
+        text-align: center;
+    }
+    .sm-icons {
+        display: none;
+    }
+    section.tab.dp, section.tab-content.dp {
+        display: none;
+    }
+    .moto-color {
+        display: block !important;
+        margin-bottom: 25px;
+    }
+    .moto-color a {
+        margin-right: 10px;
+    }
+    .sub {
+        color: #717171;
+        margin-bottom: 12px;
+    }
+    .title {
+        font-size: 26px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+    }
+    .stars {
+        font-size: 12px;
+        color: #bcbcbc;
+    }
+    .price {
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        font-size: 27px;
+        margin: 0;
+    }
+    .notice {
+        font-size: 9px;
+        width: 50%;
+        margin: 0 auto 15px;
+        color: #727272;
+    }
+    .dealers {
+        margin-bottom: 50px;
+    }
+    .tab-accordion-mb {
+        display: block;
+    }
+    i.fa.fa-plus, i.fa.fa-minus {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        color: #000;
+    }
+    button.btn.btn-link p {
+        font-size: 24px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+    }
+    .card-header {
+        background-color: transparent;
+        padding: 0;
+    }
+    .btn-link:hover {
+        color: #fdcf09;
+    }
+    .card-body {
+        padding-top: 30px;
+        font-family: 'karla', Arial, sans-serif;
+        font-size: 10px;
+    }
+    .title-tab {
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        font-size: 17px;
+        padding: 0 0 10px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .specs-title {
+        margin: 20px 0 10px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+} 
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}

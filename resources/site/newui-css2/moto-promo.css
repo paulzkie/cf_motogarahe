@@ -1,0 +1,152 @@
+/* @font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue-Regular.woff2");
+    }
+    @font-face {
+        font-family: "Karla";
+        src: url("../fonts/Karla-Regular.ttf") format("ttf"),
+        } */
+.body-content {
+    font-size: 14px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    color: #fff;
+}
+h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #fff;
+}
+h2 {
+    color: #000;
+}
+p {
+    font-size: 16px;
+    font-family: 'Karla', Arial, sans-serif;
+    color: #fff;
+}
+section.moto-bg {
+    height: 162px;
+    padding: 40px 0;
+}
+.moto-bg {
+    background: black url(../newui-assets2/img/MotoPromoBg.jpg) no-repeat center;
+    background-size: cover;
+}
+.title {
+    font-size: 33px;
+    color: #000;
+}
+.moto-descrip {
+    color: #000;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 23px;
+}
+section.content .container .row {
+    display: flex;
+
+}
+section.content .container .row .col-sm-6 {
+    flex: 50%;
+    max-width: 50%;
+    text-align: center;
+}
+section.content .container .row .col-sm-6 img {
+    margin-bottom: 24px;
+    width: 100%;
+    height: auto;
+}
+section.content .container{
+    margin: 60px auto;
+}
+a.offerButton {
+    border: 1px solid #000;
+    font-family: 'Karla', Arial, sans-serif;
+    padding: 10px 30px;
+    color: #000;
+    font-size: 17px;
+}
+a.offerButton:hover{
+    /* background-color: #fdcf09; */
+    text-decoration: none;
+    font-weight: 600;
+    border-color: #fdcf09;
+    color: #fdcf09;
+}
+.moto-offer {
+    margin-top: 90px;
+}
+.moto-offer img {
+    width: 100%;
+    margin-bottom: 7.5px;
+}
+.moto-offer a {
+    margin-bottom: 38.4px;
+    width: 140px;
+    text-align: center;
+}
+
+/* slider custom css */
+.slider-bg {
+    padding-top: 41px;
+    background-color: #ededed;
+}
+#slideshow {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.slick.slick-initialized.slick-slider {
+    width: 100% !important;
+}
+.slick-next {
+    right: 15px !important;
+    z-index: 999;
+}
+.slick-prev {
+    left: 0 !important;
+    z-index: 999;
+}
+.slick-slide img {
+    display: inherit !important;
+}
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+
+@media only screen and (max-width: 425px) {
+    .slick-prev {
+        left: 0 !important;
+    }
+    .slick-next {
+        right: 15px !important;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .slick-prev {
+        left: 0 !important;
+        z-index: 999;
+    }
+    .slick-next {
+        right: 20px !important;
+        z-index: 999;
+    }
+    .moto-offer {
+        margin-top: 38px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+} 
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}

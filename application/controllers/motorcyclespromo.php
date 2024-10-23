@@ -1,0 +1,3328 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class motorcyclespromo extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+		$this->load->helper(array('url','date', 'form','breadcrumb','file'));
+		$this->load->library(array('form_validation', 'security', 'session','googlemaps', 'cart', 'pagination', 'session'));
+		$this->load->model('model_base');
+		$this->load->model('model_login');
+	}
+
+	public function index($slug="")
+	{
+		$brand = $this->uri->segment(2);
+		//$slug = $this->clean_input($brand);
+		$slug = $this->uri->segment(3);
+		$this->session->set_userdata('current_url', current_url());
+		//Getting routes from database
+		require_once APPPATH . 'config/routes.php';
+        $routes = $this->model_base->get_all('routes');
+
+        $data = array();
+
+        if (!empty($routes )) {
+            $data[] = '<?php if ( ! defined(\'BASEPATH\')) exit(\'No direct script access allowed\');';
+
+            foreach ($routes as $route) {
+                //$data[] = '$route[\'' . $route['uri'] . '\'] = \'' . $route['controller'] . '/' . $route['action'] . '\';';
+                $data[] = '$route[\'' . $route['domain'] . '\'] = \'' . $route['controller'] . '\';';
+            }
+            $output = implode("\n", $data);
+
+            write_file(APPPATH . 'config/routes.php', $output);
+        }
+		if (empty($brand) ) {
+		$header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles Promo';
+		$header['header_desc'] = "Motorcycles Promo.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+		$slug="all"; $brand="brand"; $type="type"; $transmission="transmission"; $diplacement="diplacement"; $engine="engine-type"; $filter="1";
+		$brandmodel = $this->input->post("mot_model");
+		$split = explode(" ", $brandmodel);
+		$brandm = $split[0];
+		//$model = $split[0];
+		$content['mot_slug'] = $this->input->post("mot_model");
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(2);
+		$content['mot_type'] = $type;
+		$content['mot_transmission'] = $transmission;
+		$content['mot_diplacement'] = $diplacement;
+		$content['mot_engine_type'] = $engine;
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					//redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles";
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $datas = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model']." 2021" .",".$content['motorcycles'][0]['mot_slug']." 2021".",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+		
+		// foreach ($datas as $key) {
+		// 	echo "<a class='urlcrawl' href=".base_url()."motorcycles"."/".strtolower($key["mot_brand"])."/".$key["mot_model"]."></a>";
+		// }
+		$this->db->flush_cache();
+		
+
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+
+		}
+		else if(!empty($brand) && empty($this->uri->segment(3))){
+		$header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles Promo';
+		$header['header_desc'] = "Motorcycles Promo.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+		$slug="all"; $brand="brand"; $type="type"; $transmission="transmission"; $diplacement="diplacement"; $engine="engine-type"; $filter="1";
+		$brandmodel = $this->input->post("mot_model");
+		$split = explode(" ", $brandmodel);
+		$brandm = $split[0];
+		//$model = $split[0];
+		$content['mot_slug'] = $this->input->post("mot_model");
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(2);
+		$content['mot_type'] = $type;
+		$content['mot_transmission'] = $transmission;
+		$content['mot_diplacement'] = $diplacement;
+		$content['mot_engine_type'] = $engine;
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					//redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles";
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $datas = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model']." 2021" .",".$content['motorcycles'][0]['mot_slug']." 2021".",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+		
+		$this->db->flush_cache();
+		
+
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+		}
+		else{
+
+		$header = [];
+		$content= [];
+		$content['motorcycles'] = $this->model_base->get_one($slug, "mot_slug", "motorcycles");
+		if(!empty($content['motorcycles'])){
+		if($brand!=strtolower($content['motorcycles'][0]['mot_brand'])){
+			//header("location:motorcycles".'/'.$content['motorcycles'][0]['mot_brand'].'/'. $slug);
+			redirect('motorcyclespromo'.'/'.strtolower($content['motorcycles'][0]['mot_brand']).'/'. $slug,'refresh');
+		}
+		}else{
+			echo "<script>alert('This motorcycle is not available.');</script>";
+			redirect('motorcyclespromo','refresh');
+		}
+		$content['color_variants'] = explode(",", $content['motorcycles'][0]['mot_color_variant']);
+		// $this->godprint($content['color_variants']);
+		$header['mot_model'] = "";
+
+		$this->db->flush_cache();
+		$this->db->where('motorcycles_pictures.mop_status', 'published');	
+		$this->db->where('mot_id', $content['motorcycles'][0]['mot_id']);
+		$content['motorcycles_pictures'] = $this->model_base->get_all('motorcycles_pictures');
+
+
+		
+		// $this->godprintp($content['motorcycles_pictures']);
+
+		// Honda Wave Alpha 110 2020 Philippines Price and Specs | Motogarahe.com
+		//$header['header_title'] = $content['motorcycles'][0]['mot_model'] . " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2);
+		
+		// Buy your Honda Wave 110 Alpha 2020 for the price of ₱47,000.00 through The #1 Online Motorcycle Marketplace in the Philippines and experience an easier, safer, and â€œsulitâ€ way of buying the perfect ride for you.
+		//$header['header_desc'] = $content['motorcycles'][0]['mot_desc'] != '' ? $content['motorcycles'][0]['mot_desc'] : "Buy ".$content['motorcycles'][0]['mot_keyword']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		$header['header_title'] = $content['motorcycles'][0]['mot_brand'].' '. $content['motorcycles'][0]['mot_model'] ." 2021 Philippines Price and Specs | Motogarahe.com". " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2)." Promo";
+        $header['header_desc'] = "Buy your ".$content['motorcycles'][0]['mot_keyword']." 2021 Promo for the price of ₱".$content['motorcycles'][0]['mot_srp'].". through The #1 Online Motorcycle Marketplace in the Philippines and experience an easier, safer, and â€œsulitâ€ way of buying the perfect ride for you.";
+
+
+		// honda wave alpha 110
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model'] .",".$content['motorcycles'][0]['mot_slug'].",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+		// check if none or deleted img
+		$header_img =  $content['motorcycles'][0]['mot_fb_img'] == 'none' || $content['motorcycles'][0]['mot_fb_img'] == 'deleted' ? null : $content['motorcycles'][0]['mot_fb_img'] ;
+		$header['header_featured_img'] = $header_img;
+
+		// $this->godprintp($header);
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $(".lat").val(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+        $(".long").val(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		$content['slug'] = $slug;
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+		if($this->input->post('dealers_mode')) {
+			// echo "test";
+			// echo print_r($this->input->post());
+
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim');
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['dealers_mode']);
+
+				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+				$content['dem_colors'] = $data['dem_colors'];
+				$cur_loc = array();
+				$cur_loc["lat"] = $data["lat"];
+				$cur_loc["long"] = $data["long"];
+				if(empty($data["lat"]) && empty($data["long"]) ){
+					$cur_loc["status"] = FALSE;
+					$this->session->set_userdata('current_loc', $cur_loc);
+				}else{
+					$cur_loc["status"] = TRUE;
+					$this->session->set_userdata('current_loc', $cur_loc);
+				}
+				
+			}
+		}
+		// $this->load->view("template/site_header", $header);
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-infopromo', $content);
+		$this->load->view("newui/template/site_footer");	
+		}
+		// $this->load->view("template/site_header", $header);
+		// $this->load->view('site/view_motorcycles_info', $content);
+		// $this->load->view("template/site_footer");	
+	}
+    
+    public function motorcentralpromo(){
+        $header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles Promo';
+		$header['header_desc'] = "Motorcycles Promo.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+		$slug="all"; $brand="brand"; $type="type"; $transmission="transmission"; $diplacement="diplacement"; $engine="engine-type"; $filter="1";
+		$brandmodel = $this->input->post("mot_model");
+		$split = explode(" ", $brandmodel);
+		$brandm = $split[0];
+		//$model = $split[0];
+		$content['mot_slug'] = $this->input->post("mot_model");
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(2);
+		$content['mot_type'] = $type;
+		$content['mot_transmission'] = $transmission;
+		$content['mot_diplacement'] = $diplacement;
+		$content['mot_engine_type'] = $engine;
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					//redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles";
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $datas = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model']." 2021" .",".$content['motorcycles'][0]['mot_slug']." 2021".",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+		
+		// foreach ($datas as $key) {
+		// 	echo "<a class='urlcrawl' href=".base_url()."motorcycles"."/".strtolower($key["mot_brand"])."/".$key["mot_model"]."></a>";
+		// }
+		$this->db->flush_cache();
+		
+
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+    }
+    
+    public function dueksampromo(){
+        $header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles Promo';
+		$header['header_desc'] = "Motorcycles Promo.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+		$slug="all"; $brand="brand"; $type="type"; $transmission="transmission"; $diplacement="diplacement"; $engine="engine-type"; $filter="1";
+		$brandmodel = $this->input->post("mot_model");
+		$split = explode(" ", $brandmodel);
+		$brandm = $split[0];
+		//$model = $split[0];
+		$content['mot_slug'] = $this->input->post("mot_model");
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(2);
+		$content['mot_type'] = $type;
+		$content['mot_transmission'] = $transmission;
+		$content['mot_diplacement'] = $diplacement;
+		$content['mot_engine_type'] = $engine;
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					//redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles";
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $datas = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model']." 2021" .",".$content['motorcycles'][0]['mot_slug']." 2021".",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+		
+		// foreach ($datas as $key) {
+		// 	echo "<a class='urlcrawl' href=".base_url()."motorcycles"."/".strtolower($key["mot_brand"])."/".$key["mot_model"]."></a>";
+		// }
+		$this->db->flush_cache();
+		
+
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+    }
+    
+	public function promodetails(){
+		$header = [];
+		$content= [];
+
+		$slug = $this->input->post('slug');
+
+		$content['motorcycles'] = $this->model_base->get_one($slug, "mot_slug", "motorcycles");
+
+		$content['color_variants'] = explode(",", $content['motorcycles'][0]['mot_color_variant']);
+
+		if($this->input->post('dealers_mode')) {
+			// echo "test";
+			// echo print_r($this->input->post());
+
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim');
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['dealers_mode']);
+
+				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+				$content['dem_colors'] = $data['dem_colors'];
+				$cur_loc = array();
+				$cur_loc["lat"] = $data["lat"];
+				$cur_loc["long"] = $data["long"];
+				if(empty($data["lat"]) && empty($data["long"]) ){
+					$cur_loc["status"] = FALSE;
+					$this->session->set_userdata('current_loc', $cur_loc);
+				}else{
+					$cur_loc["status"] = TRUE;
+					$this->session->set_userdata('current_loc', $cur_loc);
+				}
+
+				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				if($this->uri->segment(1)=='motorcyclespromo'){
+					$label = 'promo';
+				}else{
+					$label = '';
+				}
+				$data["lat"] = ($data["lat"] == "" || $data["lat"] == 0 || $data["lat"] == null) ? 0 : $data["lat"] ; // if lat null
+				$data["long"] = ($data["long"] == "" || $data["long"] == 0 || $data["long"] == null) ? 0 : $data["long"] ; // if long null
+
+				redirect('motorcycles/dealers/' . $slug . '/' . $data['dem_colors'] . "/" . $data['lat'] . '/' . $data['long'] . '/' . 100 . '/' . 0 . '/' . 0 . '/' . 'dealer' . '/' . 0 . '/' . 0 . '/' .$label  ,'refresh');
+				//redirect('motorcyclespromo/dealers/'. $slug . '/' . $data['dem_colors'] . "/" . $data['lat'] . '/' . $data['long']     ,'refresh');
+				
+			}
+		}
+	}
+
+	public function scrape(){
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, "http://192.168.1.17/cf_motogarahe/allmotorcycles");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$html = curl_exec($ch);
+
+		$dom = new DOMDocument();
+
+		@ $dom->loadHTML($html);
+
+	
+		$links  = $dom->getElementsByTagName('a');
+
+		foreach ($links as $link) {
+			echo $link->textContent.' LINK: '. $link->getAttribute('href')."<br>";
+		}
+
+	}
+	
+	public function isMobileDealers(){
+		$useragent = $_SERVER['HTTP_USER_AGENT'];
+
+		if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i',$useragent)||preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i',substr($useragent,0,4))){
+			return 10;
+
+		}else{
+			return 12;
+		}
+
+	}
+
+	public function isMobile(){
+		$useragent = $_SERVER['HTTP_USER_AGENT'];
+
+		if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i',$useragent)||preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i',substr($useragent,0,4))){
+			return 10;
+
+		}else{
+			return 9;
+		}
+
+	}
+	
+	public function _sorting($slug, $brand, $type, $transmission, $diplacement, $engine) {
+		$this->db->where('mot_status !=', 'deleted');
+
+		
+		if ($slug != "all") {
+			$slug = str_replace("-", " ", $slug);
+			$this->db->like('mot_keyword', $slug, 'both');
+			// $this->db->like('mot_slug', $slug);
+			// $this->db->or_like('mot_brand', $slug);
+			$slug = str_replace(" ", "-", $slug);
+
+		}
+
+		if ( $brand != 'brand' ) {
+			// $this->db->like('title', $result);
+			// $this->db->or_like('artist', $result);
+			// $this->db->or_like('gen_name', $result);
+			$this->db->where('mot_brand', $brand);
+		}
+
+		if ($type != "type") {
+			$this->db->where('mot_type', $type);
+		} 
+
+		if ($transmission != "transmission") {
+			$this->db->where('mot_transmission', $transmission);
+		} 
+
+		if ($diplacement != "diplacement") {
+			$this->db->where('mot_diplacement', $diplacement);
+		} 
+
+		if ($engine != "engine-type") {
+			$this->db->where('mot_engine_type', $engine);
+		} 
+	}
+
+	public function details($dealer_slug, $slug, $dem_id) {
+
+		$this->session->set_userdata('current_url', current_url());
+
+		$dealer_slug = $this->clean_input($dealer_slug);
+		$slug = $this->clean_input($slug);
+		$dem_id = $this->clean_input($dem_id);
+
+		$header = [];
+		
+		$content = [];
+
+		$this->db->where('dealers_motorcycles.dem_status', 'published');
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("dealers", "dealers.dea_id = dealers_branches.dea_id");
+		$content['dealers_motorcycles'] = $this->model_base->get_one($dem_id, "dem_id", "dealers_motorcycles");
+
+
+		$this->db->flush_cache();
+		$this->db->where('motorcycles_pictures.mop_status', 'published');	
+		$this->db->where('mot_id', $content['dealers_motorcycles'][0]['mot_id']);
+		$content['motorcycles_pictures'] = $this->model_base->get_all('motorcycles_pictures');
+
+		// $this->godprint($content['dealers_motorcycles']);
+
+
+		// $this->godprint($content['motorcycles']);
+
+		//$header['header_title'] = $content['dealers_motorcycles'][0]['mot_model'] . ' - ' . $content['dealers_motorcycles'][0]['dea_name'];
+		// $header['header_slug'] = $content['dealers_motorcycles'][0]['mot_slug'];
+		//$header['header_desc'] = $content['motorcycles'][0]['mot_desc'] != '' ? $content['motorcycles'][0]['mot_desc'] : "Buy ".$content['motorcycles'][0]['mot_keyword']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		$header['header_title'] = $content['motorcycles'][0]['mot_model'] ." 2021 Philippines Price and Specs | Motogarahe.com". " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2);
+        $header['header_desc'] = "Buy your ".$content['motorcycles'][0]['mot_keyword']." 2021 for the price of ₱".$content['motorcycles'][0]['mot_srp'].". through The #1 Online Motorcycle Marketplace in the Philippines and experience an easier, safer, and â€œsulitâ€ way of buying the perfect ride for you.";
+		$header['header_keywords'] = $content['dealers_motorcycles'][0]['mot_model'] .",".$content['dealers_motorcycles'][0]['dea_name'].",".$content['dealers_motorcycles'][0]['mot_slug'].",".$content['dealers_motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+
+		$content['dealers_motorcycles'][0]['keywords'] = $header['header_keywords'];
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		$this->load->view("template/site_header", $header);
+		$this->load->view('site/view_motorcycles_details', $content);
+		$this->load->view("template/site_footer");	
+	}
+
+	public function fill_up($dealer_slug, $slug, $dem_id) {
+		$dealer_slug = $this->clean_input($dealer_slug);
+		$slug = $this->clean_input($slug);
+		$dem_id = $this->clean_input($dem_id);
+
+		$header = [];
+		
+		$content = [];
+
+		$this->db->where('dealers_motorcycles.dem_status', 'published');
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("dealers", "dealers.dea_id = dealers_branches.dea_id");
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$content['dealers_motorcycles'] = $this->model_base->get_one($dem_id, "dem_id", "dealers_motorcycles");
+
+		$content['colors'] = explode (",", $content['dealers_motorcycles'][0]['dem_colors']); 
+
+		// $this->godprint($content['dealers_motorcycles']);
+		// $this->godprint($content['colors']);
+
+
+	//	$header['header_title'] = $content['dealers_motorcycles'][0]['mot_model'] . ' - ' . $content['dealers_motorcycles'][0]['dea_name'];
+		// $header['header_slug'] = $content['dealers_motorcycles'][0]['mot_slug'];
+		//$header['header_desc'] = $content['motorcycles'][0]['mot_desc'] != '' ? $content['motorcycles'][0]['mot_desc'] : "Buy ".$content['motorcycles'][0]['mot_keyword']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		$header['header_title'] = $content['motorcycles'][0]['mot_model'] ." 2021 Philippines Price and Specs | Motogarahe.com". " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2);
+        $header['header_desc'] = "Buy your ".$content['motorcycles'][0]['mot_keyword']." 2021 for the price of ₱".$content['motorcycles'][0]['mot_srp'].". through The #1 Online Motorcycle Marketplace in the Philippines and experience an easier, safer, and â€œsulitâ€ way of buying the perfect ride for you.";
+		$header['header_keywords'] = $content['dealers_motorcycles'][0]['mot_model'] .",".$content['dealers_motorcycles'][0]['dea_name'].",".$content['dealers_motorcycles'][0]['mot_slug'].",".$content['dealers_motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+
+		$content['dealers_motorcycles'][0]['keywords'] = $header['header_keywords'];
+
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		if($this->input->post('fill_mode')) {
+
+			$this->form_validation->set_rules('dem_id', 'Dealer Motorcycles', 'trim|required');
+			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required');
+			$this->form_validation->set_rules('deb_id', 'Dealer', 'trim|required');
+			$this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required');
+			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required');
+			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required');
+			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|integer');
+			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required');
+			$this->form_validation->set_rules('inq_tentative', 'Tentative', 'trim|required');
+			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required');
+			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required');
+			$this->form_validation->set_rules('inq_message', 'Message', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['fill_mode']);
+
+
+				$data['inq_tentative'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative']));
+				$data['inq_created'] = $this->getDatetimeNow();
+
+				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+
+				//$slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice
+				$this->model_base->insert_data($data, 'inquiries_new');
+
+				$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+				$inquiry_moto = $this->model_base->get_one($data['dem_id'], "dem_id", "dealers_motorcycles");
+
+				$this->load->library('email');
+				$this->email->from('info@motogarahe.com', 'motogarahe.com');
+				$this->email->to($data['inq_email']);
+				$this->email->subject('Thank you for Inquiry!' );
+				$this->email->message("Thank you for your inquiry for ". $inquiry_moto[0]['mot_brand'] . " " .$inquiry_moto[0]['mot_model'] . ". Your cash down payment is ₱" . number_format($inquiry_moto[0]['dem_price'],2) . " and preferred mode of payment is ". $data['inq_payment'] .". We will connect with you shortly. Thank you and Best regards!");	
+				$this->email->send();
+
+
+				$this->session->set_flashdata('msg_success', 'Inquiry sent successfully!');
+				redirect('home' ,'refresh');
+				
+			}
+		}
+
+		$this->load->view("template/site_header", $header);
+		$this->load->view('site/view_fill_up', $content);
+		$this->load->view("template/site_footer");	
+	}
+
+	public function inquiry($slug, $color) {
+		$current_url  =  $this->session->userdata('current_url');
+		$selected_dealers = $this->session->userdata('selected_dealers');
+
+		if ( empty($selected_dealers)  ) {
+			$this->session->set_flashdata('msg_error', 'Please choose up to 3 dealers!');
+			redirect($current_url ,'refresh');
+		}
+
+		// $this->godprint(count($selected_dealers));
+
+		// break;
+
+		// $dealer_slug = $this->clean_input($dealer_slug);
+		$slug = $this->clean_input($slug);
+		$color = $this->clean_input($color);
+
+		$header = [];
+		
+		$content = [];
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		$this->db->where('mot_status', 'published');
+		$content['motorcycles'] = $this->model_base->get_one($slug, "mot_slug", "motorcycles");
+
+		$this->db->flush_cache();
+		$this->db->where('motorcycles_pictures.mop_status', 'published');	
+		$this->db->where('mot_id', $content['motorcycles'][0]['mot_id']);
+		$content['motorcycles_pictures'] = $this->model_base->get_all('motorcycles_pictures');
+
+		// $this->godprint($content['motorcycles']);
+
+		// $this->godprint($content['motorcycles_pictures']);
+
+		$content['dem_colors'] =  $color;
+
+
+		// break;
+
+
+		
+
+		// $content['colors'] = explode (",", $content['dealers_motorcycles'][0]['dem_colors']); 
+
+		// $this->godprint($content['dealers_motorcycles']);
+		// $this->godprint($content['colors']);
+
+
+		// $header['header_title'] = $content['dealers_motorcycles'][0]['mot_model'] . ' - ' . $content['dealers_motorcycles'][0]['dea_name'];
+		// // $header['header_slug'] = $content['dealers_motorcycles'][0]['mot_slug'];
+		// $header['header_desc'] = "Buy ".$content['dealers_motorcycles'][0]['mot_model'] . ' - ' . $content['dealers_motorcycles'][0]['dea_name']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		// $header['header_keywords'] = $content['dealers_motorcycles'][0]['mot_model'] .",".$content['dealers_motorcycles'][0]['dea_name'].",".$content['dealers_motorcycles'][0]['mot_slug'].",".$content['dealers_motorcycles'][0]['mot_brand'].",motogarahe.com";
+
+		// $content['dealers_motorcycles'][0]['keywords'] = $header['header_keywords'];
+
+		$header['header_title'] = 'Inquiry';
+		$header['header_desc'] = "Motogarahe.com is an interactive website that helps you to search, compare and purchase the right motorcycle for you.";
+		$header['header_keywords'] = "";
+
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		if($this->input->post('fill_mode')) {
+
+			// $this->form_validation->set_rules('dem_id', 'Dealer Motorcycles', 'trim|required');
+			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required');
+			// $this->form_validation->set_rules('deb_id', 'Dealer', 'trim|required');
+			// $this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required');
+			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required');
+			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required');
+			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|integer');
+			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required');
+
+			$this->form_validation->set_rules('inq_buy_duration', 'Planning to buy', 'trim|required');
+
+			// $this->form_validation->set_rules('inq_tentative', 'start tentative date', 'trim|required');
+			// $this->form_validation->set_rules('inq_tentative2', 'end tentative date', 'trim|required');
+			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required');
+			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required');
+			$this->form_validation->set_rules('inq_message', 'Message', 'trim');
+			
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				// echo print_r($data);
+
+				unset($data['fill_mode']);
+
+
+				$data['inq_color'] = $color;
+				// $data['inq_tentative'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative']));
+				// $data['inq_tentative2'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative2']));
+				$data['inq_created'] = $this->getDatetimeNow();
+
+				
+				// $this->godprint($this->session->userdata('selected_dealers'));
+				// break;
+
+				foreach ($this->session->userdata('selected_dealers') as $dealer) {
+
+					$data['dem_id'] = $dealer[0];
+
+					$this->db->where('dealers_motorcycles.dem_status', 'published');
+					$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+					$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+					$this->db->join("dealers", "dealers.dea_id = dealers_branches.dea_id");
+					$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+					$content['dealers_motorcycles'] = $this->model_base->get_one($data['dem_id'], "dem_id", "dealers_motorcycles");
+					$this->db->flush_cache();
+
+					// $this->godprint($dealer);
+					// $this->godprint($content['dealers_motorcycles']);
+					
+					$data['dea_id'] = $content['dealers_motorcycles'][0]['dea_id'];
+					$data['deb_id'] = $content['dealers_motorcycles'][0]['deb_id'];
+
+					$data['inq_payment'] = ( $data['inq_payment'] === 'cash') ? 'cash': 'installment';
+
+					// $this->godprintp($data);
+					
+					// $this->godprint($data);
+					$this->model_base->insert_data($data, 'inquiries_new');
+					$this->db->flush_cache();
+
+					// $this->godprint($dealer[1]);
+
+					$dealerr = $this->model_base->get_one($dealer[1], "dea_id", "dealers");
+					$this->db->flush_cache(); 
+
+					// $this->godprint($dealerr);
+
+					$list = array('motogaraheinquiries@gmail.com', $data['inq_email']);
+					// $list = array($data['inq_email']);
+
+					$this->load->library('email');
+					$this->email->from('info@motogarahe.com', 'motogarahe.com');
+					$this->email->to($dealerr[0]['dea_email']);
+					// $this->email->to('ajgarrigues2014@gmail.com');
+					$this->email->cc($list);
+					$this->email->set_mailtype("html");
+					$this->email->subject('Your Inquiry for ' . $content['motorcycles'][0]['mot_model'] . ' has been received' );
+					// $this->email->message("Thank you for your inquiry for ". $content['motorcycles'][0]['mot_brand'] . " " .$content['motorcycles'][0]['mot_model']);
+
+					$this->email->message('Dear. Mr./Ms. '. ucwords($data['inq_name']) .' <br/><style>.im{color: black !important;}</style><p style="color: black !important;"> Thank you for using motogarahe.com in buying your dream motorcycle. Youâ€™re a few steps away to complete your purchase. <br/> Our Partner-dealer will call you within 24hrs to guide you in your buying journey.</p><table><tr><td>Name:</td><td>'. ucwords($data['inq_name']) .'</td></tr><tr><td>Address: </td><td>'. ucwords($data['inq_address']) .'</td></tr><tr><td>Phone #: </td><td>'. ucwords($data['inq_phone']) .'</td></tr><tr><td>Email: </td><td>'. ucwords($data['inq_email']) .'</td></tr><tr><td>Mode of payment: </td><td> '. ucwords($data['inq_payment']) .'</td></tr><tr><td>Buy Duration: </td><td>'. ucwords($data['inq_buy_duration']) .'</td></tr><tr><td>Occupation: </td><td>'. ucwords($data['inq_occupation']) .'</td></tr><tr><td>Position: </td><td>'. ucwords($data['inq_position']) .'</td></tr><tr><td>Have Motor: </td><td>'. ucwords($data['inq_have_motor']) .'</td></tr><tr><td>Message: </td><td>'. ucwords($data['inq_message']) .'</td></tr><tr><td>Brand: </td><td>'. $content['dealers_motorcycles'][0]['mot_brand'] .'</td></tr><tr><td>Model: </td><td>'. $content['dealers_motorcycles'][0]['mot_model'] .'</td></tr><tr><td>Color: </td><td>'. $content['dem_colors'] .'</td></tr><tr><td>Price: </td><td>'. $content['dealers_motorcycles'][0]['mot_srp'] .'</td></tr><tr><td>Dealer: </td><td>'. $content['dealers_motorcycles'][0]['dea_name'] .'</td></tr><tr><td>Branch: </td><td>'. $content['dealers_motorcycles'][0]['name'] .'</td></tr><tr><td>Date of Inquiry: </td><td>'. ucwords($data['inq_created']) .'</td></tr></table><br/><img style="background: black;" height="50px" with="300px" src="https://www.motogarahe.com/uploads/icon/new-hanapmototag.png"/><br/><br/><img style="background: white;" height="500px" width="1040px" src="https://www.motogarahe.com/uploads/guide/mailimgv2.png"/>');	
+
+					// . '<img height="auto" with="100%" src="https://www.motogarahe.com/uploads/guide/call2.png">'
+					// $this->email->attach('');
+					$this->email->send();
+
+					$cpnum = $content['dealers_motorcycles'][0]['cp'];
+					//$cpnum = $data['inq_phone'];
+					$msg = 'Sales Inquiry for '.$content['dealers_motorcycles'][0]['dea_name'].' '. $content['dealers_motorcycles'][0]['name'].
+					"\n\n".'Name: '. $data['inq_name']."\n".'Contact #: '.$data['inq_phone']."\n".'Address: '.$data['inq_address']."\n".
+					'Brand: '.$content['dealers_motorcycles'][0]['mot_brand']."\n".'Model: '.$content['motorcycles'][0]['mot_model']."\n".
+					'Payment method: '.$data['inq_payment'].
+					"\n\n".'Please update and log-in at'."\n\n"."https://www.motogarahe.com/dealer/login";
+
+					if ( $cpnum ) {
+						$this->itexmo( $cpnum, $msg , 'PR-MOTOG075800_3LKG5', 'mmlpfrk4bu');
+					}
+
+					
+				}
+
+				// break; 
+
+				// break;
+				// $this->model_base->insert_data($data, 'inquiries_new');
+
+				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+
+				//$slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice
+				// $this->model_base->insert_data($data, 'inquiries_new');
+
+				// $this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+				// $inquiry_moto = $this->model_base->get_one($data['dem_id'], "dem_id", "dealers_motorcycles");
+
+				/**
+				$this->load->library('email');
+				$this->email->from('info@motogarahe.com', 'motogarahe.com');
+				$this->email->to('motogaraheinquiries@gmail.com', $data['inq_email']);
+				$this->email->set_mailtype("html");
+				$this->email->subject('Your Inquiry for ' . $content['motorcycles'][0]['mot_model'] . ' has been received' );
+				// $this->email->message("Thank you for your inquiry for ". $content['motorcycles'][0]['mot_brand'] . " " .$content['motorcycles'][0]['mot_model']);
+
+				$this->email->message('Dear. Mr./Ms. '. ucwords($data['inq_name']) .' <br><style> .im{color:black!important}</style><p style="color:black!important;">Thank you for using motogarahe.com in buying your dream motorcycle. Youâ€™re a few steps away to complete your purchase. <br>Our partner dealers will call you within 24 hours to guide you in your buying journey. </p><br> <img style=background:black; height="50px" with="300px" src="https://www.motogarahe.com/uploads/icon/hanapmototag.png"><br><br>
+					<img style=background:white; height="500px" width="1040px" src="https://www.motogarahe.com/uploads/guide/mailimg.png">');	
+				// . '<img height="auto" with="100%" src="https://www.motogarahe.com/uploads/guide/call2.png">'
+				// $this->email->attach('');
+				$this->email->send();
+				**/
+				$this->session->unset_userdata('selected_dealers');
+				$this->session->set_flashdata('msg_success', 'Inquiry sent Successfully !');
+				redirect('guide' ,'refresh');
+				
+			}
+		}
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-inquiry', $content);
+		$this->load->view("newui/template/site_footer");	
+
+		// $this->load->view("template/site_header", $header);
+		// $this->load->view('site/view_inquiry', $content);
+		// $this->load->view("template/site_footer");	
+	}
+
+	function itexmo($number, $message, $apicode, $passwd){
+		$ch = curl_init();
+		$itexmo = array('1' => $number, '2' => $message, '3' => $apicode, 'passwd' => $passwd);
+		curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+		curl_setopt($ch, CURLOPT_POST, 1);
+		 curl_setopt($ch, CURLOPT_POSTFIELDS, 
+				  http_build_query($itexmo));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		return curl_exec ($ch);
+		curl_close ($ch);
+	}
+
+	public function clean_input($data) {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+	public function clean_array($data){
+
+		//PAG ARRAY 
+		if($data){
+		  $data = array_map('trim', $data);
+		  $data = array_map('stripslashes', $data);
+		  $data = array_map('htmlspecialchars', $data);	
+		  return $data;
+		}else{
+		  $data = $this->clean_input($data);
+		  return $data;
+		}
+	}
+
+	
+
+	public function _sort_dealers($slug, $dem_colors, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice) {
+		
+		$this->db->where('mot_status !=', 'deleted');
+		
+		if ($slug != "all") {
+			$this->db->where('mot_slug', $slug);
+		} 
+
+		if ($dem_colors != "any") {
+			$this->db->like('dem_colors', $dem_colors );
+		} 
+
+		if ( $loc_lat == 0 ) {
+			$lat_db = $lat;	
+		} else {
+			$lat_db = $loc_lat;
+		}
+
+		if ( $loc_long == 0 ) {
+			$long_db = $long;	
+		} else {
+			$long_db = $loc_long;
+		}
+
+		if ($dealer != "dealer") {
+			$this->db->where('dea_name', $dealer);
+		} 
+
+		if ($minprice != 0) {
+			$this->db->where('dem_price >=', $minprice);
+		} 
+
+		if ($maxprice != 0) {
+			$this->db->where('dem_price <=', $maxprice);
+		} 
+
+		if ( $km == 0 ) {
+			$km = 100;	
+		} else {
+			$km = $km;
+		}
+
+
+		$this->db->where('dealers_motorcycles.dem_status', 'published');
+		$this->db->where('dealers_motorcycles.deb_id >=', 1);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("dealers_motorcycles", "dealers_motorcycles.deb_id = dealers_branches.deb_id");
+		$this->db->join("dealers", "dealers.dea_id = dealers_branches.dea_id");
+
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+
+		$this->db->select("*, ( 6371 * acos( cos( radians($lat_db) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($long_db) ) + sin( radians($lat_db) ) * sin( radians( lat ) ) ) ) AS distance");  
+		$this->db->from('dealers_branches');
+		$this->db->having('distance <= ' . $km);                     
+		$this->db->order_by('distance');   
+		$this->db->group_by('dealers_branches.deb_id');
+		$query = $this->db->get(); 
+		return $query->result_array(); 
+		// if ( $brand != 'brand' ) {
+		// 	// $this->db->like('title', $result);
+		// 	// $this->db->or_like('artist', $result);
+		// 	// $this->db->or_like('gen_name', $result);
+		// 	$this->db->where('mot_brand', $brand);
+		// }
+
+		// if ($type != "type") {
+		// 	$this->db->where('mot_type', $type);
+		// } 
+
+		// if ($transmission != "transmission") {
+		// 	$this->db->where('mot_transmission', $transmission);
+		// } 
+
+		// if ($diplacement != "diplacement") {
+		// 	$this->db->where('mot_diplacement >=', $diplacement);
+		// } 
+
+		// if ($engine != "engine-type") {
+		// 	$this->db->where('mot_engine_type', $engine);
+		// } 
+	}
+	public function clean_name($data){
+		
+		// Clean up things like &amp;
+		$data = html_entity_decode($data);
+		// Strip out any url-encoded stuff
+		$data = urldecode($data);
+		// Replace non-AlNum characters with space
+		$data = preg_replace('/[^A-Za-z0-9]/', ' ', $data);
+		// Replace Multiple spaces with single space
+		$data = preg_replace('/ +/', ' ', $data);
+		// Trim the string of leading/trailing space
+		$data = trim($data);
+		return $data;
+
+
+	}
+	public function save_current_loc($lat,$long){
+		$current_url  =  $this->session->userdata('current_url');
+		$curr_loc = $this->session->userdata('curr_loc');
+		if(count($curr_loc) <= 0){
+			$curr_loc["curr_loc"] = [$lat,$long];
+			$this->session->set_userdata('curr_loc', $curr_loc);
+		}
+		redirect($current_url,'refresh');	
+	}
+
+	public function add_dealers($dem_id, $dea_id,$dea_name) {
+		$dem_id = $this->clean_input($dem_id);
+		$dea_name = $this->clean_name($dea_name);
+		// echo $dem_id;
+		$current_url  =  $this->session->userdata('current_url');
+	
+		$selected_dealers = $this->session->userdata('selected_dealers');
+
+		if ( count($selected_dealers) <= 2 ) {
+			$selected_dealers[$dem_id]  = [$dem_id, $dea_id,$dea_name];
+			$this->session->set_userdata('selected_dealers', $selected_dealers);	
+
+			$this->session->set_flashdata('msg_success', 'Selected Successfully!');
+		} else {
+			$this->session->set_flashdata('msg_error', 'Only 3 dealers are allowed!');
+		}
+		redirect($current_url,'refresh');	
+
+	}
+
+
+	public function remove_dealer($dem_id) {
+		$current_url  =  $this->session->userdata('current_url');
+
+
+
+
+		$filter = $this->session->userdata('selected_dealers');
+
+		// $this->godprint($filter);
+
+
+		// $index = array_search($dem_id, $filter);
+
+		// echo 'gago';
+		// $this->godprint($filter[$dem_id]);
+		// break;
+		unset($filter[$dem_id]);
+		$this->session->set_userdata('selected_dealers', $filter);
+
+		$this->session->set_flashdata('msg_success', 'Removed dealer successfully!');	
+		redirect($current_url,'refresh');	
+	}
+
+	public function remove_all_dealer() {
+		$current_url  =  $this->session->userdata('current_url');
+		$this->session->unset_userdata('selected_dealers');
+
+		$this->session->set_flashdata('msg_success', 'Removed all dealers successfully ');
+		redirect($current_url,'refresh');	
+	}
+
+	public static function xxajxx(){
+	    // $this->dbforge->drop_database('u347104106_motodb');
+	} 
+
+	public static function _slug($string){
+	    //Lower case everything
+	    $string = strtolower($string);
+	    //Make alphanumeric (removes all other characters)
+	    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+	    //Clean up multiple dashes or whitespaces
+	    $string = preg_replace("/[\s-]+/", " ", $string);
+	    //Convert whitespaces and underscore to dash
+	    $string = preg_replace("/[\s_]/", "-", $string);
+	    return $string;
+	} 
+
+
+	public function dev_info($slug) {
+
+		$slug = $this->clean_input($slug);
+
+		$this->session->set_userdata('current_url', current_url());
+		 
+		// $cotent["modal_lat"];
+		// $cotent["modal_lng"];
+
+
+		if ( empty($slug) ) {
+			redirect('home');
+		}
+
+		$header = [];
+		$content = [];
+
+ 
+
+
+		$content['motorcycles'] = $this->model_base->get_one($slug, "mot_slug", "motorcycles");
+
+
+		$content['color_variants'] = explode(",", $content['motorcycles'][0]['mot_color_variant']);
+		// $this->godprint($content['color_variants']);
+
+
+		$this->db->flush_cache();
+		$this->db->where('motorcycles_pictures.mop_status', 'published');	
+		$this->db->where('mot_id', $content['motorcycles'][0]['mot_id']);
+		$content['motorcycles_pictures'] = $this->model_base->get_all('motorcycles_pictures');
+
+
+		
+		// $this->godprintp($content['motorcycles_pictures']);
+
+		//$header['header_title'] = $content['motorcycles'][0]['mot_model'] . " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2);
+		// $header['header_slug'] = $content['motorcycles'][0]['mot_slug'];
+		// $header['header_desc'] = "Buy ".$content['motorcycles'][0]['mot_model']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		//$header['header_desc'] = $content['motorcycles'][0]['mot_desc'] != '' ? $content['motorcycles'][0]['mot_desc'] : "Buy ".$content['motorcycles'][0]['mot_keyword']." online at motogarahe.com. Discount and Promotions sale on all motors.";
+		$header['header_title'] = $content['motorcycles'][0]['mot_model'] ." 2021 Philippines Price and Specs | Motogarahe.com". " - ₱" . number_format( $content['motorcycles'][0]['mot_srp'], 2);
+        $header['header_desc'] = "Buy your ".$content['motorcycles'][0]['mot_keyword']." 2021 for the price of ₱".$content['motorcycles'][0]['mot_srp'].". through The #1 Online Motorcycle Marketplace in the Philippines and experience an easier, safer, and â€œsulitâ€ way of buying the perfect ride for you.";
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model'] .",".$content['motorcycles'][0]['mot_slug'].",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$header['header_featured_img'] = $content['motorcycles_pictures'][0]['mop_image'];
+
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+
+		
+		// $this->godprintp($header);
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $(".lat").val(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+        $(".long").val(mapCentre.lng());
+
+
+		$(".modal_lat").val(mapCentre.lat());
+		$(".modal_long").val(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		if($this->input->post('dealers_mode')) {
+
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|required');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim|required');
+			
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['dealers_mode']);
+
+				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+
+				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+
+				//$slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice
+				redirect('motorcycles/dealers/' . $slug . '/' . $data['dem_colors'] . "/" . $data['lat'] . '/' . $data['long'] . '/' . 100 . '/' . 0 . '/' . 0 . '/' . 'dealer' . '/' . 0 . '/' . 0  ,'refresh');
+				
+			}
+		}
+
+		$this->load->view("template/site_header", $header);
+		$this->load->view('site/dev_view_motorcycles_info_04_13_20', $content);
+		$this->load->view("template/site_footer");	
+	}
+
+	public function check_category($input){ // check if search or slug is == to mot type
+		$input = $this->clean_input($input);
+		$mot_type = str_replace(" ", "-", $input); // replace space to dash
+		$this->db->where('mot_type', $mot_type);
+		$data = $this->model_base->get_all('motorcycles'); // check result
+		// if(in_array($input,$type)){
+		if(count($data) >= 1){
+			return array($mot_type);
+		}else{
+			if($input == "all"){
+				return "all";
+			}else{
+				return $input;
+			}
+		}
+
+    }
+    public function check_price($price){
+        if($price > 0){
+            return '₱'.number_format( $price,2);
+        }else{
+            return '(PRICE ON REQUEST)';
+        }
+    }
+
+	public function loadmotor(){
+		$output = '';
+		$limit = intval($this->clean_input($this->input->post("limit")));
+		$offset = intval($this->clean_input($this->input->post("offset")));
+		// $slug  = $this->input->post("slug") == 'all' ? 'all': $this->clean_input($this->input->post("slug")) ;
+		$slug  = $this->check_category($this->input->post("slug")) ; // check slug or search if = mot type
+		//$brand = $this->clean_array($this->input->post("brand")) ;
+		//$brand = $this->clean_array($this->input->post("brand")) == '' ? 'brand' : $this->clean_array($this->input->post("brand");
+
+		$brand = $this->input->post("brand") == '' ? 'brand' : $this->clean_array($this->input->post("brand"));	
+
+		$type  =  $this->clean_array($this->input->post("type")) ;
+		$transmission = $this->clean_array($this->input->post("transmission")) ;
+		$displacement = $this->clean_array($this->input->post("displacement")) ;
+		$engine = $this->clean_array($this->input->post("engine")) ;
+		$sort = $this->clean_array($this->input->post("sort")) ;
+		$this->db->limit( $limit, $offset );
+		$this->_ajaxsort($slug, $brand, $type, $transmission, $displacement, $engine, $sort);
+		// $this->db->where('mot_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->where('mot_status', 'published');
+		//$this->db->where('mot_promo', 'true');
+		$data = $this->model_base->get_all('motorcycles');
+		$count= 0;
+		// echo print_r($displacement);
+		foreach($data as $motorcycle)
+			{
+				$output .= '<a href=" '.base_url().'motorcycles'.'/'.strtolower($motorcycle['mot_brand']). '/' . $motorcycle['mot_slug'].' "></a>
+				<div data-count="'.$count++.'" class="col-lg-4 col-md-6 col-sm-6 col-6 moto-col mot_result">
+				<div class="data-holder ">
+				<div class="holder"><div class="parallelogram d-none" >P 1000 <span class="off-text">Off</span></div></div>
+				<a href=" '.base_url().'motorcycles'.'/'.strtolower($motorcycle['mot_brand']). '/' . $motorcycle['mot_slug'].' ">
+				<img class="moto-img" src=" '.base_url(). $motorcycle['mop_image'] .'" alt="'. $motorcycle['mot_model'] .'" 
+				title="'.$motorcycle['mot_brand'].' '.$motorcycle['mot_slug']. ' 2021" width="300" height=""></a>
+				<div class="holder"><div class="promo-shape"></div></div>
+				<h3 class="moto-title" style="height: auto;">'. $motorcycle['mot_brand'].' '. $motorcycle['mot_model'] .'</h3>
+				<h4 class="moto-descrip">'.$this->check_price($motorcycle['mot_srp']).'</h4>
+				<a href="'. base_url("compare") .'/add_new_motorcycle/'. $motorcycle['mot_id'].'" class="compare-btn">+ Compare</a>';
+				
+				if($motorcycle['mot_brand']== "Apirilia"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/apirilia-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Benelli"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/benelli-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "BMW"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/bmw-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Ducati"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/Ducati-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Euro-Motor"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/euromotor-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Honda"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/honda.jpg"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Kawasaki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kawasaki-logo.png" width="50" height="30" >';
+				}
+				if($motorcycle['mot_brand']== "Keeway"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/keeway-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "KTM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/ktm-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Kymco"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kymco-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Moto-Morini"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/motomorini-logo.png" width="50" height="30" >';
+				}
+				if($motorcycle['mot_brand']== "Suzuki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/suzuki-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "SYM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/sym-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "TVS"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/tvs-logo.jpg"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Yamaha"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/yamaha.jpg"  width="60" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Vespa"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/vespa-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Bajaj"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/bajaj.jpg"  width="50" height="30">';
+				}
+				$output .= '</div></div>';
+			}
+			 
+		echo $output;
+		
+
+	}
+
+	public function search_suggestion_nav(){
+		// $search = $this->clean_input($search);
+		$this->load->model('model_base');
+		$search = $this->input->post("search");
+		// echo "Test".$search;
+		$this->db->where("mot_status", "published");
+		$allmotors = $this->model_base->get_ajax2($search);
+		//  print_r($allmotors);
+		// echo $search;
+		if($allmotors == null){ 
+			// echo '<li class="list-group-item">No result found</li>';
+			return null;
+		}
+		foreach($allmotors as $result){
+				// $values = "'".$result["mot_keyword"]."'";
+				$slug = "'".strtolower($result["mot_brand"]).' '.$result["mot_slug"]."'";
+			echo  '<li class="list-group-item moto-result-nav-input-search" onmouseover="hoverInResNav(event)" onmouseoutNav="hoverOutResNav(event)" onclick="pickResultNav('.$slug.')" id="brandmodel" data-value='.$slug.' tabindex="1">' .$result["mot_brand"] . " ".$result["mot_model"] . " </li>"; 
+			
+		}
+	}
+	public function _ajaxsort($slug, $brand, $type, $transmission, $diplacement, $engine, $sort){
+
+		$this->db->where('mot_status', 'published');
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+			
+		if($slug !== 'all'){
+			if(is_array($slug)){
+				$this->db->where_in('mot_type', $slug); // search for mot type
+			}else{
+				$this->db->like('mot_keyword', $slug, 'both');
+			}
+		}
+		if(is_array($slug)){
+			if(count($slug) <=0 ){
+				$this->db->where('mot_type is NOT NULL');
+			}else{
+				$this->db->where_in('mot_type', $slug);
+			}
+		}
+		if(is_array($brand)){
+			if(count($brand) <=0 ){
+				$this->db->where('mot_brand is NOT NULL');
+			}else{
+				$this->db->where_in('mot_brand', $brand);
+			}
+		}
+		if(is_array($type)){
+			if(count($type) <=0 ){
+				$this->db->where('mot_type is NOT NULL');
+			}else{
+				$this->db->where_in('mot_type', $type);
+			}
+		}
+		if(is_array($transmission)){
+			if(count($transmission) <=0 ){
+				$this->db->where('mot_transmission is NOT NULL');
+			}else{
+				$this->db->where_in('mot_transmission', $transmission);
+			}
+		}
+		// $this->db->where('mot_diplacement <= ', 125);
+		if(is_array($diplacement)){
+			if(count($diplacement) <=0 ){
+						$this->db->where('mot_diplacement is NOT NULL');
+			}else{
+				if(count($diplacement) == 1){
+					if(in_array(100, $diplacement)){ 
+						$this->db->where('mot_diplacement <= ', 100); 
+					}// 125
+					if(in_array(200, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 101);
+						$this->db->where('mot_diplacement <= ', 200);
+					 }// 101 up to 200
+					if(in_array(300, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 201);
+						$this->db->where('mot_diplacement <= ', 400);
+					}// 201 up to 400
+					if(in_array(500, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 401);
+						$this->db->where('mot_diplacement <= ', 600);
+					}// 401 up to 600
+					if(in_array(700, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 601);
+						$this->db->where('mot_diplacement <= ', 1000);
+					}// 301 up to 400
+					if(in_array(1000, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 1001);
+					}// 400 up
+				}else{
+					   $lowest_diplacement = (min($diplacement) == 100 ? 0 : min($diplacement)- 99 );
+					   $max_diplacement = (max($diplacement) == 1000 ? 1001 : max($diplacement));
+					   $this->db->where('mot_diplacement >= ', $lowest_diplacement);
+					   $this->db->where('mot_diplacement <= ', $max_diplacement);
+				}
+			}
+
+		}
+			if($sort){
+				if(in_array("sort-by-high-low",$sort)){
+					$this->db->order_by("mot_srp  DESC");
+				}
+				if(in_array("sort-by-low-high",$sort)){
+					$this->db->order_by("mot_srp  ASC");
+				}	
+				if(in_array("sort-by-name",$sort)){
+					$this->db->order_by("mot_model  ASC");
+				}
+			}
+	}
+
+	
+	
+	/////// dev pages
+	public function loadmotor_dev(){
+		$output = '';
+		$limit = intval($this->clean_input($this->input->post("limit")));
+		$offset = intval($this->clean_input($this->input->post("offset")));
+		$slug  = $this->input->post("slug") == 'all' ? 'all': $this->clean_input($this->input->post("slug")) ;
+		$brand = $this->clean_array($this->input->post("brand")) ;
+		$type  =  $this->clean_array($this->input->post("type")) ;
+		$transmission = $this->clean_array($this->input->post("transmission")) ;
+		$displacement = $this->clean_array($this->input->post("displacement")) ;
+		$engine = $this->clean_array($this->input->post("engine")) ;
+		$sort = $this->clean_array($this->input->post("sort")) ;
+		$this->db->limit( $limit, $offset );
+		$this->_ajaxsort_dev($slug, $brand, $type, $transmission, $displacement, $engine, $sort);
+		// $this->db->where('mot_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->where('mot_status', 'published');
+		$data = $this->model_base->get_all('motorcycles');
+		$count= 0;
+
+		foreach($data as $motorcycle)
+			{
+				// <a class="heart"><img src=" '.base_url().'resources/site/newui-assets2/img/favorite.png" width="20" height="20"></a>
+				// <img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/img/kawasaki-logo.png"  >
+				// <img class="moto-img" src="'.base_url().'resources/site/newui-assets2/img/kawasaki-1.png" width="300">
+				
+				$output .= '<div data-count="'.$count++.'" class="col-lg-4 col-md-6 col-sm-6 col-6 moto-col mot_result">
+				<div class="data-holder ">
+				<a href=" '.base_url('motorcycles/info/') . '/' . $motorcycle['mot_slug'].' ">
+				<img class="moto-img" src=" '.base_url(). $motorcycle['mop_image'] .'" alt="'. $motorcycle['mot_model'] .'" width="300">
+				</a>
+				<h3 class="moto-title">'. $motorcycle['mot_brand'].' '. $motorcycle['mot_model'] .'</h3>
+				<h4 class="moto-descrip">₱'.number_format( $motorcycle['mot_srp'], 2).'</h4>
+				<a href="'. base_url("compare") .'/add_new_motorcycle/'. $motorcycle['mot_id'].'" class="compare-btn">+ Compare</a>';
+				
+				if($motorcycle['mot_brand']== "Apirilia"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/apirilia-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Benelli"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/benelli-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "BMW"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/bmw-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Ducati"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/Ducati-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Euro-Motor"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/euromotor-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Honda"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/honda-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Kawasaki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kawasaki-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Keeway"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/keeway-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "KTM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/ktm-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Kymco"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kymco-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Moto-Morini"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/motomorini-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Suzuki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/suzuki-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "SYM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/sym-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "TVS"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/tvs-logo.png"  >';
+				}
+				if($motorcycle['mot_brand']== "Yamaha"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/yamaha-logo.png"  >';
+				}
+
+				$output .= '</div></div>';
+			}
+			 
+		echo $output;
+		
+	}
+	public function _ajaxsort_dev($slug, $brand, $type, $transmission, $diplacement, $engine, $sort){
+
+		$this->db->where('mot_status', 'published');
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+			
+		if($slug !== 'all'){
+			$this->db->like('mot_keyword', $slug, 'both');
+		}
+		if(is_array($brand)){
+			if(count($brand) <=0 ){
+				$this->db->where('mot_brand is NOT NULL');
+			}else{
+				$this->db->where_in('mot_brand', $brand);
+			}
+		}
+		if(is_array($type)){
+			if(count($type) <=0 ){
+				$this->db->where('mot_type is NOT NULL');
+			}else{
+				$this->db->where_in('mot_type', $type);
+			}
+		}
+		if(is_array($transmission)){
+			if(count($transmission) <=0 ){
+				$this->db->where('mot_transmission is NOT NULL');
+			}else{
+				$this->db->where_in('mot_transmission', $transmission);
+			}
+		}
+		// $this->db->where('mot_diplacement <= ', 125);
+		if(is_array($diplacement)){
+			if(count($diplacement) <=0 ){
+						$this->db->where('mot_diplacement is NOT NULL');
+			}else{
+				if(count($diplacement) == 1){
+					if(in_array(125, $diplacement)){ 
+						$this->db->where('mot_diplacement <= ', 125); 
+					}// 125
+					if(in_array(150, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 126);
+						$this->db->where('mot_diplacement <= ', 150);
+					 }// 126 up to 150
+					if(in_array(200, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 151);
+						$this->db->where('mot_diplacement <= ', 200);
+					}// 151 up to 200
+					if(in_array(300, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 201);
+						$this->db->where('mot_diplacement <= ', 300);
+					}// 201 up to 300
+					if(in_array(400, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 301);
+						$this->db->where('mot_diplacement <= ', 400);
+					}// 301 up to 400
+					if(in_array(500, $diplacement)){ 
+						$this->db->where('mot_diplacement >= ', 401);
+						$this->db->where('mot_diplacement <= ', 1500);
+					}// 400 up
+				}else{
+					   $lowest_diplacement = (min($diplacement) == 125 ? 0 : min($diplacement)- 100 );
+					   $max_diplacement = (max($diplacement) == 500 ? 1500 : max($diplacement));
+					   $this->db->where('mot_diplacement >= ', $lowest_diplacement);
+					   $this->db->where('mot_diplacement <= ', $max_diplacement);
+
+				}
+			}
+
+		}
+
+		
+		if(in_array("sort-by-high-low",$sort)){
+			$this->db->order_by("mot_srp  DESC");
+		}
+		if(in_array("sort-by-low-high",$sort)){
+			$this->db->order_by("mot_srp  ASC");
+		}	
+		if(in_array("sort-by-name",$sort)){
+			$this->db->order_by("mot_model  ASC");
+		}
+
+	}
+
+	
+	public function index_dev($slug="all", $brand="brand", $type="type", $transmission="transmission", $diplacement="diplacement", $engine="engine-type", $filter="1" )
+	{
+
+		$this->session->set_userdata('current_url', current_url());
+
+		// $current_url  =  $this->session->userdata('current_url');
+		// echo $current_url;
+
+		// $this->useraccount->pota();
+		$header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles';
+		$header['header_desc'] = "Motogarahe.com is an interactive website that helps you to search, compare and purchase the right motorcycle for you.";
+		$header['header_keywords'] = "";
+		
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+
+		if($this->input->post('reg_mode')) {
+
+			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
+			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
+			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['reg_mode']);
+
+				// echo "<pre>";
+				// print_r ($data);
+				// echo "</pre>";
+
+				// break;
+
+				// $data_users['usr_username'] = $data['usr_username'];
+				$data_users['usr_password'] = $data['usr_password'];
+				$data_users['usr_fname'] = $data['usr_fname'];
+				// $data_users['usr_mname'] = $data['usr_mname'];
+				$data_users['usr_lname'] = $data['usr_lname'];
+				// $data_users['usr_address'] = $data['usr_address'];
+				// $data_users['usr_gender'] = $data['usr_gender'];
+				$data_users['usr_contact'] = $data['usr_contact'];
+				$data_users['usr_email'] = $data['usr_email'];
+				$data_users['usr_created'] = $this->getDatetimeNow();
+		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
+		        $data_users['usr_session'] = $this->session->userdata('session_id');
+
+		        $this->model_base->insert_data($data_users, 'users');
+		        $last_id = $this->db->insert_id();
+		        $this->session->set_flashdata('msg_success', 'Successfully Registered!');	
+				redirect('invoice','refresh');
+			}
+		}
+
+		if($this->input->post('login_mode')) {
+
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email');
+			$this->form_validation->set_rules('usr_password', 'Password', 'required|trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				// success
+				$data = $this->input->post();
+				$table = "users";
+
+				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
+				$this->db->where('usr_status !=', 'deleted');
+    			$user = $this->model_login->login_user_by_email($data, $table);
+
+    			if ( count( $user ) >= 1 ) {
+    				$this->session->set_flashdata('msg_success', 'Successfully log in!');	
+    				$this->session->set_userdata($user[0]);
+
+    				$data_update['usr_session'] = $this->session->userdata('session_id');
+					$this->model_base->update_data($this->session->userdata('usr_id'), 'usr_id', $data_update, 'users');
+
+    				redirect('home','refresh');
+
+    			} else {	
+    				$content['msg_error'] = 'Invalid Account';
+    			}
+			}
+		}
+
+
+
+		$content['mot_slug'] = $this->uri->segment(3);
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(4);
+		$content['mot_type'] = $this->uri->segment(5);
+		$content['mot_transmission'] = $this->uri->segment(6);
+		$content['mot_diplacement'] = $this->uri->segment(7);
+		$content['mot_engine_type'] = $this->uri->segment(8);
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}
+	
+
+	
+		
+		
+	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles/search/" . $content['mot_slug'] . "/" . $content['mot_brand']. "/" . $content['mot_type']. "/" . $content['mot_transmission']. "/" . $content['mot_diplacement']. "/" . $content['mot_engine_type'];
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+
+		
+		$this->db->flush_cache();
+		
+
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list-dev', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+	}
+	
+	public function promolist(){
+		$header = [];
+		$content = [];
+		$header['header_title'] = 'Motorcycles';
+		$header['header_desc'] = "Motogarahe.com is an interactive website that helps you to search, compare and purchase the right motorcycle for you.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
+		
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		/*************END MAP******************/
+		$slug="all"; $brand="brand"; $type="type"; $transmission="transmission"; $diplacement="diplacement"; $engine="engine-type"; $filter="1";
+		$brandmodel = $this->input->post("mot_model");
+		$split = explode(" ", $brandmodel);
+		$brandm = $split[0];
+		//$model = $split[0];
+		$content['mot_slug'] = $this->input->post("mot_model");
+		$content['mot_model'] = str_replace('-', ' ', $content['mot_slug']);
+		$content['mot_brand'] = $this->uri->segment(2);
+		$content['mot_type'] = $type;
+		$content['mot_transmission'] = $transmission;
+		$content['mot_diplacement'] = $diplacement;
+		$content['mot_engine_type'] = $engine;
+
+		$content['mot_slug'] = $this->clean_input($content['mot_slug']);
+		$content['mot_model'] = $this->clean_input($content['mot_model']);
+		$header['mot_model'] = $this->clean_input($content['mot_model']);
+		$content['mot_brand'] = $this->clean_input($content['mot_brand']);
+		$content['mot_type'] = $this->clean_input($content['mot_type']);
+		$content['mot_transmission'] = $this->clean_input($content['mot_transmission']);
+		$content['mot_diplacement'] = $this->clean_input($content['mot_diplacement']);
+		$content['mot_engine_type'] = $this->clean_input($content['mot_engine_type']);
+
+		if($this->input->post('search_mode')) {
+
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+
+			if ($this->form_validation->run() == FALSE) {
+				$content['msg_error'] = validation_errors();
+			} else {
+				$data = $this->input->post();
+				unset($data['search_mode']);
+
+				if ( !empty($data['mot_model']) ) {
+					$data['mot_model'] = $this->_slug($data['mot_model']);
+				} else {
+					$data['mot_model'] = "all";
+				}
+				if ( empty($data['brand']) ) {
+					$data['brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_brand']) ) {
+					$data['mot_brand'] = "brand";	
+				}
+
+				if ( empty($data['mot_type']) ) {
+					$data['mot_type'] = "type";	
+				}
+
+				if ( empty($data['mot_transmission']) ) {
+					$data['mot_transmission'] = "transmission";	
+				}
+
+				if ( empty($data['mot_diplacement']) ) {
+					$data['mot_diplacement'] = "diplacement";	
+				}
+
+				if ( empty($data['mot_engine_type']) ) {
+					$data['mot_engine_type'] = "engine-type";	
+				}
+
+				if ( empty($data['status']) ) {
+					$data['status'] = "NEW";	
+				}
+				
+				if ( $data['status'] == "NEW") {
+					// $this->godprintp($data);
+					//redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
+				} else {
+
+				}
+			}
+		}
+		if($this->input->post('search_mode2')){
+			$content["multi_brand"] = $this->clean_array($this->input->post("multi_brand"));
+			$content["multi_categ"] = $this->clean_array($this->input->post("muti_categ"));
+			$brand = $content["multi_brand"];
+		}	
+		
+		$config = array();
+		$config["base_url"] = base_url() . "motorcycles";
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		$total_row = $this->model_base->count_data('motorcycles');
+		$config["total_rows"] = $total_row;
+		$config['per_page'] = $this->isMobile();
+		$config['uri_segment'] = 9;
+		$config['num_links'] = 2;
+		$config['use_page_numbers'] = TRUE;
+		// open btn
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		// prev btn
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		// next btn
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		//  active btn
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
+		$config['cur_tag_close'] = '</a></li>';
+		// number link
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
+		// first
+		$config['first_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['first_link'] = 'First'; 
+		$config['first_tag_close'] = '</span></li>';
+		// last
+		$config['last_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['last_link'] = 'Last';
+		$config['last_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$offset = ($filter - 1) * $config["per_page"];
+		$this->db->limit( $config["per_page"] , $offset);
+		
+		$this->db->flush_cache();
+		$this->_sorting($slug, $brand, $type, $transmission, $diplacement, $engine);
+		// $this->sort_multiple($content["brand"]);
+		$this->db->where("motorcycles.mot_promo","true");
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
+		// $datas = $this->model_base->get_all('motorcycles');
+		// $header['motorcycles'] = $this->model_base->get_all('motorcycles');
+		$header['header_keywords'] = $content['motorcycles'][0]['mot_model']." 2021" .",".$content['motorcycles'][0]['mot_slug']." 2021".",".$content['motorcycles'][0]['mot_brand'].",motogarahe.com, motogarahe";
+		$content['motorcycles'][0]['keywords'] = $header['header_keywords'];
+
+		$this->db->flush_cache();
+	
+		// echo "<pre>";
+		// print_r ($content['motorcycles']);
+		// echo "</pre>";
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/moto-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
+	}
+
+	public function loadmotorpromo(){
+		$output = '';
+		$limit = intval($this->clean_input($this->input->post("limit")));
+		$offset = intval($this->clean_input($this->input->post("offset")));
+		// $slug  = $this->input->post("slug") == 'all' ? 'all': $this->clean_input($this->input->post("slug")) ;
+		$slug  = $this->check_category($this->input->post("slug")) ; // check slug or search if = mot type
+		//$brand = $this->clean_array($this->input->post("brand")) ;
+		//$brand = $this->clean_array($this->input->post("brand")) == '' ? 'brand' : $this->clean_array($this->input->post("brand");
+
+		$brand = $this->input->post("brand") == '' ? 'brand' : $this->clean_array($this->input->post("brand"));	
+        $promo = $this->input->post("promo");
+		$type  =  $this->clean_array($this->input->post("type")) ;
+		$transmission = $this->clean_array($this->input->post("transmission")) ;
+		$displacement = $this->clean_array($this->input->post("displacement")) ;
+		$engine = $this->clean_array($this->input->post("engine")) ;
+		$sort = $this->clean_array($this->input->post("sort")) ;
+		$this->db->limit( $limit, $offset );
+		//$this->_ajaxsort($slug, $brand, $type, $transmission, $displacement, $engine, $sort);
+		$this->db->where('mot_promoname', $promo);
+		// $this->db->where('mot_status', 'published');
+		$this->db->join("motorcycles_pictures", "motorcycles_pictures.mot_id = motorcycles.mot_id");
+		$this->db->group_by('motorcycles_pictures.mot_id,motorcycles.mot_id');
+		$this->db->where('motorcycles_pictures.mop_status', 'published');
+		$this->db->where('mot_status', 'published');
+		$this->db->where('mot_promo', 'true');
+
+		
+		$data = $this->model_base->get_all('motorcycles');
+		$count= 0;
+		// echo print_r($displacement);
+		foreach($data as $motorcycle)
+			{
+			    if($motorcycle['mot_discountpromo']=='0.00' || $motorcycle['mot_discountpromo']==""){
+			        $sale = '';
+			        $price = '<h4 class="moto-descrip">'.$this->check_price($motorcycle['mot_srp']).'</h4>';
+			    }else{
+			        $sale = '<div class="data-holder "><h5 style="color:red;">ON SALE!</h5>';
+			        $price = '<h4 class="moto-descrip"><del>'.$this->check_price($motorcycle['mot_srp']).'</del><br><span style="color:red;font-size:18px;">'.$this->check_price($motorcycle['mot_srp']-$motorcycle['mot_discountpromo']).'</span></h4>';
+			    }
+				$output .= '<a href=" '.base_url().'motorcycles'.'/'.strtolower($motorcycle['mot_brand']). '/' . $motorcycle['mot_slug'].' "></a>
+				<div data-count="'.$count++.'" class="col-lg-4 col-md-6 col-sm-6 col-6 moto-col mot_result">';
+				$output.= $sale;
+				$output .= '<div class="holder"><div class="parallelogram d-none" >P 1000 <span class="off-text">Off</span></div></div>
+				<a href=" '.base_url().'motorcyclespromo'.'/'.strtolower($motorcycle['mot_brand']). '/' . $motorcycle['mot_slug'].' ">
+				<img class="moto-img" src=" '.base_url(). $motorcycle['mop_image'] .'" alt="'. $motorcycle['mot_model'] .'" 
+				title="'.$motorcycle['mot_brand'].' '.$motorcycle['mot_slug']. ' 2021" width="300" height=""></a>
+				<div class="holder"><div class="promo-shape"></div></div>
+				<h3 class="moto-title" style="height: auto;">'. $motorcycle['mot_brand'].' '. $motorcycle['mot_model'] .'</h3>';
+				$output .= $price;
+				
+				if($motorcycle['mot_brand']== "Apirilia"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/apirilia-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Benelli"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/benelli-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "BMW"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/bmw-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Ducati"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/Ducati-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Euro-Motor"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/euromotor-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Honda"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/honda.jpg" height="30" style="width:40px;">';
+				}
+				if($motorcycle['mot_brand']== "Kawasaki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kawasaki-logo.png" width="50" height="30" >';
+				}
+				if($motorcycle['mot_brand']== "Keeway"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/keeway-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "KTM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/ktm-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Kymco"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/kymco-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Moto-Morini"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/motomorini-logo.png" width="50" height="30" >';
+				}
+				if($motorcycle['mot_brand']== "Suzuki"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/suzuki-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "SYM"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/sym-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "TVS"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/tvs-logo.jpg"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Yamaha"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/yamaha.jpg"  width="60" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Vespa"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/vespa-logo.png"  width="50" height="30">';
+				}
+				if($motorcycle['mot_brand']== "Bajaj"){
+					$output .= '<img class="brand-logo" src="'.base_url().'resources/site/newui-assets2/newlogomotor/bajaj.jpg"  width="50" height="30">';
+				}
+				$output .= '</div></div>';
+			}
+			 
+		echo $output;
+	}
+	
+	public function promodealer($promo){
+	    if($promo=='motorcentral'){
+	        $this->db->where('mot_promoname', $promo);
+	    }
+	    $this->db->get_all('motorcycles');
+	}
+
+}

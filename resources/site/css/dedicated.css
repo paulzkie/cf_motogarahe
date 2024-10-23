@@ -1,0 +1,242 @@
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+.selected-dealer{
+    border: solid;
+}
+#asdasd p {
+    padding-bottom: 5px;
+    margin: 0;
+    padding-top: 5px;
+    border-bottom: 1px solid #e2e2e2;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.activeSuggestion {
+    background-color: #fdcf07;
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.title-header{
+    padding: 20px 0;
+}
+.mg-ex{
+    width: 25%;
+    background: #fdcf07;
+    color: black;
+    font-weight: 500;
+    font-size: 22px;
+    padding: 5px 20px;
+    font-family: 'Bebas Neue';
+    text-align: center;
+}
+.ex-suzuki {
+    font-size: 61px;
+    margin-bottom: 0;
+}
+.ex-logo{
+    width: 130px;
+    height: 100px;
+    margin: 10px 0 5px 0;
+}
+.fa-globe path{
+   color: #fdcf07; 
+   margin-right: 5px;
+}
+.fa-facebook path{
+    color: #fdcf07;
+   margin-right: 5px;
+
+}
+
+.pd-0{
+  padding: 0;
+}
+
+
+
+
+.moto-descrip {
+    color: #000;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 23px;
+}
+section.content .container .row {
+    display: flex;
+
+}
+section.content .container .row .col-sm-6 {
+    flex: 50%;
+    max-width: 50%;
+    text-align: center;
+}
+section.content .container .row .col-sm-6 img {
+    margin-bottom: 24px;
+    width: 100%;
+    height: auto;
+}
+section.content .container{
+    margin: 60px auto;
+}
+a.offerButton {
+    border: 1px solid #000;
+    font-family: 'Karla', Arial, sans-serif;
+    padding: 10px 30px;
+    color: #000;
+    font-size: 17px;
+}
+a.offerButton:hover{
+    /* background-color: #fdcf09; */
+    text-decoration: none;
+    font-weight: 600;
+    border-color: #fdcf09;
+    color: #fdcf09;
+}
+.moto-offer {
+    margin-top: 90px;
+}
+.moto-offer img {
+    width: 100%;
+    margin-bottom: 7.5px;
+}
+.moto-offer a {
+    margin-bottom: 38.4px;
+    width: 140px;
+    text-align: center;
+}
+
+/* slider custom css */
+.slider-bg {
+    padding-top: 41px;
+    background-color: #ededed;
+}
+#slideshow {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.slick.slick-initialized.slick-slider {
+    width: 100% !important;
+}
+.slick-next {
+    right: 15px !important;
+    z-index: 999;
+}
+.slick-prev {
+    left: 0 !important;
+    z-index: 999;
+}
+.slick-slide img {
+    display: inherit !important;
+}
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+
+@media only screen and (max-width: 1200px){
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width:990px){
+  
+}
+@media only screen and (max-width: 768px){
+    .mg-ex{
+        width: 60%;
+    }
+    .slick-prev {
+        left: 0 !important;
+        z-index: 999;
+    }
+    .slick-next {
+        right: 20px !important;
+        z-index: 999;
+    }
+    .moto-offer {
+        margin-top: 38px;
+    }
+}
+@media only screen and (max-width: 760px){
+ 
+}
+@media only screen and (max-width: 650px){
+    .mg-ex{
+        width: 60%;
+    }
+  
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+    .slick-prev {
+        left: 0 !important;
+    }
+    .slick-next {
+        right: 15px !important;
+    }
+
+}
+@media only screen and (max-width: 414px){
+    .mg-ex{
+        width: 90%;
+      }
+}
+@media only screen and (max-width: 411px ){
+    
+}
+@media only screen and (max-width: 375px){
+  
+}
+
+@media only screen and (max-width: 360px){
+    .mg-ex{
+        width: 90%;
+    }
+    .sub-title{
+        font-size: 13px;
+    }
+ 
+}
+
+/* small mobile device */
+@media only screen and (max-width:320px){
+}

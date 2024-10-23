@@ -1,0 +1,95 @@
+customer
+	cus_id
+	cus_username
+	cus_password
+	cus_image
+	cus_fname
+	cus_mname
+	cus_lname
+	cus_address
+	cus_city
+	cus_state
+	cus_country
+	cus_zip
+	cus_phone
+	cus_email
+	cus_status
+	cus_created
+	cus_updated
+
+agency
+	age_id
+	age_username
+	age_password
+	age_image
+	age_businessname
+	age_businessaddress
+	pla_id
+	age_fname
+	age_mname
+	age_lname
+	age_address
+	age_city
+	age_state
+	age_country
+	age_zip
+	age_phone
+	age_email
+	age_status
+	age_created
+	age_updated
+
+plan
+	pla_id
+	pla_name
+	pla_maxpost
+	pla_price
+	pla_status
+	pla_created
+	pla_updated
+
+
+travel_tour
+	tra_id
+	tra_name
+	tra_description
+	tra_image
+	tra_price
+	tra_status
+	tra_created
+	tra_updated
+
+sale_plan
+	sap_id
+	age_id
+	pla_id	
+
+sale
+	sal_id
+	cus_id
+	tra_id
+	sal_totalprice
+	sal_status
+	sal_created
+	sal_updated
+
+sale_info
+	sai_id
+	sal_id
+	sai_qty
+	sai_price
+	sai_totalprice
+	sai_status
+	sai_created
+	sai_updated
+
+blog
+	blo_id
+	blo_image
+	blo_title
+	blo_description
+	blo_status
+	blo_created
+	blo_updated		
+
+

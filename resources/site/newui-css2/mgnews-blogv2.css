@@ -1,0 +1,287 @@
+.blog-bg{
+    background: url(../newui-assets2/assets/headerbg.png) center;
+    background-size: cover;
+}
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+/*  pagination link start */
+.active-link > a{
+    /* background-color: #fdcf09!important; */
+    background: #fdcf09!important;
+    color: black;
+}
+.page-link { 
+    color: black;
+}
+.page-item > span > a{
+    color: black;
+}
+.page-link:hover{
+    color: black;
+}
+/* pagination link end */
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.btn-outline-secondary{
+  width: 35%;
+}
+.header-box{
+    padding: 75px 0;
+}
+.title-page{
+    font-size: 48px;
+}
+.desc-text{
+    font-size: 20px;
+}
+.blog-title{
+    font-size: 33.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.blog-box h6{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color:#626262;
+}
+.blog-box p {
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 18px;
+}
+.blogs-content{
+    margin-top: 20px;
+}
+.blog-box {
+  /* height: 800px; */
+  margin-bottom: 50px;
+}
+/* .img-holder img{
+height: auto;
+width: 100%;
+} */
+
+.img-holder{
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+    height: 330px;
+    width: 100%!important;
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+    .img-holder{
+        height: 280px;
+        width: 410px;
+    }
+}
+/* tablet desktop transition  */
+@media only screen and (max-width: 990px){
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+    .img-holder {
+        height: 190px;
+        width: 290px;
+    }
+
+}
+/* big tablet view */
+@media only screen and (max-width: 900px){
+    .img-holder {
+        height: 160px;
+        width: 290px;
+    }
+
+}
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+    .img-holder {
+        height: 240px;
+        width: 360px;
+    }
+}
+/* regular tablet view */
+@media only screen and (max-width:768px){
+    .blog-box {
+        /* height: 100%; */
+        margin-bottom: 50px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+/* transition to small web browser view */
+@media only screen and (max-width:760px){
+    .img-holder {
+        height: 410px;
+        width: 100%;
+        background-repeat: no-repeat!important;
+        background-size: auto!important;
+        background-position: top!important;
+    }
+    
+    
+}
+
+/* resize small web windows 1*/
+@media only screen and (max-width: 650px){
+    .img-holder {
+        height: 390px;
+        width: 100%;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+    .img-holder {
+        height: 310px;
+        width: 100%;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+    
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+    .img-holder {
+        height: 310px;
+        width: 105%;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+
+}
+/* pixel 2  size*/
+@media only screen and (max-width: 414px){
+    .img-holder {
+        height: 260px;
+        width: 110%;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+    .blog-title {
+        font-size: 28.5px;
+    }
+    .blog-box h6 {
+        font-size: 16px;
+    }
+    .blog-box p {
+        font-size: 17px;
+    }
+}
+/* pixel 1 size */
+@media only screen and (max-width: 411px){
+    .img-holder {
+        height: 320px;
+        width: 380px;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+
+}
+/* medium mobile device 2*/
+@media only screen and (max-width:375px){
+    .img-holder {
+        height: 230px;
+        width: 345px;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+        background-position: center!important;
+    }
+
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+  .desc-text {
+      font-size: 18px;
+  }
+  .img-holder {
+    width: 110%;
+    height: 220px;
+    /* padding: 100px; */
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+  }
+  .blog-title {
+    font-size: 24.5px;
+  }
+  .blog-box h6 {
+    font-size: 15px;
+  }
+  .blog-box p {
+    font-size: 16px;
+  }
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+    .title-page {
+        font-size: 38px;
+    }
+    .desc-text {
+        font-size: 16px;
+    }
+    .blog-box p {
+        font-family: 'Karla', Arial, sans-serif;
+        font-size: 16px;
+    }
+    .blog-title {
+        font-size: 25.5px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+    }
+    .btn-outline-secondary {
+        width: 45%;
+    }
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+}

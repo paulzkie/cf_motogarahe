@@ -1,0 +1,45 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* CUSTOM CSS (ADD YOUR CSS HERE!) */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+@media screen and (max-width: 1199px ) {
+	.b-items__cars-one-img img {
+		width: 100%
+	}
+}
+@media screen and (max-width: 991px ) {
+    .b-nav__list ul li a {    font: 700 12px 'Open Sans',sans-serif;}
+    .b-nav__logo {padding: 14px 0 0 0px;}
+    .btn.m-btn {
+	    display: inline-block;
+	    padding: 3px 3px 3px 0px;
+	    font: 700 12px 'Open Sans',sans-serif;
+	    border-radius: 30px;
+	}
+	.view_motor .b-items__cell {height: 600px;} 
+	.motor_dets .b-items__cell { height: 870px !important;} 
+	.view_motor .b-features__items li {border-color:#face0b;}
+}
+@media screen and (max-width: 767px) {
+    /*.b-nav__list{background-color: #000;}*/
+    .view_motor {padding-top: 25px;}
+}
+@media screen and (max-width: 495px) {
+	.b-error h2 {
+	    font: 700 24px 'Open Sans',sans-serif;
+	    margin: 20px 0 30px 0;
+	    padding: 0 30px 22px 30px;
+	}
+	
+	.view_motor .b-items__cell {
+	        height: 585px !important;
+    padding-bottom: 70px;
+
+	}
+
+	.motor_dets .b-items__cell {height: 700px !important;} 
+	
+}
+
+@media screen and (max-width: 390px) {
+	.b-error h3.s-title {    font: 700 11px 'Open Sans',sans-serif;}
+}

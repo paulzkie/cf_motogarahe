@@ -1,0 +1,60 @@
+.hide_alert {
+	display: none;
+}
+
+.show_alert{
+	display: block;
+}
+
+.alert {
+	margin-bottom: 0px;
+	position: absolute;
+    bottom: 50px;
+    z-index: 1;
+    width: 60%;
+    right: 10px;
+}
+
+.box-body table input[type=checkbox], input[type=radio] {
+    margin: 4px 7px 0;
+}
+
+.form-control[readonly] {
+    background-color: #f4f4f4;
+}
+
+.filter-box button {
+	background-color: #fff;
+	text-align: left;
+}
+
+.box-body table td img{
+	height: 50px;
+}
+
+.pagination {
+	margin: 0;
+	float: right!important;
+}
+
+
+.nav>li>a>img {
+	width: 19px !important;
+    margin-right: 7px !important;
+}
+
+.logo-lg img {
+	width: 75%;
+    position: relative;
+    top: 5px;
+    left: 25px;
+}
+
+.sidebar-menu>li {
+    font-size: 13px;
+}
+
+.skin-black-light .main-header li.user-header {
+    background-color: #DD203E;
+}
+

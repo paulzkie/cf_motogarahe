@@ -1,0 +1,290 @@
+/* @font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue-Regular.woff2");
+    }
+    @font-face {
+        font-family: "Karla";
+        src: url("../fonts/Karla-Regular.ttf") format("ttf"),
+        } */
+        * {
+            font-size: 14px;
+        }
+        h1,
+        h2,
+        h3,
+        p,
+        span,
+        a {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            color: #fff;
+        }
+        body {
+            background-image: linear-gradient(to right, #020202 , #242424);
+        }
+        nav.mobile {
+            display: none;
+        }
+        .dropdown.log {
+            float:right;
+        }
+        .dropbtn {
+            margin-right: 15px;
+            color: #fff;
+            padding: 16px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+        }
+        .input-group.search {
+            height: 36px;
+            margin: 0 auto 32px;
+        }
+        button.btn.btn-secondary {
+            width: 56px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            border-radius: 3px;
+        }
+        .dropdown.log .dropbtn a:hover {
+            color: #000000;
+            background-color: none;
+            border: none;
+            display: block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            top: 38px;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-radius: 3px;
+            z-index: 1;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            color: #000;
+            padding: 0 16px;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            border-radius: 3px;
+        }
+        .dropdown-content a:hover {background-color: #fff; color:rgb(253,207,9); text-decoration: none;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropbtn:not(.ex-text) {background-color: #fff; color: #000; border-radius: 3px;}
+        a:hover{
+            /* color: white!important; */
+        }
+        
+        hr.div {
+            border: 2px solid #fdcf09;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            width: 41px;
+        }
+        hr.divider-1 {
+            right: 85px;
+        }
+        hr.divider-2 {
+            right: 100px;
+        }
+        hr.divider-3 {
+            right: 65px;
+        }
+        hr.divider-4 {
+            right: 95px;
+        }
+        hr.divider-5 {
+            right: 85px;
+        }
+        
+        .head-font {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+        }
+        .advs {
+            font-family: 'Karla', Arial, sans-serif;
+        }
+        .advs:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-logo {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .main-logo h1 {
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .container-fluid {
+            margin: 30px auto;
+        }
+        .form-control {
+            padding-left: 1.175rem !important;
+            border-radius: 25px 0 0 25px !important;
+        }
+        .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+        }
+        button.btn.btn-secondary {
+            color: #fdcf09;
+            background-color: #323232 !important;
+            border-color: #323232 !important;
+            border-radius: 0 25px 25px 0;
+        }
+        .advance-search {
+            text-align: -webkit-right;
+            width: 540px;
+        }
+        .advance-search a{
+            color: #fff;
+            margin-top: 15px;
+            font-size: 16px;
+            font-family: 'Karla', Arial, sans-serif;
+        }
+        .advance-search a:hover {
+            text-decoration: none;
+            color: #f7f7f7;
+        }
+        nav.navbar.navbar-dark.red.lighten-1.mb-4.mt-4.navbar-mobile {
+            display: none;
+        }
+        .container.sub-menu {
+            position: absolute;
+            z-index: 11111;
+            padding: 0;
+        }
+        .sub-items, #mySidenav {
+            top: 40px !important;
+            font-family: 'Bebas Neue', Arial, sans-serif;
+        }
+        .sidenav, .sub-items {
+            position: absolute;
+            top: 40px;
+        }
+        .card-body {
+            background-color: transparent;
+            border: none;
+        }
+        .moto-search {
+            max-width: 530px !Important;
+            margin: 108px auto 0;
+        }
+        select.browser-default {
+            padding: 10px 20px 10px 25px;
+            margin: 10px 5px;
+            border-color: #323232;
+            border-radius: 30px;
+            background: #323232;
+            cursor: pointer;
+            color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            background: url(../img/down-arrow.png) no-repeat right #323232;
+            background-position-x: 180px;
+        }
+        .card-body {
+            background-color: transparent;
+            border: none;
+            margin-top: 30px;
+            display: block;
+        }
+        .adv-btn {
+            width: 100%;
+            padding: 10px 20px 10px 25px;
+            border: 1px solid #323232;
+            border-radius: 30px;
+            font: 400 13px 'Open Sans',sans-serif;
+            background: #323232;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none!important;
+            cursor: pointer;
+            color: #fcd103;
+            margin-top: 0;
+        }
+        
+        /* Extra small devices (portrait phones, less than 576px)
+        No media query for `xs` since this is the default in Bootstrap */
+        
+        
+        
+        /* Large devices (desktops, 992px and up) */
+        @media only screen and (max-width: 992px) {
+            nav.desktop {
+                display: none;
+            }
+            
+            nav.mobile {
+                display: block;
+                padding: 10px 0;
+                font-family: 'Bebas Neue', Arial, sans-serif;
+            }
+            nav.mobile strong {
+                font-weight: 100;
+                letter-spacing: 1px;
+                color: #fff;
+                font-family: 'Bebas Neue', Arial, sans-serif;
+                font-size: 14px;
+            }
+            .main-logo {
+                padding: 150px 0;
+            }
+            .advance-search {
+                padding: 15px 0;
+            }
+        } 
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media only screen and (max-width: 1200px) { 
+        
+         }
+         /* Medium devices (tablets, 768px and up) */
+        @media only screen and (max-width: 768px) {
+        
+        }
+        
+        @media only screen and (max-width: 760px) { 
+            .search-mot{
+                height: 100%!important;
+            }
+            
+        }
+        
+         @media only screen and (max-width: 650px) { 
+            .search-mot{
+                height: 100%!important;
+            }
+            
+        }
+            
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media only screen and (max-width: 576px)  { 
+            .main-logo h1 {
+                font-size: 2rem !important;
+            }
+            .nav > li:last-child {
+                position: relative;
+                right: 0;
+            }
+            .form-control {
+                font-size: 0.8rem;
+            }
+        }
+        

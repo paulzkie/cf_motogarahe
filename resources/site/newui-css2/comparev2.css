@@ -1,0 +1,380 @@
+/* [1] The container */
+.img-hover-zoom-sss {
+    /* z-index: 999; */
+    height: initial; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+    transition: transform .5s ease;
+}
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+    transform: scale(1.1);
+    z-index:-999;
+}
+.mot-title {
+  position:sticky;
+}
+
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+    width: 954px;
+    margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+  
+}
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    width: 100%;
+    height: auto;
+}
+.title-info{
+    padding-top: 40px;
+    font-size: 40px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+.compare-remove{
+   /* float: left; */
+   position: absolute;
+   z-index: 999!important;
+
+}
+.compare-remove img{
+    height: 40px;
+    width: 40px;
+}
+.compare-moto-image {
+    width: 100%;
+    height: auto;
+}
+.mot-title {
+    margin-top: 40px;
+}
+.mot-title h3{
+    font-size: 22.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: -45px;
+
+}
+.mot-title h2{
+    font-size: 22.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: 10px;
+
+}
+.btn-fsize{
+    font-size: 12px;
+}
+.btn-fsize:hover{
+    background-color: #f0f0f0 ;
+    color: #6c757d;
+}
+a.compare-add:hover {
+    color: #fdcf09;
+}
+.compare-add{
+    font-size: 50px;
+    color: #888888;
+}
+.empty{
+    border: 2px solid #747474;
+    padding: 75px;
+}
+.empty h3{
+    font-size: 22.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.accord img{
+    height: 20px;
+    width: 20px;
+}
+.yellow-square{
+    background-color: #fdcf09;
+    color: #fdcf09;
+    height: 15px;
+    width: 15px;
+    margin-top: 2px;
+}
+#moto-details h3{
+    font-size: 18.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-left: 25px;
+
+}
+.header-card{
+    background-color: #ededed;
+}
+.header-cards h5{
+    font-size: 16px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    padding: 5px;
+    text-transform: uppercase;
+}
+#accordion p{
+    font-size: 13.5px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-weight: 700;
+    padding: 0 10px;
+    text-align: center;
+
+}
+hr{
+    border-top: 4px solid #717171;
+}
+#moto-pic{
+  margin-top: 60px;
+}
+.title-slider{
+  font-size: 32px;
+}
+#slide-promo{
+  padding-bottom: 50px;
+}
+.promo-img-slide{
+  height: 210px;
+  display: unset!important;
+}
+.slick-dots li button:before{
+    font-size: 20px;
+  }
+.btn-div{
+  margin-top: 100px;
+}
+.btn-promo{
+  font-size: 21.5px;
+  font-family: 'Karla', Arial, sans-serif;
+  padding: 10px 50px;
+  color: black;
+  border: 1px solid black;
+
+}
+.slick-dots{
+  top: 250px;
+}
+@media only screen and (max-width: 1200px) { 
+    .empty {
+        border: 2px solid #747474;
+        padding: 60px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 990px){
+    .empty {
+        border: 2px solid #747474;
+        padding: 40px;
+    }
+    .mot-title h2 {
+        font-size: 22.5px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        margin-top: 5px;
+    }
+    .mot-title h3 {
+        font-size: 22.5px;
+        font-family: 'Bebas Neue', Arial, sans-serif;
+        margin-top: -15px;
+    }
+    .promo-img-slide {
+        height: 160px;
+        display: unset!important;
+    }
+    .slick-dots {
+        top: 190px;
+    }
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+    .compare-remove img {
+        height: 30px;
+        width: 30px;
+    }
+}
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+    .promo-img-slide {
+        height: 160px;
+        display: unset!important;
+    }
+
+}
+/* regular tablet view */
+@media only screen and (max-width:768px){
+    .promo-img-slide {
+        height: 140px;
+        display: unset!important;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* transition to small web browser view */
+@media only screen and (max-width:760px){
+    .compare-remove{
+        top:-10px;
+    }
+}
+@media only screen and (max-width: 650px){
+.empty {
+    border: 2px solid #747474;
+    padding: 20px;
+}
+.compare-remove img {
+    height: 20px;
+    width: 20px;
+}
+.mot-title {
+    margin-top: 20px;
+}
+.mot-title h3 {
+    font-size: 22.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: 5px;
+}
+.btn-fsize {
+    font-size: 11px;
+}
+.mot-title h3 {
+    font-size: 16.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: 5px;
+}
+.mot-title h2 {
+    font-size: 16.5px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-top: 5px;
+}
+#accordion p {
+    font-size: 10px;
+    font-family: 'Karla', Arial, sans-serif;
+    font-weight: 700;
+    padding: 0 5px;
+    text-align: center;
+}
+.promo-img-slide {
+    height: 190px;
+    display: unset!important;
+}
+.slick-dots {
+    top: 220px;
+}
+a.compare-remove {
+    position: absolute;
+    z-index: 99;
+}
+
+}
+
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+  .promo-img-slide {
+      height: 190px;
+      display: unset!important;
+  }
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+  .promo-img-slide {
+      height: 160px;
+      display: unset!important;
+  }
+  .slick-dots {
+      top: 200px;
+  }
+}
+@media only screen and (max-width: 414px){
+  .btn-fsize {
+      font-size: 11px;
+      padding: 5px;
+  }
+  .empty {
+      border: 2px solid #747474;
+      padding: 10px;
+  }
+  .promo-img-slide {
+      height: 140px;
+      display: unset!important;
+  }
+  .slick-dots {
+      top: 170px;
+  }
+}
+
+@media only screen and (max-width:375px){
+  .btn-fsize {
+      font-size: 8px;
+      padding: 5px;
+  }
+  .empty {
+      border: 2px solid #747474;
+      padding: 5px;
+  }
+  .empty h3 {
+      font-size: 16.5px;
+      font-family: 'Bebas Neue', Arial, sans-serif;
+  }
+  .promo-img-slide {
+      height: 130px;
+      display: unset!important;
+  }
+  .slick-dots {
+      top: 160px;
+  }
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+
+    .promo-img-slide {
+        height: 110px;
+        display: unset!important;
+    }
+    .slick-dots {
+        top: 140px;
+    }
+    #explore-mot h2 {
+        font-size: 25px;
+    }
+}

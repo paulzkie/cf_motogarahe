@@ -1,0 +1,290 @@
+.moto-descrip {
+    font-size: 23px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-bottom: 60px;
+}
+.moto-img-slide{
+    /* width: 370px;
+    height: 280px; */
+    width: 100%;
+    height: auto;
+}
+.title-info{
+    background-color: #000000;
+}
+.title, .title-content, .title-page{
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+.desc-text{
+    font-family: 'Karla', Arial, sans-serif;
+}
+.slider-bg{
+    background-color: #ededed;
+}
+.slick.slick-initialized.slick-slider {
+  width: 954px;
+  margin: 0 auto;
+}
+
+.slick-next:before, .slick-prev:before {
+  color: #000 !important;
+  opacity: 1 !important;
+  font-size: 35px !important;
+}
+.title-slider{
+    padding-top: 30px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 36px;
+}
+.youtube{
+	padding:0 30px;
+}
+.youtube h2 {
+	font-size: 40px;
+}
+.youtube p{
+	padding-right: 400px;
+	font-size: 17px;
+	font-family: 'Karla', Arial, sans-serif;
+}
+
+.sec-box {
+	padding: 0 30px;
+}
+.video-youtube{
+	margin-top: 65px;
+	/* padding-right: 110px; */
+}
+.title-info {
+	margin-bottom: 50px;
+}
+.title-info h1{
+	font-size: 47px;
+}
+.title-info p{
+	font-size: 16px;
+	font-family: 'Karla', Arial, sans-serif;
+	margin-bottom: 0;
+
+}
+.title-header{
+	padding: 30px 0;
+}
+.step-title{
+	font-size: 40px;
+	font-family: 'Bebas Neue', Arial, sans-serif;
+	font-weight: 300;
+	margin-top: 50%;
+
+}
+.steps img{
+	height: auto;
+	width: 100%;
+}
+.text-container-right {
+	padding-right: 60px;
+}
+.sec-box{
+	margin-top: 110px;
+}
+#explore-mot{
+	margin-bottom: 80px
+}
+.bg-black{
+	background-color: #0d0d0d;
+	color: white;
+	font-size: 16px;
+	font-family: 'Karla', Arial, sans-serif;
+
+}
+#popular-mot{
+	background-color: #ededed;
+}
+
+.title2{
+
+	font-family: 'Bebas Neue', Arial, sans-serif;
+	font-size: 30px;
+	padding-top: 50px;
+
+}
+.carousel img{
+	height: 177px;
+	width:285px;
+}
+.mot-name{
+	font-family: 'Bebas Neue', Arial, sans-serif;
+	font-size: 23px;
+}
+
+.img-right{
+	padding: 0 40px;
+}
+#youtube-vid{
+	width :100%; 
+	height:550px;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .slick.slick-initialized.slick-slider {
+        width: 954px;
+        margin: 0 auto;
+    }
+}
+/* tablet desktop transition  */
+@media only screen and (max-width: 990px){
+	.youtube p {
+		padding-right: 0;
+		font-size: 17px;
+		font-family: 'Karla', Arial, sans-serif;
+		text-align: justify;
+	}
+	.youtube h2 {
+		font-size: 40px;
+	}
+	#youtube-vid {
+		width: 100%;
+		height: 360px;
+	}
+	.step-title {
+		font-size: 30px;
+		font-family: 'Bebas Neue', Arial, sans-serif;
+		font-weight: 300;
+		margin-top: 50%;
+	}
+	.steps p {
+		font-size: 14px;
+	}
+	.text-container-right {
+		padding-right: 15px;
+    }
+    .slick-initialized .slick-slide{
+        width: 330px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 670px;
+        margin: 0 auto;
+    }
+
+}
+	/* big tablet view */
+@media only screen and (max-width: 900px){
+	
+}
+
+/* medium tablet view */
+@media only screen and (max-width:850px ){
+	#youtube-vid {
+		width: 100%;
+		height: 430px;
+	}
+}
+	/* regular tablet view */
+@media only screen and (max-width:768px){
+	#youtube-vid {
+		width: 100%;
+		height: 380px;
+	}
+	.step-title {
+		font-size: 40px;
+		font-family: 'Bebas Neue', Arial, sans-serif;
+		font-weight: 300;
+		margin-top: 50%;
+	}
+	.img-right {
+		padding: 0 0px;
+	}
+	.sec-box {
+		margin-top: 40px;
+	}
+	.youtube {
+		padding: 0 0px;
+	}
+	.sec-box {
+		padding: 0 0px;
+	}
+	#youtube-vid {
+		width: 100%;
+		height: 410px;
+    }
+    .slick.slick-initialized.slick-slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+/* transition to small web browser view */
+@media only screen and (max-width:760px){
+	.youtube h2 {
+		font-size: 40px;
+		text-align: center;
+	}
+	.step-title {
+		font-size: 30px;
+		font-family: 'Bebas Neue', Arial, sans-serif;
+		font-weight: 300;
+		margin-top: 40px;
+	}
+}
+
+/* resize small web windows 1*/
+@media only screen and (max-width: 650px){
+	#youtube-vid {
+		width: 100%;
+		height: 350px;
+	}
+}
+/* resize small web windows 2 */
+@media only screen and (max-width: 550px){
+	#youtube-vid {
+		width: 100%;
+		height: 300px;
+	}
+}
+/* resize small web mac */
+@media only screen and (max-width: 500px){
+	#youtube-vid {
+		width: 100%;
+		height: 260px;
+	}
+}
+/* pixel 2  size*/
+@media only screen and (max-width: 414px){
+	#youtube-vid {
+		width: 100%;
+		height: 220px;	
+	}
+}
+/* pixel 1 size */
+@media only screen and (max-width: 411px){
+	#youtube-vid {
+		width: 100%;
+		height: 220px;
+	}
+}
+/* medium mobile device 2*/
+@media only screen and (max-width:375px){
+	#youtube-vid {
+		width: 100%;
+		height: 200px;
+	}
+}
+/* medium mobile device 1*/
+@media only screen and (max-width:360px){
+	#youtube-vid {
+		width: 100%;
+		height: 190px;
+	}
+}
+/* small mobile device */
+@media only screen and (max-width:320px){
+	#youtube-vid {
+		width: 100%;
+		height: 170px;
+	}
+	.title-info h1 {
+		font-size: 42px;
+	}
+	#explore-mot h2 {
+   		 font-size: 25px;
+  }
+}

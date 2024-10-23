@@ -1,0 +1,250 @@
+[index] 
+
+	css
+
+	<link rel="shortcut icon" href="favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />	
+
+    javascript
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/idangerous.swiper.min.js"></script>
+    <script src="js/jquery.viewportchecker.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/all.js"></script>
+
+[Search]
+
+ css 
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/all.js"></script>
+
+[About us] 
+
+css
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>	
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/all.js"></script>
+
+[faqs]
+
+css
+	
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="js/all.js"></script>
+
+[contact us]
+
+css
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en"></script>
+	<script src="js/map.js"></script>
+	<script src="js/all.js"></script>
+
+[blog]
+
+css
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/all.js"></script>
+
+[blog read]
+
+css
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/all.js"></script>
+
+[login]
+
+css
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>	
+
+javasccript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="js/all.js"></script>	
+
+[booking]
+
+css
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/idangerous.swiper.min.js"></script>
+	<script src="js/jquery.viewportchecker.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/jquery.circliful.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/all.js"></script>
+
+[detailed]
+
+css
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/idangerous.swiper.min.js"></script>
+		<script src="js/jquery.viewportchecker.min.js"></script>
+		<script src="js/isotope.pkgd.min.js"></script>
+		<script src="js/jquery.mousewheel.min.js"></script>
+		<script src="js/jquery.circliful.min.js"></script>
+		<script src="js/all.js"></script>
+
+[thank you]
+
+css
+
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+javascript
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+		script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/idangerous.swiper.min.js"></script>
+		<script src="js/jquery.viewportchecker.min.js"></script>
+		<script src="js/isotope.pkgd.min.js"></script>
+		<script src="js/jquery.mousewheel.min.js"></script>
+		<script src="js/jquery.circliful.min.js"></script>
+		<script src="js/all.js"></script>

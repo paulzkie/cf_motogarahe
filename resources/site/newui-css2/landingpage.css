@@ -1,0 +1,882 @@
+ /*.footer2{position:fixed;left:-22px;bottom:0;width:100%;color:#000;text-align:right;z-index:999}.clickhere{width:15%}.btnregomf{width:30%}.pb-145{padding-bottom:0}.minbox{left:10px;overflow:auto;position:fixed;z-index:2147483647;display:none;bottom:80px;border:solid 1px;border-radius:10px;padding:5px;background:#ffb52f none repeat scroll 0 0}.minbox:hover,.minbox:focus{color:#000;text-decoration:none;cursor:pointer}.popuptitle{height:35px}.dropdown:hover.dropdown-content{display:block}li.list-group-item.moto-result-nav-input-search{cursor:pointer;padding:5px 20px!important;font-size:13px!important}.activeSuggestion-nav-input-search{background-color:#fdcf07}.list-group-item{border:unset!important}.suggestions-nav-input-search{text-align:left;position:absolute;transition:all 0.3s ease-in-out;margin-top:0;width:80%;overflow-x:auto}.suggestions-div-nav-input-search{overflow-y:auto}.scrollySuggestion-nav-input-search{overflow-y:auto;z-index:99;height:30px}.ptb-55{padding:10px 0 15px}.no_items{padding:3px 10px;background:#fdcf07;margin:0 10px;border-radius:0;border:solid #000 2px}.modal-content{background:rgba(0,0,0,.9)!important}@media only screen and(min-width:1024px){nav{background:transparent;padding:0 20px;font-weight:600;font-family:bebas neue,Arial,sans-serif}.partner-descrip-mobile{display:none}.partner-descrip{display:block}.btn-more{position:absolute;margin-left:-250px;width:250px;margin-top:445px;height:45px;opacity:0}.img-dealer{display:inline-block;padding:20px;margin-right:40px;height:180px}.img-dealer img{width:75%;height:170px;cursor:auto}.btnregomf{width:30%}.pt-205{padding-top:160px}.brandbtn{position:absolute;width:115px;height:80px;margin-left:-110px;opacity:0;cursor:pointer}.slick-merchant img{width:50%}.mobile-portrait{display:none}.desktop-view{display:block}.img-brand{width:150px;margin-right:50px;display:inline-block;padding:20px}.has-submenu:hover.submenu{display:block;position:absolute;width:155px}.modal{display:none;position:fixed;z-index:99999;padding-top:110px;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,.4)}.modal-content{position:relative;background-color:#fefefe;margin:auto;padding:0;border:1px solid #888;width:80%;height:81%;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);-webkit-animation-name:animatetop;-webkit-animation-duration:0.4s;animation-name:animatetop;animation-duration:0.4s background:rgba(0,0,0,.9)}@-webkit-keyframes animatetop{from{top:-300px;opacity:0}to{top:0;opacity:1}}@keyframes animatetop{from{top:-300px;opacity:0}to{top:0;opacity:1}}.minimize{color:gray;float:right;font-size:28px;font-weight:700;background-color:transparent;border:none;margin-top:-20px}.minimize:hover,.minimize:focus{color:#fff;text-decoration:none;cursor:pointer}.close{color:grey;float:right;font-size:28px;font-weight:700}.close:hover,.close:focus{color:#fff!important;text-decoration:none;cursor:pointer}.modal-header{padding:2px 16px;background-color:#000;color:#fff}.modal-body{padding:2px 16px}.modal-footer{padding:2px 16px;background-color:#5cb85c;color:#fff}.regpos{bottom:0}.regnow{border:solid 1px;border-radius:10px;padding:3px 40px;font-size:18px;background:rgb(253,207,9)}.regnow:hover{background:rgb(253,207,9);border:solid 1px;border-radius:10px;padding:3px 40px}.brands{width:100%;margin-left:0}}@media only screen and(max-width:1023px){nav{background:transparent;padding:0 15px;font-weight:600;font-family:bebas neue,Arial,sans-serif}.modal{display:none;position:fixed;z-index:99999;padding-top:30px;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,.4)}.modal-content{position:relative;background-color:#fefefe;margin:auto;padding:0;border:1px solid #888;width:80%;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);-webkit-animation-name:animatetop;-webkit-animation-duration:0.4s;animation-name:animatetop;animation-duration:0.4s background:rgba(0,0,0,.9)}@-webkit-keyframes animatetop{from{top:-300px;opacity:0}to{top:0;opacity:1}}@keyframes animatetop{from{top:-300px;opacity:0}to{top:0;opacity:1}}.minimize{color:grey;float:right;font-size:28px;font-weight:700;background-color:transparent;border:none;margin-top:-20px;margin-right:-5px}.minimize:hover,.minimize:focus{color:#fff;text-decoration:none;cursor:pointer}.close{color:grey;float:right;font-size:28px;font-weight:700}.close:hover,.close:focus{color:#fff;text-decoration:none;cursor:pointer}.modal-header{padding:2px 16px;background-color:#000;color:#fff}.modal-body{padding:2px 16px}.modal-footer{padding:2px 16px;background-color:#5cb85c;color:#fff}.regnow{border:solid 1px;border-radius:10px;padding:3px 40px;font-size:18px;background:rgb(253,207,9)}}@media only screen and(max-width:823px){.partner-descrip-mobile{display:block}.partner-descrip{display:none}.partner-img-slide{height:100px}#vid{width:100%;padding-bottom:5px}.regpos{bottom:0}.regnow{border:solid 1px;border-radius:10px;padding:0 40px;font-size:12px}.brands{width:100%;margin-left:0}.fa-bars{display:block;color:#fff}.fa-times{display:block;color:#fff}.mobile-center{text-align:center;bottom:5px}.search-mobileview{bottom:0}.ptb-55{padding:0 0 20px}.align-items-center{margin-bottom:-10px}.item a{width:30%}.logo-small-device img{width:250px}.btnregomf{bottom:160px;position:relative}.pb-145{padding-bottom:0}.desktop-view{display:block}.mobile-portrait{display:none}.img-brand{width:150px;display:inline-block;padding:20px}.slick-dots{display:none!important}.brandbtn{position:absolute;width:115px;height:80px;margin-left:-110px;opacity:0;cursor:pointer;margin-top:-10px}}@media only screen and(max-width:768px){.btn-more{position:absolute;margin-left:-250px;width:250px;margin-top:330px;height:45px;opacity:0}.pt-205{padding-top:95px}.fa-bars{display:block;color:#fff}.fa-times{display:block;color:#fff}.suggestions-nav-input-search{text-align:left;position:absolute;transition:all 0.3s ease-in-out;margin-top:0;width:85%;overflow-x:auto}.popuptitle{height:16px}#vid{width:100%;height:90%;padding-bottom:5px}.regpos{bottom:5px}.regnow{border:solid 1px;border-radius:10px;padding:0 40px;font-size:12px;background:rgb(253,207,9)}.brands{width:100%;margin-left:0}.toggle{margin-left:10px}.logo-small-device img{margin-top:0}.btnregomf{bottom:160px;position:relative}.desktop-view{display:none}.mobile-portrait{display:block}.modal-header.close{padding:15px;margin:-15px-15px-15px-20px}.pb-130{padding-bottom:0px!important}.pt-135{padding-top:0px!important}}@media only screen and(max-width:667px){.btnregomf{bottom:134px;position:relative}}@media only screen and(max-width:568px){.btnregomf{bottom:118px;position:relative}.pb-145{padding-bottom:0}.item a{width:40%}nav{background:transparent;padding:0 5px;font-weight:600;font-family:bebas neue,Arial,sans-serif}.toggle{margin-left:0}}@media only screen and(max-width:414px){.slick-prev,.slick-next{top:75%!important}.slick-dotted.slick-slider{margin-bottom:0px!important}.bg-img.bg-banner{margin-top:0}.slick-next{right:8px!important;margin-top:-60px;z-index:9999}.slick-prev{left:1px!important;margin-top:-60px;z-index:9999}.slick-next:before,.slick-prev:before{color:#000;font-size:28px}.btn-more{position:absolute;margin-left:-130px;width:130px;margin-top:20px;height:80px;opacity:0}.modal{padding-top:200px}.btnregomf{bottom:85px;position:relative}.pb-145{padding-bottom:0}.pt-205{padding-top:130px}.img-brand{width:110px;display:inline-block;padding:20px}.img-dealer{display:inline-block;padding:20px;margin-right:40px;height:140px}.img-dealer img{width:100%}.slick-dealer{width:97%}.product-content-wrapper-2{bottom:30px}.brandbtn{position:absolute;width:115px;height:80px;margin-left:-110px;opacity:0;cursor:pointer;margin-top:-10px}.clickhere{width:60%}}@media only screen and(max-width:375px){.popuptitle{height:13px}.regpos{bottom:7px}.regnow{border:solid 1px;border-radius:10px;padding:0 20px;font-size:12px}.item a{width:60%}.img-brand{width:110px;display:inline-block;padding:20px}.btnregomf{bottom:80px;position:relative;width:35%}}@media only screen and(max-width:320px){.img-brand{width:90px;display:inline-block;padding:20px}}.img-brand img{width:100%}.img-brand form{width:100%;transition:transform 1s}.img-brand form:hover{-ms-transform:scale(1.5);-webkit-transform:scale(1.5);transform:scale(1.5);filter:grayscale(100%)}@media only screen and(min-width:2560px){#vid{width:100%;height:62%;padding-bottom:5px}}@media only screen and(min-width:1600px)and(max-width:1920px)and(max-height:1080px){.btnregomf{bottom:370px;position:relative}#vid{width:100%;height:73%;padding-bottom:5px}.modal-content{height:80%}}@media only screen and(min-width:1600px)and(max-width:1601px)and(max-height:1080px){.btnregomf{bottom:330px;position:relative}#vid{width:100%;height:72%;padding-bottom:5px}.modal-content{height:62%}}@media only screen and(min-width:1440px)and(max-height:900px){#vid{width:100%;height:60%!important;padding-bottom:5px}.modal-content{height:70%}.btnregomf{bottom:280px;position:relative}}@media only screen and(min-width:1360px)and(max-height:1024px){.btn-more{position:absolute;margin-left:-250px;width:250px;margin-top:585px;height:45px;opacity:0}.btnregomf{bottom:340px;position:relative}#vid{width:100%;height:90%!important;padding-bottom:5px}.product-wrapper.product-img,.product-accessories-active.product-wrapper{margin:10px 40px 10px}.modal-content{height:80%}}@media only screen and(min-width:1260px)and(max-width:1359px){.btnregomf{bottom:250px;position:relative}#vid{width:100%;height:58%!important;padding-bottom:5px}.modal-content{height:85%}.product-slider-active.product-wrapper,.product-accessories-active.product-wrapper{margin:10px 40px 10px}}@media only screen and(min-width:1024px)and(max-width:1025px)and(max-height:1366px){.btnregomf{bottom:205px;position:relative}#vid{width:100%;height:92%;padding-bottom:5px}.modal-content{height:55%}.product-content-wrapper-2{bottom:10px}}*/
+ 
+ .footer2 {
+                position: fixed;
+                left: -22px;
+                bottom: 0;
+                width: 100%;
+                color: black;
+                text-align: right;
+                z-index: 999;
+            } 
+            .clickhere{
+                width: 15%;
+            }
+ .btnregomf{
+              width: 30%;
+            }
+          .pb-145 {
+                padding-bottom: 0px;
+            }
+          .minbox{
+              display: none; 
+              left: 10px;
+              overflow: auto;
+              position: fixed;
+              z-index: 2147483647;
+              display: none;
+              bottom: 80px;
+              border: solid 1px;
+              border-radius: 10px;
+              padding: 5px;
+              background: #ffb52f none repeat scroll 0 0;
+            }
+            .minbox:hover,
+            .minbox:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .popuptitle{
+                height: 35px;
+            }
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            li.list-group-item.moto-result-nav-input-search{
+                cursor: pointer;
+                padding: 5px 20px!important;
+                font-size: 13px!important;
+            }
+            li.list-group-item.moto-result-nav-input-search:hover {
+            }
+            .activeSuggestion-nav-input-search{
+                background-color: #fdcf07;
+
+            }
+            .list-group-item{
+                border: unset!important;
+            }
+            .suggestions-nav-input-search{
+                text-align: left;
+                position: absolute;
+                transition: all 0.3s ease-in-out;
+                 height: 0; 
+                margin-top: 0px;
+                width: 80%;
+                overflow-x: auto;
+            }
+            .suggestions-div-nav-input-search{
+                overflow-y: auto;
+            }
+            .scrollySuggestion-nav-input-search{
+                overflow-y: auto;
+                z-index: 99;
+                height : 30px;
+            }
+            .ptb-55 {
+                padding: 10px 0px 15px;
+            }
+            .no_items{
+                padding: 3px 10px;
+                background: #fdcf07;
+                margin: 0 10px;
+                border-radius: 0px;
+                border: solid black 2px;
+            }
+            .modal-content{
+                background: rgba(0,0,0,0.9) !important;
+            }
+        @media only screen and (min-width: 1024px) {
+
+            nav {
+                background: transparent;
+                padding: 0 20px;
+                font-weight: 600;
+                font-family: bebas neue,Arial,sans-serif;
+            }
+            .partner-descrip-mobile{
+                display: none;
+            }    
+            .partner-descrip{
+                display: block;
+            }
+            .btn-more{
+                position: absolute;
+                margin-left: -250px;
+                width: 250px;
+                margin-top: 445px;
+                height: 45px;
+                opacity: 0;
+            }
+            .img-dealer{
+                display: inline-block;
+                padding: 20px;
+                margin-right: 40px;
+                height: 180px;
+            }
+            .img-dealer img{
+                width: 75%;
+                height: 170px;
+                cursor: auto;
+            }
+            .btnregomf{
+                width: 30%;
+            }
+            .pt-205 {
+                padding-top: 160px;
+            }
+            .brandbtn{
+                position: absolute;
+                width: 115px;
+                height: 80px;
+                margin-left: -110px;
+                opacity: .0;
+                cursor: pointer;
+            }
+            .slick-merchant img{
+                width: 50%;
+            }
+            .latest-product-img {
+                margin-left: 0px;
+                margin-right: -175px;
+            }
+            .latest-product-area .container-fluid {
+                padding: 0 0px 0 0;
+            }
+            #vid{
+                width: 95%;
+                height: 100%;
+            }
+            .latext-btn{
+                padding-top: 100px;
+            }
+            .pb-145{
+                padding-top: 145px;
+            }
+
+             The Modal (background) 
+            .mobile-portrait{
+              display: none;
+            }
+            .desktop-view{
+              display: block;
+            }
+            .img-brand{
+              width: 150px;
+              margin-right: 50px;
+              display: inline-block;
+              padding: 20px;
+            }
+            .has-submenu:hover .submenu{
+              display: block;
+              position: absolute;
+              width: 155px;
+            }
+            .modal {
+              display: none; 
+              position: fixed; 
+              z-index: 99999; 
+              padding-top: 110px; 
+              left: 0;
+              top: 0;
+              width: 100%; 
+              height: 100%;
+              overflow: auto; 
+              background-color: rgb(0,0,0); 
+              background-color: rgba(0,0,0,0.4); 
+            }
+
+             Modal Content 
+            .modal-content {
+              position: relative;
+              background-color: #fefefe;
+              margin: auto;
+              padding: 0;
+              border: 1px solid #888;
+              width: 80%;
+              height: 81%;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+              -webkit-animation-name: animatetop;
+              -webkit-animation-duration: 0.4s;
+              animation-name: animatetop;
+              animation-duration: 0.4s
+              background: rgba(0,0,0,0.9);
+            }
+
+             Add Animation 
+            @-webkit-keyframes animatetop {
+              from {top:-300px; opacity:0} 
+              to {top:0; opacity:1}
+            }
+
+            @keyframes animatetop {
+              from {top:-300px; opacity:0}
+              to {top:0; opacity:1}
+            }
+
+             The Close Button 
+            .minimize {
+              color: gray;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+              background-color: transparent;
+              border:none;
+              margin-top: -20px;
+            }
+
+            .minimize:hover,
+            .minimize:focus {
+              color: #fff;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .close {
+              color: grey;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #fff !important;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .modal-header {
+              padding: 2px 16px;
+              background-color: black;
+              color: white;
+            }
+
+            .modal-body {padding: 2px 16px;}
+
+            .modal-footer {
+              padding: 2px 16px;
+              background-color: #5cb85c;
+              color: white;
+            }
+            
+            .regpos{
+              bottom: 0px;
+            }
+            .regnow{
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 3px 40px;
+                font-size: 18px;
+                background: rgb(253,207,9);
+            }
+            .regnow:hover{
+                background: rgb(253,207,9);
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 3px 40px;
+            }
+            .brands{
+                width:100%;
+                margin-left: 0px;
+            }
+        }
+
+        @media only screen and (max-width: 1023px) {
+            nav {
+            background: transparent;
+            padding: 0 15px;
+            font-weight: 600;
+            font-family: bebas neue,Arial,sans-serif;
+            }
+            .modal {
+              display: none; 
+              position: fixed; 
+              z-index: 99999; 
+              padding-top: 30px;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%; 
+              overflow: auto; 
+              background-color: rgb(0,0,0); 
+              background-color: rgba(0,0,0,0.4); 
+            }
+
+             Modal Content 
+            .modal-content {
+              position: relative;
+              background-color: #fefefe;
+              margin: auto;
+              padding: 0;
+              border: 1px solid #888;
+              width: 80%;
+              height: 80%;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+              -webkit-animation-name: animatetop;
+              -webkit-animation-duration: 0.4s;
+              animation-name: animatetop;
+              animation-duration: 0.4s
+              background: rgba(0,0,0,0.9);
+            }
+
+             Add Animation 
+            @-webkit-keyframes animatetop {
+              from {top:-300px; opacity:0} 
+              to {top:0; opacity:1}
+            }
+
+            @keyframes animatetop {
+              from {top:-300px; opacity:0}
+              to {top:0; opacity:1}
+            }
+
+             The Close Button 
+            .minimize {
+                color: grey;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                background-color: transparent;
+                border:none;
+                margin-top: -20px;
+                margin-right: -5px;
+
+            }
+
+            .minimize:hover,
+            .minimize:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .close {
+                color: grey;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-header {
+                padding: 2px 16px;
+                background-color: black;
+                color: white;
+            }
+
+            .modal-body {padding: 2px 16px;}
+
+            .modal-footer {
+                padding: 2px 16px;
+                background-color: #5cb85c;
+                color: white;
+            }
+            .regnow{
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 3px 40px;
+                font-size: 18px;
+                background: rgb(253,207,9);
+            }
+        }
+
+        @media only screen and (max-width: 823px) {
+            .latest-product-img {
+                margin-left: 0px;
+                margin-right: -175px;
+            }
+            .latest-product-area .container-fluid {
+                padding: 0 0px 0 0;
+            }
+            #vid{
+                width: 80%;
+                height: 100%;
+            }
+            .latext-btn{
+                padding-top: 60px;
+                height: 50px;      
+            }
+            .latext-btn > a{
+                font-size:10px;
+                padding: 5px 9px 5px;
+            }
+            .pb-145{
+                padding-top: 145px;
+            }
+
+            .partner-descrip-mobile{
+                display: block;
+            }    
+            .partner-descrip{
+                display: none;
+            }
+            .partner-img-slide{
+                height: 100px;
+            }
+            #vid{
+                width:100%;
+                height: 55%;
+                padding-bottom: 5px;
+            }
+            .regpos{
+                bottom: 0px;
+            }
+            .regnow{
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 0px 40px;
+                font-size: 12px;
+            }
+            .brands{
+                width:100%;
+                margin-left: 0px;
+            }
+            .fa-bars{
+                display: block;
+                color: white;
+            }
+            .fa-times{
+                display: block;
+                color: white;
+            }
+            .mobile-center{
+                text-align: center;
+                bottom: 5px;
+            }
+            .search-mobileview{
+                bottom: 0px;
+            }
+            .ptb-55 {
+                padding: 0px 0px 20px;
+            }
+            .align-items-center {
+                margin-bottom: -10px;
+            }
+            .item a{
+                width: 30%;
+            }
+            .logo-small-device img{
+                width: 250px;
+            }
+            .btnregomf{
+                bottom: 160px;
+                 top: 100px; 
+                position: relative;    
+            }
+            .pb-145 {
+                padding-bottom: 0px;
+            }
+            .desktop-view{
+              display: block;
+            }
+            .mobile-portrait{
+              display: none;
+            }
+            .img-brand{
+              width: 150px;
+              display: inline-block;
+              padding: 20px;
+            }
+            .slick-dots{
+              display: none !important;
+            }
+            .brandbtn{
+                position: absolute;
+                width: 115px;
+                height: 80px;
+                margin-left: -110px;
+                opacity: .0;
+                cursor: pointer;
+                margin-top: -10px
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .latest-product-img {
+                margin-left: 0px;
+                margin-right: -175px;
+            }
+            .latest-product-area .container-fluid {
+                padding: 0 0px 0 0;
+            }
+            #vid{
+                width: 80%;
+                height: 100%;
+            }
+            .latext-btn{
+                padding-top: 60px;
+                height: 50px;
+            }
+            .latext-btn > a{
+                font-size:10px;
+                padding: 5px 9px 5px;
+            }
+            .pb-145{
+                padding-top: 145px;
+            }
+            .btn-more {
+                position: absolute;
+                margin-left: -250px;
+                width: 250px;
+                margin-top: 330px;
+                height: 45px;
+                opacity: 0;
+            }
+            .pt-205 {
+                padding-top: 95px;
+            }
+            .fa-bars{
+              display: block;
+              color: white;
+            }
+            .fa-times{
+              display: block;
+              color: white;
+            }
+            .suggestions-nav-input-search{
+                text-align: left;
+                position: absolute;
+                transition: all 0.3s ease-in-out;
+                 height: 30vh; 
+                margin-top: 0px;
+                width: 85%;
+                overflow-x: auto;
+            }
+            .popuptitle{
+                height: 16px;
+            }
+            #vid{
+            width:100%;
+            height: 90%;
+            padding-bottom: 5px;
+            }
+            .regpos{
+              bottom: 5px;
+            }
+            .regnow{
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 0px 40px;
+                font-size: 12px;
+                background: rgb(253,207,9);
+            }
+            .brands{
+                width:100%;
+                margin-left: 0px;
+            }
+            .toggle{
+                margin-left: 10px;
+            }
+            .logo-small-device img{
+                margin-top:0px;
+            }
+            .btnregomf{
+                bottom: 160px;
+                 top: 100px; 
+                position: relative;    
+            }
+            .desktop-view{
+                display: none;
+            }
+            .mobile-portrait{
+                display: block;
+            }
+            .modal-header .close {
+                padding: 15px;
+                margin: -15px -15px -15px -20px;
+            }
+            .pb-130 {
+                padding-bottom: 0px !important;
+            }
+            .pt-135 {
+                padding-top: 0px !important;
+            }
+
+        }
+        @media only screen and (max-width: 667px) {
+            .btnregomf{
+            bottom: 134px;
+             top: 100px; 
+            position: relative;    
+            }
+        }
+        @media only screen and (max-width: 568px) {
+            .btnregomf{
+            bottom: 118px;
+             top: 100px; 
+            position: relative;    
+            }
+            .pb-145 {
+                padding-bottom: 0px;
+            }
+            .item a{
+              width: 40%;
+            }
+            nav {
+                background: transparent;
+                padding: 0 5px;
+                font-weight: 600;
+                font-family: bebas neue,Arial,sans-serif;
+            }
+            .toggle{
+              margin-left: 0px;
+            }
+
+        }
+        @media only screen and (max-width: 414px) {
+            .slick-prev, .slick-next {
+                top: 75% !important;
+            }
+            .slick-dotted.slick-slider {
+                margin-bottom: 0px !important;
+            }
+            .bg-img .bg-banner{
+              margin-top: 0px;
+            }
+            .slick-next {
+                right: 8px !important;
+                margin-top: -60px;
+                z-index: 9999;
+            }
+            .slick-prev {
+                left: 1px !important;
+                margin-top: -60px;
+                z-index: 9999;
+            }
+            .slick-next:before, .slick-prev:before{
+                color: black;
+                font-size: 28px;
+            }
+            .btn-more{
+                  position: absolute;
+                  margin-left: -130px;
+                  width: 130px;
+                  margin-top: 20px;
+                  height: 80px;
+                  opacity: 0;
+            }
+            .modal{
+                padding-top: 200px;
+            }
+            .btnregomf{
+                bottom: 85px;
+                 top: 100px; 
+                position: relative;    
+            }
+            .pb-145 {
+                padding-bottom: 0px;
+            }
+            .pt-205 {
+                padding-top: 130px;
+            }
+            .img-brand{
+                width: 110px;
+                display: inline-block;
+                padding: 20px;
+                margin-right: 40px;
+            }
+            .img-dealer{
+                display: inline-block;
+                padding: 20px;
+                margin-right: 40px;
+                height: 140px;
+            }
+            .img-dealer img{
+              width: 100%;
+            }
+            .slick-dealer{
+              width: 97%;
+            }
+            .product-content-wrapper-2 {
+              bottom: 30px;
+            }
+            .brandbtn{
+                position: absolute;
+                width: 115px;
+                height: 80px;
+                margin-left: -110px;
+                opacity: .0;
+                cursor: pointer;
+                margin-top: -10px
+            }
+            .clickhere{
+                width: 60%;
+            }
+        }
+        @media only screen and (max-width: 375px) {
+            .popuptitle{
+                height: 13px;
+            }
+            .regpos{
+              bottom: 7px;
+            }
+            .regnow{
+                border:solid 1px;
+                border-radius: 10px;
+                padding: 0px 20px;
+                font-size: 12px;
+            }
+            .item a{
+              width: 60%;
+            }
+            .img-brand{
+              width: 110px;
+              display: inline-block;
+              padding: 20px;
+              margin-right: 40px;
+            }
+            .btnregomf{
+              bottom: 80px;
+              position: relative; 
+              width: 35%;
+
+            }
+        }
+        @media only screen and (max-width: 320px) {
+            .img-brand{
+              width: 90px;
+              display: inline-block;
+              padding: 20px;
+              margin-right: 40px;
+            }
+        }
+        
+        .img-brand img{
+          width: 100%;
+          transition: transform 1s;
+        }
+        .img-brand form{
+          width: 100%;
+          transition: transform 1s;
+        }
+        .img-brand form:hover {
+          -ms-transform: scale(1.5); 
+          -webkit-transform: scale(1.5); 
+          transform: scale(1.5);
+          filter: grayscale(100%); 
+        }
+        @media only screen and (min-width: 2560px) {
+          #vid{
+            width:100%;
+            height: 62%;
+            padding-bottom: 5px;
+          }
+        }
+        @media only screen and (min-width: 1600px) and (max-width: 1920px) and (max-height: 1080px){
+          .btnregomf{
+          bottom: 370px;
+           top: 100px; 
+          position: relative;    
+          }
+          #vid{
+            width:100%;
+            height: 73%;
+            padding-bottom: 5px;
+          }
+          .modal-content {
+            height: 80%;
+          }
+        }
+        @media only screen and (min-width: 1600px) and (max-width: 1601px) and (max-height: 1080px){
+          .btnregomf{
+              bottom: 330px;
+               top: 100px; 
+              position: relative;    
+          }
+          #vid{
+              width:100%;
+              height: 72%;
+              padding-bottom: 5px;
+          }
+          .modal-content {
+              height: 62%;
+          }
+        }
+        @media only screen and (min-width: 1440px) and (max-height: 900px){
+          #vid{
+            width:100%;
+            height: 60% !important;
+            padding-bottom: 5px;
+          }
+          .modal-content {
+            height: 70%;
+          }
+          .btnregomf{
+              bottom: 280px;
+               top: 100px; 
+              position: relative;    
+          }
+        }
+        @media only screen and (min-width: 1360px) and (max-height: 1024px){
+            .btn-more{
+                position: absolute;
+                margin-left: -250px;
+                width: 250px;
+                margin-top: 585px;
+                height: 45px;
+                opacity: 0;
+            }
+            
+            .btnregomf{
+              bottom: 340px;
+               top: 100px; 
+              position: relative;    
+            }
+              #vid{
+                width:100%;
+                height: 90% !important;
+                padding-bottom: 5px;
+              }
+              .product-wrapper .product-img , .product-accessories-active .product-wrapper {
+                  margin: 10px 40px 10px;
+              }
+              .modal-content {
+                height: 80%;
+              }
+        }
+        @media only screen and (min-width: 1260px) and (max-width: 1359px) {
+          .btnregomf{
+              bottom: 250px;
+               top: 100px; 
+              position: relative;    
+          }
+          #vid {
+              width: 100%;
+              height: 58% !important;
+              padding-bottom: 5px;
+          }
+          .modal-content {
+            height: 85%;
+          }
+          .product-slider-active .product-wrapper, .product-accessories-active .product-wrapper {
+              margin: 10px 40px 10px;
+          }
+
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1025px) and (max-height: 1366px){
+          .btnregomf{
+              bottom: 205px;
+               top: 100px; 
+              position: relative;    
+          }
+          #vid{
+              width:100%;
+              height: 92%;
+              padding-bottom: 5px;
+          }
+          .modal-content {
+              height: 55%;
+          }
+          .product-content-wrapper-2 {
+              bottom: 10px;
+          }
+        }
