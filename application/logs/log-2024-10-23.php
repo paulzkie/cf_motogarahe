@@ -5318,3 +5318,619 @@ DEBUG - 2024-10-23 17:16:37 --> Global POST and COOKIE data sanitized
 DEBUG - 2024-10-23 17:16:37 --> Language Class Initialized
 DEBUG - 2024-10-23 17:16:37 --> Language Class Initialized
 DEBUG - 2024-10-23 17:16:37 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:10 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> No URI present. Default controller set.
+DEBUG - 2024-10-23 20:42:10 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:10 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:10 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:10 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:10 --> A session cookie was not found.
+DEBUG - 2024-10-23 20:42:11 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:11 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:11 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:11 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:11 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> File loaded: application/views/newui/site/moto-home.php
+DEBUG - 2024-10-23 20:42:11 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:11 --> Total execution time: 0.4895
+DEBUG - 2024-10-23 20:42:11 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:11 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:11 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:11 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:11 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:11 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:11 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:11 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:11 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:11 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:12 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:12 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:12 --> Total execution time: 0.7496
+DEBUG - 2024-10-23 20:42:12 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:12 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:12 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:12 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:12 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:12 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:38 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> No URI present. Default controller set.
+DEBUG - 2024-10-23 20:42:38 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:38 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:38 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:38 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:38 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:38 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:38 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:38 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:38 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:38 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:38 --> File loaded: application/views/newui/site/moto-home.php
+DEBUG - 2024-10-23 20:42:38 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:38 --> Total execution time: 0.5378
+DEBUG - 2024-10-23 20:42:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:39 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:39 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:39 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:39 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:39 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:39 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:39 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:39 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:39 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:39 --> Total execution time: 0.5416
+DEBUG - 2024-10-23 20:42:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:40 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:40 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:40 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:49 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> No URI present. Default controller set.
+DEBUG - 2024-10-23 20:42:49 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:49 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:49 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:49 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:49 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:49 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:49 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:49 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:49 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:49 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:49 --> File loaded: application/views/newui/site/moto-home.php
+DEBUG - 2024-10-23 20:42:49 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:49 --> Total execution time: 0.5090
+DEBUG - 2024-10-23 20:42:49 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:50 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:50 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:50 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:50 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:50 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:50 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:50 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:50 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:50 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:50 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:50 --> Total execution time: 0.5298
+DEBUG - 2024-10-23 20:42:50 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:50 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:50 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:50 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:50 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:50 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:51 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> No URI present. Default controller set.
+DEBUG - 2024-10-23 20:42:51 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:51 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:51 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:51 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:51 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:51 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:51 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:51 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:51 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:51 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:51 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:51 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:51 --> File loaded: application/views/newui/site/moto-home.php
+DEBUG - 2024-10-23 20:42:51 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:52 --> Total execution time: 0.5256
+DEBUG - 2024-10-23 20:42:52 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:52 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:52 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Session Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:42:52 --> Session routines successfully run
+DEBUG - 2024-10-23 20:42:52 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:42:52 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:42:52 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:42:52 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:42:52 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:52 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:42:52 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Model Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Final output sent to browser
+DEBUG - 2024-10-23 20:42:52 --> Total execution time: 0.5462
+DEBUG - 2024-10-23 20:42:52 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Config Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:52 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:52 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:42:52 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> URI Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Router Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Output Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Security Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> Input Class Initialized
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:52 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:42:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:42:53 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:53 --> Language Class Initialized
+DEBUG - 2024-10-23 20:42:53 --> Language Class Initialized

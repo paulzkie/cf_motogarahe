@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-
+		echo "<h1 style='color:black'>ASD</h1>";
 		$header = [];
 		$content = [];
 		$header['header_title'] = 'Home';
