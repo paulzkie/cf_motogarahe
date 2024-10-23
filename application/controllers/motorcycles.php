@@ -2133,8 +2133,9 @@ class Motorcycles extends CI_Controller {
 		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
 		$config['num_tag_close'] = '</span></li>';
 		$this->pagination->initialize($config);
-		$offset = ($filter - 1) * $config["per_page"];
-		$this->db->limit( $config["per_page"] , $offset);
+		//$offset = ($filter - 1) * $config["per_page"];
+		
+		//$this->db->limit( $config["per_page"] , $offset);
 		
 		$this->db->flush_cache();
 // 		$content['motorcycles'] = $this->_sort_dealers($slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice);
