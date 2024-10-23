@@ -6696,3 +6696,2724 @@ DEBUG - 2024-10-23 20:46:10 --> File loaded: application/views/newui/site/moto-d
 DEBUG - 2024-10-23 20:46:10 --> File loaded: application/views/newui/template/site_footer.php
 DEBUG - 2024-10-23 20:46:10 --> Final output sent to browser
 DEBUG - 2024-10-23 20:46:10 --> Total execution time: 0.7014
+DEBUG - 2024-10-23 20:46:54 --> Config Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:46:54 --> URI Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Router Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Output Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Security Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Input Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:46:54 --> Language Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Session Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:46:54 --> Session routines successfully run
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:46:54 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:46:54 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:46:54 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:54 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:54 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Model Class Initialized
+ERROR - 2024-10-23 20:46:54 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:46:54 --> Config Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:46:54 --> URI Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Router Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Output Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Security Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> Input Class Initialized
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:55 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:46:55 --> Language Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Session Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:46:55 --> Session routines successfully run
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:46:55 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:46:55 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:46:55 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:55 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:55 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:46:55 --> Model Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Model Class Initialized
+DEBUG - 2024-10-23 20:46:55 --> Model Class Initialized
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:46:55 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:46:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:46:55 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:46:55 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:46:55 --> Final output sent to browser
+DEBUG - 2024-10-23 20:46:55 --> Total execution time: 0.7174
+DEBUG - 2024-10-23 20:46:59 --> Config Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:46:59 --> URI Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Router Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Output Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Security Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Input Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:46:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:46:59 --> Language Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:46:59 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:00 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:00 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:00 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:00 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:00 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:00 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:00 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:00 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:00 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:00 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:00 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:00 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:47:00 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:00 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:01 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:01 --> Total execution time: 0.7030
+DEBUG - 2024-10-23 20:47:03 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:03 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:03 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:03 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:03 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:03 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:03 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:03 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:04 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:04 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:04 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:04 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:04 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:04 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:04 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:04 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:04 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:47:04 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:47:04 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:04 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:04 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:04 --> Total execution time: 0.7170
+DEBUG - 2024-10-23 20:47:08 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:08 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:08 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:08 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:08 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:08 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:09 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:09 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:09 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:09 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:09 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:09 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:09 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:09 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:09 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:09 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:09 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:09 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:10 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:10 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:10 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:10 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:10 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:10 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:47:10 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:10 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:10 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:10 --> Total execution time: 0.7377
+DEBUG - 2024-10-23 20:47:12 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:12 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:12 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:12 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:12 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:12 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:12 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:12 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:12 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:12 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:13 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:47:13 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:13 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:13 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:13 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:13 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:13 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:13 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:13 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:13 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:13 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:13 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:13 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:13 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:47:13 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:47:13 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:13 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:13 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:13 --> Total execution time: 0.7177
+DEBUG - 2024-10-23 20:47:16 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:16 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:16 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:16 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:16 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:16 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:16 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:16 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:17 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:17 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:17 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:17 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:17 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:17 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:17 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:17 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:17 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:17 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:47:17 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:17 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:17 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:17 --> Total execution time: 0.7141
+DEBUG - 2024-10-23 20:47:20 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:20 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:20 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:20 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:20 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:20 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:20 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:20 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:20 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:20 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:20 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:20 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:47:20 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:20 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:21 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:21 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:21 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:21 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:21 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:21 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:21 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:21 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:21 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:21 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:21 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:47:21 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:47:21 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:21 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:21 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:21 --> Total execution time: 0.7309
+DEBUG - 2024-10-23 20:47:24 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:24 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:24 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:24 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:24 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:24 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:24 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:24 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:25 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:25 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:25 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:25 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:25 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:25 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:25 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:25 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:25 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:47:25 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:25 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:25 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:25 --> Total execution time: 0.7176
+DEBUG - 2024-10-23 20:47:29 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:29 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:29 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:29 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:29 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:29 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:29 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:29 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:29 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:29 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:29 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:47:29 --> Config Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:47:29 --> URI Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Router Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Output Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Security Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Input Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:47:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:47:29 --> Language Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Session Class Initialized
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:47:29 --> Session routines successfully run
+DEBUG - 2024-10-23 20:47:29 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:47:29 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:47:30 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:47:30 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:47:30 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:47:30 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:30 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:30 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:30 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:47:30 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Model Class Initialized
+DEBUG - 2024-10-23 20:47:30 --> Model Class Initialized
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:47:30 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:47:30 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:47:30 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:47:30 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:47:30 --> Final output sent to browser
+DEBUG - 2024-10-23 20:47:30 --> Total execution time: 0.7415
+DEBUG - 2024-10-23 20:48:35 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:35 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:35 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:35 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:35 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:35 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:35 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:35 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:35 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:35 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:35 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:35 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:35 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:36 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:36 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:36 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:36 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:36 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:36 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:36 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:36 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:36 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:36 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:36 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:48:37 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:48:37 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:48:37 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:48:37 --> Final output sent to browser
+DEBUG - 2024-10-23 20:48:37 --> Total execution time: 0.7595
+DEBUG - 2024-10-23 20:48:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:39 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:39 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:39 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:39 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:39 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:39 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:39 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:40 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Array to string conversion C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2828
+DEBUG - 2024-10-23 20:48:40 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:40 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:40 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:40 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:40 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:40 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:40 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:40 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:40 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:40 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:40 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:40 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:48:40 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:48:40 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 457
+DEBUG - 2024-10-23 20:48:40 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:48:40 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:48:40 --> Final output sent to browser
+DEBUG - 2024-10-23 20:48:40 --> Total execution time: 0.7396
+DEBUG - 2024-10-23 20:48:43 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:43 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:43 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:43 --> Session garbage collection performed.
+DEBUG - 2024-10-23 20:48:43 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:43 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:43 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:43 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:43 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:44 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:44 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:44 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:44 --> Session garbage collection performed.
+DEBUG - 2024-10-23 20:48:44 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:44 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:44 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:44 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:44 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:44 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:48:44 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:48:44 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:48:44 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:48:44 --> Final output sent to browser
+DEBUG - 2024-10-23 20:48:44 --> Total execution time: 0.7724
+DEBUG - 2024-10-23 20:48:48 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:48 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:48 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:48 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:48 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:48 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:48 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:48 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:48 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:48 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:48 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+ERROR - 2024-10-23 20:48:48 --> Severity: Notice  --> Array to string conversion C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2828
+DEBUG - 2024-10-23 20:48:48 --> Config Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:48:48 --> URI Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Router Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Output Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Security Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Input Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:48:48 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:48:48 --> Language Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:48:48 --> Session Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:48:49 --> Session routines successfully run
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:48:49 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:48:49 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:48:49 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:49 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:49 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:48:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:48:49 --> Model Class Initialized
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:48:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:48:49 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:48:49 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 457
+DEBUG - 2024-10-23 20:48:49 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:48:49 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:48:49 --> Final output sent to browser
+DEBUG - 2024-10-23 20:48:49 --> Total execution time: 0.7684
+DEBUG - 2024-10-23 20:49:36 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:36 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:36 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:36 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:36 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:36 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:36 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:36 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:36 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:36 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:37 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:37 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:37 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:37 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:37 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:37 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:37 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:37 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:37 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:37 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:37 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:37 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:49:37 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:49:37 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:49:37 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:49:37 --> Final output sent to browser
+DEBUG - 2024-10-23 20:49:37 --> Total execution time: 0.7289
+DEBUG - 2024-10-23 20:49:38 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:38 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:39 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:39 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:39 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:39 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:39 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Array to string conversion C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2828
+DEBUG - 2024-10-23 20:49:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:39 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:39 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:39 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:39 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:39 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:39 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:39 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:40 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:49:40 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:49:40 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 457
+DEBUG - 2024-10-23 20:49:40 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:49:40 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:49:40 --> Final output sent to browser
+DEBUG - 2024-10-23 20:49:40 --> Total execution time: 0.7258
+DEBUG - 2024-10-23 20:49:49 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:49 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:49 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:49 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:50 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:50 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:50 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:50 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:50 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:50 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:50 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:50 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:50 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:50 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:50 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:50 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:51 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:51 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:49:51 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:49:51 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:49:51 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:49:51 --> Final output sent to browser
+DEBUG - 2024-10-23 20:49:51 --> Total execution time: 0.7439
+DEBUG - 2024-10-23 20:49:53 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:53 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:53 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:53 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:53 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:53 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:54 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:54 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:54 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:54 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:54 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:54 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:54 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:49:54 --> Config Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:49:54 --> URI Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Router Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Output Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Security Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Input Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:49:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:49:54 --> Language Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Session Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:49:54 --> Session routines successfully run
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:49:54 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:49:54 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:49:54 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:55 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:49:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:55 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:49:55 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:49:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:49:55 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:55 --> Model Class Initialized
+DEBUG - 2024-10-23 20:49:55 --> Model Class Initialized
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:49:55 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:49:55 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:49:55 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:49:55 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:49:55 --> Final output sent to browser
+DEBUG - 2024-10-23 20:49:55 --> Total execution time: 0.7550
+DEBUG - 2024-10-23 20:50:00 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:00 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:00 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:00 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:00 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:00 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:00 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:00 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:00 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:00 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:00 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:01 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:01 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:01 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:01 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:01 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:01 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:01 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:01 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:01 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:01 --> Model Class Initialized
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:01 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:50:01 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:50:01 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:50:01 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:50:01 --> Final output sent to browser
+DEBUG - 2024-10-23 20:50:01 --> Total execution time: 0.7274
+DEBUG - 2024-10-23 20:50:39 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:39 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:39 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:44 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:44 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:44 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:44 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:44 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:44 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:44 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:44 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:44 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:44 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:45 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:45 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:45 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:45 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:45 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:45 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:45 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:45 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:45 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:45 --> Model Class Initialized
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:45 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:50:45 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:50:45 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:50:45 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:50:45 --> Final output sent to browser
+DEBUG - 2024-10-23 20:50:45 --> Total execution time: 0.7127
+DEBUG - 2024-10-23 20:50:48 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:48 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:48 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:48 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:48 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:48 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:48 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:48 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:48 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:48 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Model Class Initialized
+ERROR - 2024-10-23 20:50:48 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2827
+DEBUG - 2024-10-23 20:50:48 --> Config Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:50:48 --> URI Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Router Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Output Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Security Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> Input Class Initialized
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:48 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:50:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:50:49 --> Language Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Session Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:50:49 --> Session routines successfully run
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:50:49 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:50:49 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:50:49 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:49 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:49 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:50:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:50:49 --> Model Class Initialized
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:50:49 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:50:49 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:50:49 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:50:49 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:50:49 --> Final output sent to browser
+DEBUG - 2024-10-23 20:50:49 --> Total execution time: 0.7483
+DEBUG - 2024-10-23 20:51:11 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:11 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:11 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:11 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:11 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:11 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:11 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:11 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:11 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:11 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:11 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:51:11 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:51:11 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:51:11 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:51:11 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:51:11 --> Final output sent to browser
+DEBUG - 2024-10-23 20:51:11 --> Total execution time: 0.7601
+DEBUG - 2024-10-23 20:51:14 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:14 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:14 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:15 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:15 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:15 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:15 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:15 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:15 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:15 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:15 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:15 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:15 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:15 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:15 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:16 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:16 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:16 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:16 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:16 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:16 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:51:16 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:51:16 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:51:16 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:51:16 --> Final output sent to browser
+DEBUG - 2024-10-23 20:51:16 --> Total execution time: 0.7503
+DEBUG - 2024-10-23 20:51:18 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:18 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:18 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:18 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:18 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:18 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:18 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:18 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:18 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:19 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:19 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2826
+DEBUG - 2024-10-23 20:51:19 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:19 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:19 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:19 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:19 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:19 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:19 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:19 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:19 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:51:19 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:51:19 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:51:19 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:51:19 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:51:19 --> Final output sent to browser
+DEBUG - 2024-10-23 20:51:20 --> Total execution time: 0.7922
+DEBUG - 2024-10-23 20:51:22 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:22 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:22 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:22 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:22 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:22 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:22 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:22 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:23 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:23 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:23 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:23 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:23 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:23 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:23 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:23 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:51:23 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:51:23 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:51:23 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:51:23 --> Final output sent to browser
+DEBUG - 2024-10-23 20:51:23 --> Total execution time: 0.7754
+DEBUG - 2024-10-23 20:51:26 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:26 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:26 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:26 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:26 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:27 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:27 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:27 --> Severity: Warning  --> count(): Parameter must be an array or an object that implements Countable C:\wamp64\www\cf_motogarahe\application\controllers\motorcycles.php 2826
+DEBUG - 2024-10-23 20:51:27 --> Config Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:51:27 --> URI Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Router Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Output Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Security Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Input Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:51:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:51:27 --> Language Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Session Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:51:27 --> Session routines successfully run
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:51:27 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:51:27 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:51:27 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+DEBUG - 2024-10-23 20:51:27 --> Model Class Initialized
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:51:27 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:51:27 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:51:28 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:51:28 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:51:28 --> Final output sent to browser
+DEBUG - 2024-10-23 20:51:28 --> Total execution time: 0.7677
+DEBUG - 2024-10-23 20:52:46 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:46 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:46 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:46 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:46 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:46 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:46 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:46 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:47 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:47 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:47 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:47 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:47 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:47 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:47 --> Model Class Initialized
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:47 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:52:47 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:52:47 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:52:47 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:52:47 --> Final output sent to browser
+DEBUG - 2024-10-23 20:52:47 --> Total execution time: 0.7553
+DEBUG - 2024-10-23 20:52:49 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:49 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:49 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:49 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:49 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:49 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:49 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:49 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:49 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:49 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:49 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:49 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:50 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:50 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:50 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:50 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:50 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:50 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:50 --> Model Class Initialized
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:52:50 --> File loaded: application/views/newui/template/site_header.php
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+ERROR - 2024-10-23 20:52:50 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\site\moto-dealer-list.php 417
+DEBUG - 2024-10-23 20:52:50 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:52:50 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:52:50 --> Final output sent to browser
+DEBUG - 2024-10-23 20:52:50 --> Total execution time: 0.7930
+DEBUG - 2024-10-23 20:52:53 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:53 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:53 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:53 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:53 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:53 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:53 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:53 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:53 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:53 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:53 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:53 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Config Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Hooks Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Utf8 Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> UTF-8 Support Enabled
+DEBUG - 2024-10-23 20:52:54 --> URI Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Router Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Output Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Security Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Input Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> XSS Filtering completed
+DEBUG - 2024-10-23 20:52:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2024-10-23 20:52:54 --> Language Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Loader Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Database Driver Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Session Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: string_helper
+DEBUG - 2024-10-23 20:52:54 --> Session routines successfully run
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: form_helper
+DEBUG - 2024-10-23 20:52:54 --> Form Validation Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Controller Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: url_helper
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: date_helper
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: breadcrumb_helper
+DEBUG - 2024-10-23 20:52:54 --> Helper loaded: file_helper
+DEBUG - 2024-10-23 20:52:54 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:54 --> Google Maps Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:54 --> Cart Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Pagination Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2024-10-23 20:52:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Model Class Initialized
+DEBUG - 2024-10-23 20:52:54 --> Model Class Initialized
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Undefined variable: motorcycle C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Undefined variable: motorcycles C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+ERROR - 2024-10-23 20:52:54 --> Severity: Notice  --> Trying to access array offset on value of type null C:\wamp64\www\cf_motogarahe\application\views\newui\template\site_header.php 69
+DEBUG - 2024-10-23 20:52:54 --> File loaded: application/views/newui/template/site_header.php
+DEBUG - 2024-10-23 20:52:54 --> File loaded: application/views/newui/site/moto-dealer-list.php
+DEBUG - 2024-10-23 20:52:54 --> File loaded: application/views/newui/template/site_footer.php
+DEBUG - 2024-10-23 20:52:54 --> Final output sent to browser
+DEBUG - 2024-10-23 20:52:54 --> Total execution time: 0.7601

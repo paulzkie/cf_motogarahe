@@ -2821,10 +2821,9 @@ class Motorcycles extends CI_Controller {
 		$dea_name = $this->clean_name($dea_name);
 		// echo $dem_id;
 		$current_url  =  $this->session->userdata('current_url');
-	
 		$selected_dealers = $this->session->userdata('selected_dealers');
 
-		if ( count($selected_dealers) <= 2 ) {
+		if ( count((array)$selected_dealers) <= 2 ) {
 			$selected_dealers[$dem_id]  = [$dem_id, $dea_id,$dea_name];
 			$this->session->set_userdata('selected_dealers', $selected_dealers);	
 
