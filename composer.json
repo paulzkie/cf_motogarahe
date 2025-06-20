@@ -11,15 +11,15 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": ">=7.4 || ^8.0",
-		"phpmailer/phpmailer": "^6.6",
-		"aws/aws-sdk-php": "^3.276"
+		"php": ">=5.4.8",
+		"phpmailer/phpmailer": "5.2.26",
+		"aws/aws-sdk-php": "^3.112"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
 	"require-dev": {
-		"mikey179/vfsstream": "^1.6",
-    	"phpunit/phpunit": "^9.5"
+		"mikey179/vfsstream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*"
 	}
 }
