@@ -198,7 +198,7 @@ else{
   height:auto;
   
 } */
-/* css shape design of promo *//
+/* css shape design of promo */
 @media only screen and (max-width:1920px){
     .xl-ads1{
       position:absolute;
