@@ -60,13 +60,16 @@ $db_password = '';
 $db_database = '';
 
 if(in_array($_SERVER["REMOTE_ADDR"], $whitelist)){
-	$db_host = "localhost";
-	$db_username = "root";
-	$db_password = "";
-	$db_database = "cf_motogarahe";
-
+	// $db_host = "localhost";
+	// $db_username = "root";
+	// $db_password = "";
+	// $db_database = "cf_motogarahe";
+	$db_host = "srv1154.hstgr.io";
+	$db_username = "u460154995_motogarahe";
+	$db_password = "pauLzkie21";
+	$db_database = "u460154995_motogarahe";
 }else{
-	$db_host = "localhost";
+	$db_host = "srv1154.hstgr.io";
 	$db_username = "u460154995_motogarahe";
 	$db_password = "pauLzkie21";
 	$db_database = "u460154995_motogarahe";

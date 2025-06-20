@@ -198,7 +198,30 @@ else{
   height:auto;
   
 } */
-/* css shape design of promo */
+/* css shape design of promo *//
+@media only screen and (max-width:1920px){
+    .xl-ads1{
+      position:absolute;
+      height:auto;
+      width: 150px;
+      right: 20px;
+      margin-top: -60px;
+    }
+    .xl-ads3{
+      position:absolute;
+      height:auto;
+      width: 150px;
+      right: 20px;
+      margin-top:115px;
+    }
+    .xl-ads4{
+      position:absolute;
+      height:auto;
+      width: 150px;
+      right: 20px;
+      margin-top:285px;
+    }
+}
 @media only screen and (min-width:1800px){
     .motorcycles{
         min-height:1240px;
