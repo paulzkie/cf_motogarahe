@@ -38,7 +38,7 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
       <!-- <meta property="og:image:width" content="212">
       <meta property="og:image:height" content="212"> -->
       <meta property="og:description" content="<?php echo $header_desc?>">
-      <meta property="og:image" content="<?php  $header_featured_img ? echo base_url($header_featured_img) : echo 'https://www.motogarahe.com/resources/site/images/logo.jpg' ?> ">
+      <meta property="og:image" content="<?php echo $header_featured_img ? base_url($header_featured_img) : 'https://www.motogarahe.com/resources/site/images/logo.jpg'; ?>">
       <meta property="og:url" content="<?php echo current_url()?>">
       <meta property="og:title" content="<?php echo $header_title . AUTHOR ?>">
 
@@ -46,7 +46,7 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="<?php echo $header_title . AUTHOR ?>">
       <meta name="twitter:description" content="<?php echo $header_desc?>">
-      <meta name="twitter:image" content="<?php  $header_featured_img ? echo base_url($header_featured_img) : echo 'https://www.motogarahe.com/resources/site/images/logo.jpg' ?> ">
+      <meta name="twitter:image" content="<?php echo $header_featured_img ? base_url($header_featured_img) : 'https://www.motogarahe.com/resources/site/images/logo.jpg'; ?>">
 
 
       <!-- <link rel="shortcut icon" type="image/x-icon" href="<?php echo SITE_IMG_PATH?>favicon.png" /> -->

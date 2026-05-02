@@ -2149,9 +2149,9 @@ class Googlemaps {
 		}else{
 			$this->output_js_contents .= '
 				if (window.addEventListener) {
-					window.addEventListener('load', initialize_'.$this->map_name.');
+					window.addEventListener(\'load\', initialize_'.$this->map_name.');
 				} else {
-					window.attachEvent && window.attachEvent('onload', initialize_'.$this->map_name.');
+					window.attachEvent && window.attachEvent(\'onload\', initialize_'.$this->map_name.');
 				}
 			';
 		}
