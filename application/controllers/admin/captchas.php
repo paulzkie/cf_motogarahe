@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Captchas extends CI_Controller {
+	private $allowed_search_types = array('cap_code', 'usr_username');
 
 	public function __construct()
 	{
@@ -77,8 +78,8 @@ class Captchas extends CI_Controller {
 			} else {
 				$data = $this->input->post();
 
-				$search_value = $data['search_val'];
-				$search_type = $data['search_type'];
+				$search_value = trim((string) $data['search_val']);
+				$search_type = in_array($data['search_type'], $this->allowed_search_types, true) ? $data['search_type'] : 'cap_code';
 
 				$data = [];
 

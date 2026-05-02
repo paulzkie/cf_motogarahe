@@ -8,7 +8,7 @@ class Captcha extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url','date', 'form','breadcrumb'));
-		$this->load->library(array('form_validation', 'security', 'session'));
+		$this->load->library(array('form_validation', 'security', 'session', 'request_throttle'));
 		$this->load->model('model_base');
         $this->load->model('model_login');
         
@@ -31,25 +31,31 @@ class Captcha extends CI_Controller {
 
 
 		if($this->input->post()) {
+			$submit_limit = $this->request_throttle->hit('member_captcha_submit', $this->input->ip_address() . '|' . $this->session->userdata('usr_id'), 20, 600);
+			if (!$submit_limit['allowed']) {
+				$content['msg_error'] = 'Too many captcha submissions. Please wait ' . $submit_limit['retry_after'] . ' seconds and try again.';
+			} else {
 
-            $this->form_validation->set_rules('cap_code', 'Captcha', 'required|trim');
-            $this->form_validation->set_rules('cap_codeConf', 'Captcha Code', 'required|trim|matches[cap_code]');
+			$this->form_validation->set_rules('cap_code', 'Captcha', 'required|trim|alpha_numeric_spaces|max_length[64]');
+			$this->form_validation->set_rules('cap_codeConf', 'Captcha Code', 'required|trim|alpha_numeric_spaces|max_length[64]|matches[cap_code]');
 
             if ($this->form_validation->run() == FALSE) {
                 $content['msg_error'] = validation_errors();
             } else {
                 // success
-                $data = $this->input->post();
-
-                $data['usr_id'] = $this->session->userdata('usr_id');
-                $data['usr_username'] = $this->session->userdata('usr_username');
-                $data['cap_amount'] = 0.040;
-                $data['cap_created'] = $this->getDatetimeNow();
+				$data = array(
+					'cap_code' => trim(strip_tags((string) $this->input->post('cap_code', TRUE))),
+					'usr_id' => $this->session->userdata('usr_id'),
+					'usr_username' => trim(strip_tags((string) $this->session->userdata('usr_username'))),
+					'cap_amount' => 0.040,
+					'cap_created' => $this->getDatetimeNow(),
+				);
 
                 $this->model_base->insert_data($data, 'captcha');
                 $this->session->set_flashdata('msg_success', 'Added Captcha!');	
                 redirect('member/captcha','refresh');
             }
+			}
 		}
 
 		$this->load->view('member/captcha', $content);	

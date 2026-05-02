@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url','date', 'form','breadcrumb'));
-		$this->load->library(array('form_validation', 'security', 'session'));
+		$this->load->library(array('form_validation', 'security', 'session', 'request_throttle'));
 		$this->load->model('model_base');
 		$this->load->model('model_login');
 
@@ -102,6 +102,10 @@ class Login extends CI_Controller {
 		
 
 		if($this->input->post('login_mode')) {
+			$login_limit = $this->request_throttle->hit_login_buckets('member_login', $this->input->ip_address(), $this->input->post('usr_username', TRUE));
+			if (!$login_limit['allowed']) {
+				$content['msg_error'] = 'Too many login attempts. Please wait ' . $login_limit['retry_after'] . ' seconds and try again.';
+			} else {
 
 
 			$this->form_validation->set_rules('usr_username', 'Username', 'required|trim');
@@ -119,6 +123,7 @@ class Login extends CI_Controller {
     			$user = $this->model_login->login_user($data, $table);
 
     			if ( count( $user ) >= 1 ) {
+					$this->request_throttle->clear_login_buckets('member_login', $this->input->ip_address(), $this->input->post('usr_username', TRUE));
     				$this->session->set_flashdata('msg_success', 'Successfully log in!');	
 					$this->session->set_userdata($user[0]);
 					
@@ -132,6 +137,7 @@ class Login extends CI_Controller {
     			} else {	
     				$content['msg_error'] = 'Invalid Account';
     			}
+			}
 			}
 				
 		}

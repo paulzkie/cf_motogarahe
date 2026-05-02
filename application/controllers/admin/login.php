@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url','date', 'form','breadcrumb'));
-		$this->load->library(array('form_validation', 'security', 'session'));
+		$this->load->library(array('form_validation', 'security', 'session', 'request_throttle'));
 	}
 
 	public function index()
@@ -28,6 +28,10 @@ class Login extends CI_Controller {
 			$this->form_validation->set_rules('acc_password', 'Password', 'required|trim|min_length[8]');
 
 			if($this->input->post()) {
+				$login_limit = $this->request_throttle->hit_login_buckets('admin_login', $this->input->ip_address(), $this->input->post('acc_username', TRUE));
+				if (!$login_limit['allowed']) {
+					$content['msg_error'] = 'Too many login attempts. Please wait ' . $login_limit['retry_after'] . ' seconds and try again.';
+				} else {
 
 				if ($this->form_validation->run() == FALSE) {
 					$content['msg_error'] = validation_errors();
@@ -39,6 +43,7 @@ class Login extends CI_Controller {
 	    			$account = $this->model_login->login($data, $table);
 
 	    			if ( count( $account ) >= 1 ) {
+		    			$this->request_throttle->clear_login_buckets('admin_login', $this->input->ip_address(), $this->input->post('acc_username', TRUE));
 	    				$this->session->set_flashdata('msg_success', 'Successfully log in!');	
 	    				$this->session->set_userdata($account[0]);
 	    				redirect('admin/motorcycles','refresh');
@@ -47,6 +52,7 @@ class Login extends CI_Controller {
 	    				$content['msg_error'] = 'Invalid Account';
 	    			}
 				}
+					}
 			}
 			$this->load->view('admin/login', $content);	
 		}

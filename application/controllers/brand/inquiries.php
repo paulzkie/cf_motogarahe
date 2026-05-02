@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Inquiries extends CI_Controller {
+	private $allowed_search_types = array('mot_model', 'dealers.dea_name', 'mot_brand');
 
 	public function __construct()
 	{
@@ -20,6 +21,9 @@ class Inquiries extends CI_Controller {
 
     public function index($search_type = "xallx", $search_val ="xallx", $filter = 1 )
 	{
+		$search_type = $this->normalize_search_type($search_type);
+		$search_val = $this->normalize_search_value($search_val);
+
         $this->session->set_userdata('current_url', current_url());
 
 		$header = [];
@@ -43,10 +47,10 @@ class Inquiries extends CI_Controller {
 			} else {
 				$data = $this->input->post();
 
-				$search_val = $data['search_val'];
-				$search_type = $data['search_type'];
+				$search_val = $this->normalize_search_value($data['search_val']);
+				$search_type = $this->normalize_search_type($data['search_type']);
 				// $this->godprintp($data);
-				redirect('brand/inquiries/index/' . $search_type . '/' . $search_val, 'refresh');
+				redirect('brand/inquiries/index/' . $search_type . '/' . rawurlencode($search_val), 'refresh');
 			}	
 		}
 
@@ -101,10 +105,28 @@ class Inquiries extends CI_Controller {
 		$this->load->view("template/brand_footer");
     }
 
+	private function normalize_search_type($search_type)
+	{
+		if ($search_type === 'xallx') {
+			return 'xallx';
+		}
+
+		return in_array($search_type, $this->allowed_search_types, true) ? $search_type : 'xallx';
+	}
+
+	private function normalize_search_value($search_val)
+	{
+		if ($search_val === 'xallx') {
+			return 'xallx';
+		}
+
+		return trim(rawurldecode((string) $search_val));
+	}
+
     public function _sort ($search_type, $search_val) {
 
 		if ( $search_type != 'xallx'  &&  $search_val != 'xallx' ) {
-			$this->db->like($search_type, urldecode($search_val));
+			$this->db->like($search_type, $search_val);
         }
 
         $this->db->order_by('inquiries_new.inq_created', 'DESC');

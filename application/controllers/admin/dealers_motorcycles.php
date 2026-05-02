@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class dealers_motorcycles extends CI_Controller {
+	private $allowed_search_types = array('mot_model', 'dealers.dea_name', 'mot_brand');
 
 	public function __construct()
 	{
@@ -19,6 +20,9 @@ class dealers_motorcycles extends CI_Controller {
 
 	public function index($search_type = "xallx", $search_val ="xallx", $filter = 1 )
 	{
+		$search_type = $this->normalize_search_type($search_type);
+		$search_val = $this->normalize_search_value($search_val);
+
 		$header = [];
 		$header['header_title'] = 'Dealers Motorcycles';
 		$header['header'] = 'Dealers Motorcycles';
@@ -37,13 +41,13 @@ class dealers_motorcycles extends CI_Controller {
 			} else {
 				$data = $this->input->post();
 
-				$search_val = $data['search_val'];
-				$search_type = $data['search_type'];
+				$search_val = $this->normalize_search_value($data['search_val']);
+				$search_type = $this->normalize_search_type($data['search_type']);
 
 
 				// $this->godprintp($data);
 
-				redirect('admin/dealers_motorcycles/index/' . $search_type . '/' . $search_val, 'refresh');
+				redirect('admin/dealers_motorcycles/index/' . $search_type . '/' . rawurlencode($search_val), 'refresh');
 
 			}	
 		}
@@ -101,6 +105,24 @@ class dealers_motorcycles extends CI_Controller {
 		$this->load->view("template/admin_footer");
 	}
 
+	private function normalize_search_type($search_type)
+	{
+		if ($search_type === 'xallx') {
+			return 'xallx';
+		}
+
+		return in_array($search_type, $this->allowed_search_types, true) ? $search_type : 'xallx';
+	}
+
+	private function normalize_search_value($search_val)
+	{
+		if ($search_val === 'xallx') {
+			return 'xallx';
+		}
+
+		return trim(rawurldecode((string) $search_val));
+	}
+
 	public function _sort ($search_type, $search_val) {
         $this->db->order_by('motorcycles.mot_model', 'ASC');
 		$this->db->where('dealers_branches.deb_status', 'published');
@@ -110,10 +132,12 @@ class dealers_motorcycles extends CI_Controller {
 
 		if ( $search_type != 'xallx'  &&  $search_val != 'xallx' ) {
 			if($search_type == 'dealers.dea_name'){
-				$this->db->like($search_type, urldecode($search_val));
-				$this->db->or_like('dealers_branches.name', urldecode($search_val));
+				$this->db->group_start();
+				$this->db->like($search_type, $search_val);
+				$this->db->or_like('dealers_branches.name', $search_val);
+				$this->db->group_end();
 			}else{
-				$this->db->like($search_type, urldecode($search_val));
+				$this->db->like($search_type, $search_val);
 
 			}
 		}

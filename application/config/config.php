@@ -22,10 +22,28 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
-$root  = $protocol.$_SERVER['HTTP_HOST'];
-$root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
-$config['base_url'] = $root;
+$isHttps = (
+	(!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off')
+	|| (!empty($_SERVER['SERVER_PORT']) && (string) $_SERVER['SERVER_PORT'] === '443')
+	|| (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+);
+$baseUrl = getenv('APP_BASE_URL');
+if ($baseUrl !== FALSE && $baseUrl !== '') {
+	$config['base_url'] = rtrim($baseUrl, '/') . '/';
+} else {
+	$protocol = $isHttps ? 'https://' : 'http://';
+	$host = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost';
+	if (!empty($_SERVER['SERVER_PORT'])) {
+		$serverPort = (int) $_SERVER['SERVER_PORT'];
+		if (($isHttps && $serverPort !== 443) || (!$isHttps && $serverPort !== 80)) {
+			$host .= ':' . $serverPort;
+		}
+	}
+	$scriptName = !empty($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '/index.php';
+	$root  = $protocol . $host;
+	$root .= str_replace(basename($scriptName), '', $scriptName);
+	$config['base_url'] = $root;
+}
 // Composer autoloading (set to path or FALSE). CI3+ supports composer autoload.
 $config['composer_autoload'] = (defined('FCPATH') ? FCPATH . 'vendor/autoload.php' : FALSE);
 //$config['base_url'] = 'http://localhost/cf_motogarahe/';
@@ -240,7 +258,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'ajtonirEicyoJ4nSrn8Vn239N934LrQd8c923btoniaj09';
+$config['encryption_key'] = getenv('APP_ENCRYPTION_KEY') ?: 'ajtonirEicyoJ4nSrn8Vn239N934LrQd8c923btoniaj09';
 
 /*
 |--------------------------------------------------------------------------
@@ -301,8 +319,8 @@ $config['sess_match_useragent']	= TRUE;
 $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
-$config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] = FALSE;
+$config['cookie_secure']	= $isHttps;
+$config['cookie_httponly'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

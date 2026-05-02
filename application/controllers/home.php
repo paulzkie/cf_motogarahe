@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url','date', 'form','breadcrumb'));
-		$this->load->library(array('form_validation', 'security', 'session',  'googlemaps', 'cart'));
+		$this->load->library(array('form_validation', 'security', 'session',  'googlemaps', 'cart', 'request_throttle'));
 		$this->load->model('model_base');
 		$this->load->model('model_login');
 
@@ -23,6 +23,30 @@ class Home extends CI_Controller {
 
 			
 		}
+	}
+
+	private function throttle_public_endpoint($bucket, $max_attempts = 60, $window_seconds = 60)
+	{
+		$result = $this->request_throttle->hit($bucket, $this->input->ip_address(), $max_attempts, $window_seconds);
+		if ($result['allowed']) {
+			return true;
+		}
+
+		$this->output->set_status_header(429);
+		echo '<li class="list-group-item">Too many requests. Please try again in ' . (int) $result['retry_after'] . ' seconds.</li>';
+		return false;
+	}
+
+	private function sanitize_search_keyword()
+	{
+		$keyword = trim((string) $this->input->post('search', TRUE));
+		$keyword = preg_replace('/\s+/', ' ', $keyword);
+		return substr($keyword, 0, 80);
+	}
+
+	private function render_search_item($label, $javascript_argument)
+	{
+		echo '<li class="list-group-item moto-result" onmouseover="hoverInRes(event)" onmouseout="hoverOutRes(event)" onclick="pickResult(' . htmlspecialchars($javascript_argument, ENT_QUOTES, 'UTF-8') . ')">' . html_escape($label) . ' </li>';
 	}
 
 	public function getSongs() {
@@ -846,8 +870,12 @@ class Home extends CI_Controller {
    }
    public function searchajax()
    {
+		if (!$this->throttle_public_endpoint('home_searchajax')) {
+			return;
+		}
+
 		$this->load->model('model_base');
-		$search = $this->input->post("search");
+		$search = $this->sanitize_search_keyword();
 		// echo "Test".$search;
 
 		$allmotors = $this->model_base->get_ajax($search);
@@ -858,16 +886,20 @@ class Home extends CI_Controller {
 			return null;
 		}
 		  foreach($allmotors as $result){
-		  			$values = "'".$result["mot_brand"]."',". "'".$result["mot_model"]."'";
-			   echo  '<li class="list-group-item moto-result"  onmouseover="hoverInRes(event)" onmouseout="hoverOutRes(event)" onclick="pickResult('.$values.')" >' .$result["mot_brand"] . " ".$result["mot_model"] . " </li>"; 
+		  			$values = json_encode(array((string) $result['mot_brand'], (string) $result['mot_model']), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+				$this->render_search_item($result['mot_brand'] . ' ' . $result['mot_model'], $values);
 			   
 			}
 
    }
    public function searchajax2(){	
+		if (!$this->throttle_public_endpoint('home_searchajax2')) {
+			return;
+		}
+
 		//$search = $this->clean_input($search);
 		$this->load->model('model_base');
-		$search = $this->input->post("search");
+		$search = $this->sanitize_search_keyword();
 		// echo "Test".$search;
 		$this->db->where("mot_status", "published");
 		$allmotors = $this->model_base->get_ajax2($search);
@@ -879,8 +911,8 @@ class Home extends CI_Controller {
 		}
 	  	foreach($allmotors as $result){
 				  // $values = "'".$result["mot_keyword"]."'";
-				  $slug = "'".$result["mot_brand"].' '.$result["mot_slug"]."'";
-		   echo  '<li class="list-group-item moto-result"  onmouseover="hoverInRes(event)" onmouseout="hoverOutRes(event)" onclick="pickResult('.$slug.')" >' .$result["mot_brand"] . " ".$result["mot_model"] . " </li>"; 
+				  $slug = json_encode((string) ($result['mot_brand'] . ' ' . $result['mot_slug']), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+				  $this->render_search_item($result['mot_brand'] . ' ' . $result['mot_model'], $slug);
 		   
 		}
    }
@@ -899,9 +931,12 @@ class Home extends CI_Controller {
 
 	public function suggestion_dev()
    {	
-   		$search = $this->clean_input($search);
+		if (!$this->throttle_public_endpoint('home_suggestion_dev')) {
+			return;
+		}
+
 		$this->load->model('model_base');
-		$search = $this->input->post("search");
+		$search = $this->sanitize_search_keyword();
 		// echo "Test".$search;
 		$this->db->where("mot_status", "published");
 		$allmotors = $this->model_base->get_ajax2($search);
@@ -913,8 +948,8 @@ class Home extends CI_Controller {
 		}
 		  foreach($allmotors as $result){
 		  			// $values = "'".$result["mot_keyword"]."'";
-		  			$slug = "'".$result["mot_slug"]."'";
-			   echo  '<li class="list-group-item moto-result"  onmouseover="hoverInRes(event)" onmouseout="hoverOutRes(event)" onclick="pickResult('.$slug.')" >' .$result["mot_brand"] . " ".$result["mot_model"] . " </li>"; 
+		  			$slug = json_encode((string) $result['mot_slug'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+				$this->render_search_item($result['mot_brand'] . ' ' . $result['mot_model'], $slug);
 			   
 			}
    }

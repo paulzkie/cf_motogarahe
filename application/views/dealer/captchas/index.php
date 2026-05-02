@@ -53,8 +53,8 @@
                             <?php foreach($captchas as $captcha): ?>
                                 <tr>
                                     <td><?php echo $count?></td>
-                                    <td><?php echo $captcha['cap_code']?></td>
-                                    <td><?php echo $captcha['usr_username']?></td>
+                                    <td><?php echo html_escape($captcha['cap_code'])?></td>
+                                    <td><?php echo html_escape($captcha['usr_username'])?></td>
                                     <td>₱ <?php echo number_format( $captcha['cap_amount'], 2) ?></td>
                                     <td><?php echo date("F j, Y",strtotime($captcha['cap_created'])) ?></td>
                                     <!-- <td>    

@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Repo extends CI_Controller {
+	private $allowed_search_types = array('mot_model');
 
 	public function __construct()
 	{
@@ -20,6 +21,9 @@ class Repo extends CI_Controller {
 
 	public function index($search_type = "xallx", $search_val ="xallx", $filter = 1 )
 	{
+		$search_type = $this->normalize_search_type($search_type);
+		$search_val = $this->normalize_search_value($search_val);
+
 		$header = [];
 		$header['header_title'] = 'Repos';
 		$header['header'] = 'Repo';
@@ -37,10 +41,10 @@ class Repo extends CI_Controller {
 			} else {
 				$data = $this->input->post();
 
-				$search_val = $data['search_val'];
-				$search_type = $data['search_type'];
+				$search_val = $this->normalize_search_value($data['search_val']);
+				$search_type = $this->normalize_search_type($data['search_type']);
 				// $this->godprintp($data);
-				redirect('dealer/repo/index/' . $search_type . '/' . $search_val, 'refresh');
+				redirect('dealer/repo/index/' . $search_type . '/' . rawurlencode($search_val), 'refresh');
 			}	
 		}
 
@@ -91,6 +95,24 @@ class Repo extends CI_Controller {
 		$this->load->view("template/dealer_header", $header);
 		$this->load->view('dealer/repo/index', $content);
 		$this->load->view("template/dealer_footer");
+	}
+
+	private function normalize_search_type($search_type)
+	{
+		if ($search_type === 'xallx') {
+			return 'xallx';
+		}
+
+		return in_array($search_type, $this->allowed_search_types, true) ? $search_type : 'xallx';
+	}
+
+	private function normalize_search_value($search_val)
+	{
+		if ($search_val === 'xallx') {
+			return 'xallx';
+		}
+
+		return trim(rawurldecode((string) $search_val));
 	}
 
 	public function _sort($search_type, $search_val) {
