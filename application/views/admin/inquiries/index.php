@@ -108,7 +108,7 @@
                                     <td><?php echo $inquiry['inq_color']?></td>
                                     <td><?php echo $inquiry['dea_name']?></td>
                                     <td><?php echo $inquiry['name']?></td>
-                                    <td><?php echo $inquiry['inq_promo_remarks']?></td>
+                                    <td><?php echo $inquiry['inq_promo_remarks'] ?? ''?></td>
                                     <td><?php echo date("F j, Y, g:i a",strtotime($inquiry['inq_created'])) ?></td>
                                     <td><?php echo ( strtotime($inquiry['inq_updated']) != strtotime('0000-00-00 00:00:00') ) ? date("F j, Y, g:i a",strtotime($inquiry['inq_updated'])) : '' ?></td>
                                     <td>

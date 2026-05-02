@@ -80,6 +80,17 @@ class Paypal_ec {
 				$this->paypal_url = "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
 			}
 		}
+
+        // If credentials not provided via constructor, read from environment variables
+        if (empty($this->API_username) && getenv('PAYPAL_API_USERNAME')) {
+            $this->API_username = getenv('PAYPAL_API_USERNAME');
+        }
+        if (($this->API_password == "<API_PASSWORD>" || empty($this->API_password)) && getenv('PAYPAL_API_PASSWORD')) {
+            $this->API_password = getenv('PAYPAL_API_PASSWORD');
+        }
+        if (($this->API_signature == "<API_SIGNATURE>" || empty($this->API_signature)) && getenv('PAYPAL_API_SIGNATURE')) {
+            $this->API_signature = getenv('PAYPAL_API_SIGNATURE');
+        }
 	}
 	
 	/* --------------------------------------------------------------------------------

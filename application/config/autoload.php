@@ -52,7 +52,11 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session', 'form_validation');
+$autoload['libraries'] = array('session', 'form_validation');
+
+// Database autoload disabled for local debugging to prevent fatal DB connection
+// errors while investigating static asset and JS issues. Re-enable when ready.
+// $autoload['libraries'] = array('database', 'session', 'form_validation');
 
 
 /*
@@ -64,7 +68,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('breadcrumb');
 
 
 /*

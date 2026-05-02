@@ -115,14 +115,14 @@ class Motorcycles extends CI_Controller {
 		$this->form_validation->set_rules('mot_keyword', 'Mot Keyword', 'required|trim');
 		$this->form_validation->set_rules('mot_brand', 'Brand', 'required|trim');
 		$this->form_validation->set_rules('mot_type', 'Category Type', 'required|trim');
-		$this->form_validation->set_rules('mot_srp', 'SRP', 'decimal|trim');
+		$this->form_validation->set_rules('mot_srp', 'SRP', '');
 
 
 		$this->form_validation->set_rules('mot_engine_size_range', '', 'trim');
 		$this->form_validation->set_rules('mot_transmission', '', 'trim');
 		$this->form_validation->set_rules('mot_color_variant', '', 'trim');
 		$this->form_validation->set_rules('mot_engine_type', '', 'trim');
-		$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'decimal|trim');
+		$this->form_validation->set_rules('mot_diplacement', 'Displacement', '');
 		$this->form_validation->set_rules('mot_bore_stroke_mm', '', 'trim');
 		$this->form_validation->set_rules('mot_starting_system', '', 'trim');
 		$this->form_validation->set_rules('mot_ignition_type', '', 'trim');
@@ -218,7 +218,7 @@ class Motorcycles extends CI_Controller {
 		$this->form_validation->set_rules('mot_keyword', 'Mot Keyword', 'required|trim');
 		$this->form_validation->set_rules('mot_brand', 'Brand', 'required|trim');
 		$this->form_validation->set_rules('mot_type', 'Category Type', 'required|trim');
-		$this->form_validation->set_rules('mot_srp', 'SRP', 'decimal|trim');
+		$this->form_validation->set_rules('mot_srp', 'SRP', '');
 		$this->form_validation->set_rules('mot_discountpromo', 'Promo', 'decimal|trim');
 
 
@@ -226,7 +226,7 @@ class Motorcycles extends CI_Controller {
 		$this->form_validation->set_rules('mot_transmission', '', 'trim');
 		$this->form_validation->set_rules('mot_color_variant', '', 'trim');
 		$this->form_validation->set_rules('mot_engine_type', '', 'trim');
-		$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'decimal|trim');
+		$this->form_validation->set_rules('mot_diplacement', 'Displacement', '');
 		$this->form_validation->set_rules('mot_bore_stroke_mm', '', 'trim');
 		$this->form_validation->set_rules('mot_starting_system', '', 'trim');
 		$this->form_validation->set_rules('mot_ignition_type', '', 'trim');

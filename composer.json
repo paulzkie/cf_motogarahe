@@ -14,7 +14,8 @@
 	"require": {
 		"php": ">=5.4.8",
 		"phpmailer/phpmailer": "5.2.26",
-		"aws/aws-sdk-php": "^3.112"
+		"aws/aws-sdk-php": "^3.112",
+		"phpoffice/phpspreadsheet": "dev-master"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

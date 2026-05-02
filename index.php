@@ -33,7 +33,7 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
-			error_reporting(E_ALL);
+			error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 		break;
 
 		case 'testing':
@@ -162,9 +162,7 @@ if (defined('ENVIRONMENT'))
 	// The name of THIS file
 	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-	// The PHP file extension
-	// this global constant is deprecated.
-	define('EXT', '.php');
+	// The PHP file extension (deprecated and removed for CI3 compatibility)
 
 	// Path to the system folder
 	define('BASEPATH', str_replace("\\", "/", $system_path));
@@ -190,6 +188,9 @@ if (defined('ENVIRONMENT'))
 
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
+
+	// The path to the "views" folder (required by CI 3.1.11 for exception handling)
+	define('VIEWPATH', APPPATH.'views/');
 
 /*
  * --------------------------------------------------------------------

@@ -56,7 +56,7 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
   <link rel="stylesheet" href="<?php echo ADMIN_LTE_PATH?>toastr/toastr.min.css">
   <link rel="stylesheet" href="<?php echo ADMIN_LTE_PATH?>update/blue/style.css">
   <link rel="stylesheet" href="<?php echo ADMIN_CSS_PATH?>style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery loaded in footer to avoid duplicate includes -->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -425,27 +425,22 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
         </style>
 
         <script type="text/javascript">
-         $(".sidebar-dropdown > a").click(function() {
+        (function waitForjQuery(fn){
+          if (window.jQuery) { jQuery(fn); return; }
+          var i = setInterval(function(){ if (window.jQuery){ clearInterval(i); jQuery(fn); } }, 50);
+        })(function($){
+          $(".sidebar-dropdown > a").click(function() {
               $(".sidebar-submenu").slideUp(250);
-              if (
-                $(this)
-                  .parent()
-                  .hasClass("active")
-              ) {
+              if ( $(this).parent().hasClass("active") ) {
                 $(".sidebar-dropdown").removeClass("active");
-                $(this)
-                  .parent()
-                  .removeClass("active");
+                $(this).parent().removeClass("active");
               } else {
                 $(".sidebar-dropdown").removeClass("active");
-                $(this)
-                  .next(".sidebar-submenu")
-                  .slideDown(250);
-                $(this)
-                  .parent()
-                  .addClass("active");
+                $(this).next(".sidebar-submenu").slideDown(250);
+                $(this).parent().addClass("active");
               }
-         });
+          });
+        });
         </script>
 
 

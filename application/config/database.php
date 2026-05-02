@@ -46,7 +46,7 @@
 */
 
 $active_group = 'default';
-$active_record = TRUE;
+$query_builder = TRUE;
 
 
 $whitelist = array(
@@ -54,25 +54,25 @@ $whitelist = array(
 	"::1"
 );
 
-$db_host = '';
-$db_username = '';
-$db_password = '';
-$db_database = '';
+// Allow environment variables to override DB credentials (avoid storing secrets in repo)
+$db_host = getenv('DB_HOST') ?: '';
+$db_username = getenv('DB_USER') ?: '';
+$db_password = getenv('DB_PASS') ?: '';
+$db_database = getenv('DB_NAME') ?: '';
 
-if(in_array($_SERVER["REMOTE_ADDR"], $whitelist)){
-	// $db_host = "localhost";
-	// $db_username = "root";
-	// $db_password = "";
-	// $db_database = "cf_motogarahe";
-	$db_host = "srv1154.hstgr.io";
-	$db_username = "u460154995_motogarahe";
-	$db_password = "pauLzkie21";
-	$db_database = "u460154995_motogarahe";
-}else{
-	$db_host = "srv1154.hstgr.io";
-	$db_username = "u460154995_motogarahe";
-	$db_password = "pauLzkie21";
-	$db_database = "u460154995_motogarahe";
+// Prefer local DB when running on this WAMP machine or common dev hostnames.
+// This makes local debugging (assets, JS, etc.) reliable without hitting the
+// remote production DB which may be inaccessible from the dev environment.
+if (PHP_OS_FAMILY === 'Windows' || isset($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $whitelist) || (isset($_SERVER['SERVER_NAME']) && in_array($_SERVER['SERVER_NAME'], array('localhost','127.0.0.1','motogarahe.local')))) {
+	if (empty($db_host)) $db_host = "localhost";
+	if (empty($db_username)) $db_username = "root";
+	if ($db_password === '') $db_password = "";
+	if (empty($db_database)) $db_database = "cf_motogarahe";
+} else {
+	if (empty($db_host)) $db_host = "srv1154.hstgr.io";
+	if (empty($db_username)) $db_username = "u460154995_motogarahe";
+	if ($db_password === '') $db_password = "";
+	if (empty($db_database)) $db_database = "u460154995_motogarahe";
 }
 $db['default']['hostname'] = $db_host;
 $db['default']['username'] = $db_username;

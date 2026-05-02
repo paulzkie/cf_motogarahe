@@ -2730,8 +2730,7 @@ class PHPExcel_Reader_Excel5 extends PHPExcel_Reader_Abstract implements PHPExce
 
             // offset: 4; size: 2; not used
 
-            // offset: 6; size: var
-            $nameString = self::readUnicodeStringShort(substr($recordData, 6));
+            // offset: 6; size: public $nameString = self::readUnicodeStringShort(substr($recordData, 6));
 
             // offset: var; size: var; formula data
             $offset = 6 + $nameString['size'];

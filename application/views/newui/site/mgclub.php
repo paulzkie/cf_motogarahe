@@ -1553,7 +1553,7 @@ window.onclick = function(event) {
                 '*:not(.slick-arrow)', function(event) {
 
             event.stopImmediatePropagation();
-            var $sf = $(this);
+            public $sf = $(this);
 
             setTimeout(function() {
 

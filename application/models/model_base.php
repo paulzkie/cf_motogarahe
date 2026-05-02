@@ -4,11 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_base extends CI_Model {
 
 	public function insert_data($data, $table_name) {
+		// filter data to only include existing columns to avoid SQL errors
+		$fields = $this->db->list_fields($table_name);
+		if (is_array($data)) {
+			$data = array_intersect_key($data, array_flip($fields));
+		}
 		$this->db->insert($table_name, $data);
 		return $this->db->insert_id();
 	}
 
 	public function update_data($id, $col, $data, $table_name) {
+		// filter data to only include existing columns to avoid SQL errors
+		$fields = $this->db->list_fields($table_name);
+		if (is_array($data)) {
+			$data = array_intersect_key($data, array_flip($fields));
+		}
 		$this->db->where($col, $id);
 		$this->db->update($table_name, $data); 
 	}

@@ -125,7 +125,7 @@ if(confirm('Are you sure you want to repost this model for another 30 days? You 
                                     <td><a href="<?php echo base_url() . 'dealer/repo/view/' . $repos['mot_id']?>">
                                         <?php echo $repos['mot_model'] ?>
                                     </a></td>
-                                    <td><?php echo base_url() . $repos['mop_image'] ?></td>
+                                    <td><?php echo !empty($repos['mop_image']) ? base_url() . $repos['mop_image'] : '' ?></td>
                                     <td><?php echo date("F j, Y, g:i a",strtotime($repos['mot_created'])) ?></td>
                                     <td>
                                         <?php

@@ -69,9 +69,10 @@ class Homepage extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$offset = ($filter - 1) * $config["per_page"];
+		$page = (is_numeric($filter) && (int)$filter > 0) ? (int)$filter : 1;
+		$offset = ($page - 1) * $config["per_page"];
 		$this->db->limit( $config["per_page"] , $offset);
-		$content["current_count_start"] = $offset;	
+		$content["current_count_start"] = $offset;    
 		
 		$this->_sort($search_type, $search_val );
 		$content['motorcycles'] = $this->model_base->get_all('motorcycles');
@@ -624,11 +625,17 @@ class Homepage extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$offset = ($filter - 1) * $config["per_page"];
+		$page = (is_numeric($filter) && (int)$filter > 0) ? (int)$filter : 1;
+		$offset = ($page - 1) * $config["per_page"];
 		$this->db->limit( $config["per_page"] , $offset);
-		$content["current_count_start"] = $offset;	
+		$content["current_count_start"] = $offset;    
 
-		$content['banner'] = $this->model_base->get_all('homepage_banner');
+		if ( $this->db->table_exists('homepage_banner') ) {
+			$content['banner'] = $this->model_base->get_all('homepage_banner');
+		} else {
+			log_message('error', 'Missing table: homepage_banner');
+			$content['banner'] = [];
+		}
 
 		$this->load->view("template/admin_header", $header);
 		$this->load->view("admin/homepage/popupadd");
@@ -669,11 +676,17 @@ class Homepage extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$offset = ($filter - 1) * $config["per_page"];
+		$page = (is_numeric($filter) && (int)$filter > 0) ? (int)$filter : 1;
+		$offset = ($page - 1) * $config["per_page"];
 		$this->db->limit( $config["per_page"] , $offset);
-		$content["current_count_start"] = $offset;	
+		$content["current_count_start"] = $offset;    
 
-		$content['merchant'] = $this->model_base->get_all('homepage_merchant');
+		if ( $this->db->table_exists('homepage_merchant') ) {
+			$content['merchant'] = $this->model_base->get_all('homepage_merchant');
+		} else {
+			log_message('error', 'Missing table: homepage_merchant');
+			$content['merchant'] = [];
+		}
 
 		$this->load->view("template/admin_header", $header);
 		$this->load->view("template/popupmsg");
@@ -712,12 +725,18 @@ class Homepage extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$offset = ($filter - 1) * $config["per_page"];
+		$page = (is_numeric($filter) && (int)$filter > 0) ? (int)$filter : 1;
+		$offset = ($page - 1) * $config["per_page"];
 		$this->db->limit( $config["per_page"] , $offset);
-		$content["current_count_start"] = $offset;	
+		$content["current_count_start"] = $offset;    
         
         $this->db->order_by('testimonialid','desc');
-		$content['testimonial'] = $this->model_base->get_all('homepage_testimonial');
+		if ( $this->db->table_exists('homepage_testimonial') ) {
+			$content['testimonial'] = $this->model_base->get_all('homepage_testimonial');
+		} else {
+			log_message('error', 'Missing table: homepage_testimonial');
+			$content['testimonial'] = [];
+		}
 
 		$this->load->view("template/admin_header", $header);
 		$this->load->view("template/popupmsg");

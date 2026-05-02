@@ -146,7 +146,7 @@ function myTimer() {
                                             data-dea_name="<?php echo $dealer['dea_name'];?>"
                                             data-dea_slug="<?php echo $dealer['dea_slug'];?>"
                                             data-dea_email="<?php echo $dealer['dea_email'];?>"
-                                            data-repo_slot="<?php echo $dealer['repo_slot'];?>">
+                                            data-repo_slot="<?php echo $dealer['repo_slot'] ?? '';?>">
                                             <i class="fa fa-edit"></i></a>
                                             <a href=""><i class="fa fa-trash-o"></i></a>
                                         </div>

@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
+		public $apiKey                        = ''; 					// API key removed; set via environment variable GOOGLE_MAPS_KEY
  * CodeIgniter Google Maps API V3 Class
  *
- * Displays a Google Map
- *
+			$this->initialize($config);
+			// Read API key from environment to avoid committing secrets
+			public $apiKey                        = '';
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Libraries
@@ -15,142 +16,142 @@
  
 class __Googlemaps {
 	
-	var $adsense					= FALSE; 					// Whether Google Adsense For Content should be enabled
-	var $adsenseChannelNumber		= ''; 						// The Adsense channel number for tracking the performance of this AdUnit
-	var $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
-	var $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
-	var $adsensePublisherID			= '';						// Your Google AdSense publisher ID
-	var $apiKey						= 'AIzaSyCpCHIbOEBg1ikI2F28bKaE3gpUfVg1qGA'; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
-	var $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
-	var $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
-	var $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
-	var $class 						= '';						// A class name if wishing to style the map further through CSS. Can also be useful if wanting it to be responsive etc.
-	var $cluster					= FALSE;					// Whether to cluster markers
-	var $clusterGridSize			= 60;						// The grid size of a cluster in pixels
-	var $clusterMaxZoom				= '';						// The maximum zoom level that a marker can be part of a cluster
-	var $clusterZoomOnClick			= TRUE;						// Whether the default behaviour of clicking on a cluster is to zoom into it
-	var $clusterAverageCenter		= FALSE;					// Whether the center of each cluster should be the average of all markers in the cluster
-	var $clusterMinimumClusterSize	= 2;						// The minimum number of markers to be in a cluster before the markers are hidden and a count is shown
-	var $disableDefaultUI			= FALSE;					// If set to TRUE will hide the default controls (ie. zoom, scale etc)
-	var $disableDoubleClickZoom		= FALSE;					// If set to TRUE will disable zooming when a double click occurs
-	var $disableMapTypeControl		= FALSE;					// If set to TRUE will hide the MapType control (ie. Map, Satellite, Hybrid, Terrain)
-	var $disableNavigationControl	= FALSE;					// If set to TRUE will hide the Navigation control (ie. zoom in/out, pan)
-	var $disableScaleControl		= FALSE;					// If set to TRUE will hide the Scale control
-	var $disableStreetViewControl	= FALSE;					// If set to TRUE will hide the Street View control
-	var $draggable					= TRUE;						// If set to FALSE will prevent the map from being dragged around
-	var $draggableCursor			= '';						// The name or url of the cursor to display on a draggable object
-	var $draggingCursor				= '';						// The name or url of the cursor to display when an object is being dragged
-	var $geocodeCaching				= FALSE;					// If set to TRUE will cache any geocode requests made when an address is used instead of a lat/long. Requires DB table to be created (see documentation)
-	var $https						= TRUE;					// If set to TRUE will load the Google Maps JavaScript API over HTTPS, allowing you to utilize the API within your HTTPS secure application 
-	var $navigationControlPosition	= '';						// The position of the Navigation control, eg. 'BOTTOM_RIGHT'
-	var $infowindowMaxWidth			= 0;						// The maximum width of the infowindow in pixels. Expecting an integer without units
-	var $keyboardShortcuts			= TRUE;						// If set to FALSE will disable to map being controlled via the keyboard
-	var $jsfile						= '';						// Set this to the path of an external JS file if you wish the JavaScript to be placed in a file rather than output directly into the <head></head> section. The library will try to create the file if it does not exist already. Please ensure the destination file is writeable
-	var $kmlLayerURL				= '';						// A URL to publicly available KML or GeoRSS data for displaying geographic information. Multiple KML layers can be passed in by using an array of URL's. Note, if using multiple you'll probably have to set $kmlLayerPreserveViewport to true and manually set map center and zoom
-	var $kmlLayerPreserveViewport	= FALSE;					// Specifies whether the map should be adjusted to the bounds of the KmlLayer's contents. By default the map is zoomed and positioned to show the entirety of the layer's contents
-	var $language					= '';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
-	var $loadAsynchronously			= FALSE;					// Load the map and API asynchronously once the page has loaded
-	var $map_div_id					= "map_canvas";				// The ID of the <div></div> that is output which contains the map
-	var $map_height					= "300px";					// The height of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
-	var $map_name					= "map";					// The JS reference to the map. Currently not used but to be used in the future when multiple maps are supported
-	var $map_type					= "HYBRID";				// The default MapType. Values accepted are 'HYBRID', 'ROADMAP', 'SATELLITE' or 'TERRAIN'
-	var $map_types_available		= array();					// The other MapTypes available for selection on the map
-	var $map_width					= "100%";					// The width of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
-	var $maps_loaded				= 0;						// Counter which keeps track of how many maps have been created to avoid standard functions being output twice
-	var $mapTypeControlPosition		= '';						// The position of the MapType control, eg. 'BOTTOM_RIGHT'
-	var $mapTypeControlStyle		= '';						// The style of the MapType control. blank, 'DROPDOWN_MENU' or 'HORIZONTAL_BAR' values accepted.
-	var $minzoom					= '';						// The minimum zoom level which will be displayed on the map
-	var $maxzoom					= '';						// The maximum zoom level which will be displayed on the map
-	var $minifyJS					= FALSE;					// If TRUE will run the JavaScript through Jsmin.php (this file and PHP5+ required) to minify the code
-	var $noClear					= FALSE;					// If TRUE do not clear the contents of the map div
-	var $onboundschanged			= '';						// The JavaScript action to perform when the viewport bounds have changed
-	var $oncenterchanged			= '';						// The JavaScript action to perform when themap center property changes
-	var $onclick					= '';						// The JavaScript action to perform when the map is clicked
-	var $ondblclick					= '';						// The JavaScript action to perform when the map is double-clicked
-	var $ondrag						= '';						// The JavaScript action to perform while the map is dragged	
-	var $ondragend					= '';						// The JavaScript action to perform when the user stops dragging the map
-	var $ondragstart				= '';						// The JavaScript action to perform when the user starts dragging the map
-	var $onidle						= '';						// The JavaScript action to perform when the map becomes idle after panning or zooming
-	var $onload						= '';						// The JavaScript action to perform when the map first loads. This library hi-jacks the window.load event so add any bespoke code using this option
-	var $onmousemove				= '';						// The JavaScript action to perform when the user's mouse moves over the map container
-	var $onmouseout					= '';						// The JavaScript action to perform when the user's mouse exits the map container
-	var $onmouseover				= '';						// The JavaScript action to perform when the user's mouse enters the map container
-	var $onresize					= '';						// The JavaScript action to perform when the maps div changes size
-	var $onrightclick				= '';						// The JavaScript action to perform when the map is right-clicked
-	var $ontilesloaded				= '';						// The JavaScript action to perform when the visible tiles have finished loading
-	var $onzoomchanged				= '';						// The JavaScript action to perform when the maps zoom property changes
-	var	$panoramio					= FALSE;					// If TRUE will add photos from Panoramio as a layer to your maps as a series of large and small photo icons
-	var	$panoramioTag				= '';						// Restrict the set of Panoramio photos shown to those matching a certain textual tag
-	var	$panoramioUser				= '';						// Restrict the set of Panoramio photos shown to those matching a particular user
-	var $region						= '';						// Country code top-level domain (eg "uk") within which to search. Useful if supplying addresses rather than lat/longs
-	var $scaleControlPosition		= '';						// The position of the Scale control, eg. 'BOTTOM_RIGHT'
-	var $scrollwheel				= TRUE;						// If set to FALSE will disable zooming by scrolling of the mouse wheel
-	var $sensor						= FALSE;					// Set to TRUE if being used on a device that can detect a users location
-	var $streetViewAddressControl	= TRUE;						// If set to FALSE will hide the Address control
-	var $streetViewAddressPosition	= '';						// The position of the Address control, eg. 'BOTTOM'
-	var $streetViewControlPosition	= '';						// The position of the Street View control when viewing normal aerial map, eg. 'BOTTOM_RIGHT'
-	var $streetViewCloseButton		= FALSE;					// If set to TRUE will show the close button in the top right. The close button allows users to return to the aerial map
-	var $streetViewLinksControl		= TRUE;						// If set to FALSE will hide the Links control
-	var $streetViewPanControl		= TRUE;						// If set to FALSE will hide the Pan control
-	var $streetViewPanPosition		= '';						// The position of the Scale control, eg. 'TOP_RIGHT'
-	var $streetViewPovHeading		= 0;						// The Street View camera heading in degrees relative to true north. True north is 0, east is 90, south is 180, west is 270
-	var $streetViewPovPitch			= 0;						// The Street View camera pitch in degrees, relative to the street view vehicle. Directly upwards is 90, Directly downwards is -90.
-	var $streetViewPovZoom			= 0;						// The Street View zoom level. Fully zoomed-out is level 0, zooming in increases the zoom level.
-	var $streetViewZoomControl		= TRUE;						// If set to FALSE will hide the Zoom control
-	var $streetViewZoomPosition		= '';						// The position of the Scale control, eg. 'TOP_RIGHT'
-	var $streetViewZoomStyle		= '';						// The size of the Street View zoom control. blank, 'SMALL' or 'LARGE' values accepted.
-	var $styles						= array();					// An array of styles used to colour aspects of the map and turn points of interest on and off
-	var $stylesAsMapTypes			= false;					// If applying styles, whether to apply them to the default map or add them as additional map types
-	var $stylesAsMapTypesDefault	= '';						// If $stylesAsMapTypes is true the default style. Should contain the 'Name' of the style
-	var	$tilt						= 0;						// The angle of tilt. Currently only supports the values 0 and 45 in SATELLITE and HYBRID map types and at certain zoom levels
-	var	$trafficOverlay				= FALSE;					// If set to TRUE will overlay traffic information onto the map by default 
-	var	$version					= "3";						// Version of the API being used. Not currently used in the library
-	var $zoom						= "auto";						// The default zoom level of the map. If set to "auto" will autozoom/center to fit in all visible markers. If "auto", also overrides the $center parameter
-	var $zoomControlPosition		= '';						// The position of the Zoom control, eg. 'BOTTOM_RIGHT'
-	var $zoomControlStyle			= '';						// The size of the zoom control. blank, 'SMALL' or 'LARGE' values accepted.
+	public $adsense					= FALSE; 					// Whether Google Adsense For Content should be enabled
+	public $adsenseChannelNumber		= ''; 						// The Adsense channel number for tracking the performance of this AdUnit
+	public $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
+	public $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
+	public $adsensePublisherID			= '';						// Your Google AdSense publisher ID
+	public $apiKey					= (getenv('GOOGLE_MAPS_KEY') !== false) ? getenv('GOOGLE_MAPS_KEY') : ''; 		// Read from env var `GOOGLE_MAPS_KEY`
+	public $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
+	public $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
+	public $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
+	public $class 						= '';						// A class name if wishing to style the map further through CSS. Can also be useful if wanting it to be responsive etc.
+	public $cluster					= FALSE;					// Whether to cluster markers
+	public $clusterGridSize			= 60;						// The grid size of a cluster in pixels
+	public $clusterMaxZoom				= '';						// The maximum zoom level that a marker can be part of a cluster
+	public $clusterZoomOnClick			= TRUE;						// Whether the default behaviour of clicking on a cluster is to zoom into it
+	public $clusterAverageCenter		= FALSE;					// Whether the center of each cluster should be the average of all markers in the cluster
+	public $clusterMinimumClusterSize	= 2;						// The minimum number of markers to be in a cluster before the markers are hidden and a count is shown
+	public $disableDefaultUI			= FALSE;					// If set to TRUE will hide the default controls (ie. zoom, scale etc)
+	public $disableDoubleClickZoom		= FALSE;					// If set to TRUE will disable zooming when a double click occurs
+	public $disableMapTypeControl		= FALSE;					// If set to TRUE will hide the MapType control (ie. Map, Satellite, Hybrid, Terrain)
+	public $disableNavigationControl	= FALSE;					// If set to TRUE will hide the Navigation control (ie. zoom in/out, pan)
+	public $disableScaleControl		= FALSE;					// If set to TRUE will hide the Scale control
+	public $disableStreetViewControl	= FALSE;					// If set to TRUE will hide the Street View control
+	public $draggable					= TRUE;						// If set to FALSE will prevent the map from being dragged around
+	public $draggableCursor			= '';						// The name or url of the cursor to display on a draggable object
+	public $draggingCursor				= '';						// The name or url of the cursor to display when an object is being dragged
+	public $geocodeCaching				= FALSE;					// If set to TRUE will cache any geocode requests made when an address is used instead of a lat/long. Requires DB table to be created (see documentation)
+	public $https						= TRUE;					// If set to TRUE will load the Google Maps JavaScript API over HTTPS, allowing you to utilize the API within your HTTPS secure application 
+	public $navigationControlPosition	= '';						// The position of the Navigation control, eg. 'BOTTOM_RIGHT'
+	public $infowindowMaxWidth			= 0;						// The maximum width of the infowindow in pixels. Expecting an integer without units
+	public $keyboardShortcuts			= TRUE;						// If set to FALSE will disable to map being controlled via the keyboard
+	public $jsfile						= '';						// Set this to the path of an external JS file if you wish the JavaScript to be placed in a file rather than output directly into the <head></head> section. The library will try to create the file if it does not exist already. Please ensure the destination file is writeable
+	public $kmlLayerURL				= '';						// A URL to publicly available KML or GeoRSS data for displaying geographic information. Multiple KML layers can be passed in by using an array of URL's. Note, if using multiple you'll probably have to set $kmlLayerPreserveViewport to true and manually set map center and zoom
+	public $kmlLayerPreserveViewport	= FALSE;					// Specifies whether the map should be adjusted to the bounds of the KmlLayer's contents. By default the map is zoomed and positioned to show the entirety of the layer's contents
+	public $language					= '';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
+	public $loadAsynchronously			= FALSE;					// Load the map and API asynchronously once the page has loaded
+	public $map_div_id					= "map_canvas";				// The ID of the <div></div> that is output which contains the map
+	public $map_height					= "300px";					// The height of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
+	public $map_name					= "map";					// The JS reference to the map. Currently not used but to be used in the future when multiple maps are supported
+	public $map_type					= "HYBRID";				// The default MapType. Values accepted are 'HYBRID', 'ROADMAP', 'SATELLITE' or 'TERRAIN'
+	public $map_types_available		= array();					// The other MapTypes available for selection on the map
+	public $map_width					= "100%";					// The width of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
+	public $maps_loaded				= 0;						// Counter which keeps track of how many maps have been created to avoid standard functions being output twice
+	public $mapTypeControlPosition		= '';						// The position of the MapType control, eg. 'BOTTOM_RIGHT'
+	public $mapTypeControlStyle		= '';						// The style of the MapType control. blank, 'DROPDOWN_MENU' or 'HORIZONTAL_BAR' values accepted.
+	public $minzoom					= '';						// The minimum zoom level which will be displayed on the map
+	public $maxzoom					= '';						// The maximum zoom level which will be displayed on the map
+	public $minifyJS					= FALSE;					// If TRUE will run the JavaScript through Jsmin.php (this file and PHP5+ required) to minify the code
+	public $noClear					= FALSE;					// If TRUE do not clear the contents of the map div
+	public $onboundschanged			= '';						// The JavaScript action to perform when the viewport bounds have changed
+	public $oncenterchanged			= '';						// The JavaScript action to perform when themap center property changes
+	public $onclick					= '';						// The JavaScript action to perform when the map is clicked
+	public $ondblclick					= '';						// The JavaScript action to perform when the map is double-clicked
+	public $ondrag						= '';						// The JavaScript action to perform while the map is dragged	
+	public $ondragend					= '';						// The JavaScript action to perform when the user stops dragging the map
+	public $ondragstart				= '';						// The JavaScript action to perform when the user starts dragging the map
+	public $onidle						= '';						// The JavaScript action to perform when the map becomes idle after panning or zooming
+	public $onload						= '';						// The JavaScript action to perform when the map first loads. This library hi-jacks the window.load event so add any bespoke code using this option
+	public $onmousemove				= '';						// The JavaScript action to perform when the user's mouse moves over the map container
+	public $onmouseout					= '';						// The JavaScript action to perform when the user's mouse exits the map container
+	public $onmouseover				= '';						// The JavaScript action to perform when the user's mouse enters the map container
+	public $onresize					= '';						// The JavaScript action to perform when the maps div changes size
+	public $onrightclick				= '';						// The JavaScript action to perform when the map is right-clicked
+	public $ontilesloaded				= '';						// The JavaScript action to perform when the visible tiles have finished loading
+	public $onzoomchanged				= '';						// The JavaScript action to perform when the maps zoom property changes
+	public $panoramio					= FALSE;					// If TRUE will add photos from Panoramio as a layer to your maps as a series of large and small photo icons
+	public $panoramioTag				= '';						// Restrict the set of Panoramio photos shown to those matching a certain textual tag
+	public $panoramioUser				= '';						// Restrict the set of Panoramio photos shown to those matching a particular user
+	public $region						= '';						// Country code top-level domain (eg "uk") within which to search. Useful if supplying addresses rather than lat/longs
+	public $scaleControlPosition		= '';						// The position of the Scale control, eg. 'BOTTOM_RIGHT'
+	public $scrollwheel				= TRUE;						// If set to FALSE will disable zooming by scrolling of the mouse wheel
+	public $sensor						= FALSE;					// Set to TRUE if being used on a device that can detect a users location
+	public $streetViewAddressControl	= TRUE;						// If set to FALSE will hide the Address control
+	public $streetViewAddressPosition	= '';						// The position of the Address control, eg. 'BOTTOM'
+	public $streetViewControlPosition	= '';						// The position of the Street View control when viewing normal aerial map, eg. 'BOTTOM_RIGHT'
+	public $streetViewCloseButton		= FALSE;					// If set to TRUE will show the close button in the top right. The close button allows users to return to the aerial map
+	public $streetViewLinksControl		= TRUE;						// If set to FALSE will hide the Links control
+	public $streetViewPanControl		= TRUE;						// If set to FALSE will hide the Pan control
+	public $streetViewPanPosition		= '';						// The position of the Scale control, eg. 'TOP_RIGHT'
+	public $streetViewPovHeading		= 0;						// The Street View camera heading in degrees relative to true north. True north is 0, east is 90, south is 180, west is 270
+	public $streetViewPovPitch			= 0;						// The Street View camera pitch in degrees, relative to the street view vehicle. Directly upwards is 90, Directly downwards is -90.
+	public $streetViewPovZoom			= 0;						// The Street View zoom level. Fully zoomed-out is level 0, zooming in increases the zoom level.
+	public $streetViewZoomControl		= TRUE;						// If set to FALSE will hide the Zoom control
+	public $streetViewZoomPosition		= '';						// The position of the Scale control, eg. 'TOP_RIGHT'
+	public $streetViewZoomStyle		= '';						// The size of the Street View zoom control. blank, 'SMALL' or 'LARGE' values accepted.
+	public $styles						= array();					// An array of styles used to colour aspects of the map and turn points of interest on and off
+	public $stylesAsMapTypes			= false;					// If applying styles, whether to apply them to the default map or add them as additional map types
+	public $stylesAsMapTypesDefault	= '';						// If $stylesAsMapTypes is true the default style. Should contain the 'Name' of the style
+	public $tilt						= 0;						// The angle of tilt. Currently only supports the values 0 and 45 in SATELLITE and HYBRID map types and at certain zoom levels
+	public $trafficOverlay				= FALSE;					// If set to TRUE will overlay traffic information onto the map by default 
+	public $version					= "3";						// Version of the API being used. Not currently used in the library
+	public $zoom						= "auto";						// The default zoom level of the map. If set to "auto" will autozoom/center to fit in all visible markers. If "auto", also overrides the $center parameter
+	public $zoomControlPosition		= '';						// The position of the Zoom control, eg. 'BOTTOM_RIGHT'
+	public $zoomControlStyle			= '';						// The size of the zoom control. blank, 'SMALL' or 'LARGE' values accepted.
 	
-	var	$markers					= array();					// An array used by the library to store the markers as they are produced
-	var $markersInfo				= array();					// An array containing marker information (id, latitude, longitude etc) for use elsewhere
-	var	$polylines					= array();					// An array used by the library to store the polylines as they are produced
-	var	$polygons					= array();					// An array used by the library to store the polygons as they are produced
-	var	$circles					= array();					// An array used by the library to store the circles as they are produced
-	var	$rectangles					= array();					// An array used by the library to store the rectangles as they are produced
-	var	$overlays					= array();					// An array used by the library to store the overlays as they are produced
+	public $markers					= array();					// An array used by the library to store the markers as they are produced
+	public $markersInfo				= array();					// An array containing marker information (id, latitude, longitude etc) for use elsewhere
+	public $polylines					= array();					// An array used by the library to store the polylines as they are produced
+	public $polygons					= array();					// An array used by the library to store the polygons as they are produced
+	public $circles					= array();					// An array used by the library to store the circles as they are produced
+	public $rectangles					= array();					// An array used by the library to store the rectangles as they are produced
+	public $overlays					= array();					// An array used by the library to store the overlays as they are produced
 	
-	var $directions					= FALSE;					// Whether or not the map will be used to show directions
-	var $directionsStart			= "";						// The starting location (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
-	var $directionsEnd				= "";						// The destination point (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
-	var $directionsDivID			= "";						// An element's ID on the page where textual directions will be output to. Leave blank if not required
-	var $directionsMode				= "DRIVING"; 				// DRIVING, WALKING or BICYCLING (US Only) - The vehicle/mode of transport to show directions for
-	var $directionsAvoidTolls		= FALSE;					// Whether or not directions should avoid tolls
-	var $directionsAvoidHighways	= FALSE;					// Whether or not directions should avoid highways
-	var $directionsDraggable		= FALSE;					// Whether or not directions on the map are draggable
-	var $directionsChanged			= "";						// JavaScript to perform when directions are dragged
-	var $directionsUnits			= "";						// 'metric' for kilometers and meters or 'imperial for miles and feet. Leave blank and it will default to the region or country of where directions are being obtained
-	var $directionsWaypointArray    = array();					// An array of waypoints. eg array("Boston, MA", "Times Square, NY");
-	var $directionsWaypointsOptimize= FALSE;					// Should the waypoints be optimised? If TRUE, waypoints will be re-ordered to provide the most efficient route.
+	public $directions					= FALSE;					// Whether or not the map will be used to show directions
+	public $directionsStart			= "";						// The starting location (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
+	public $directionsEnd				= "";						// The destination point (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
+	public $directionsDivID			= "";						// An element's ID on the page where textual directions will be output to. Leave blank if not required
+	public $directionsMode				= "DRIVING"; 				// DRIVING, WALKING or BICYCLING (US Only) - The vehicle/mode of transport to show directions for
+	public $directionsAvoidTolls		= FALSE;					// Whether or not directions should avoid tolls
+	public $directionsAvoidHighways	= FALSE;					// Whether or not directions should avoid highways
+	public $directionsDraggable		= FALSE;					// Whether or not directions on the map are draggable
+	public $directionsChanged			= "";						// JavaScript to perform when directions are dragged
+	public $directionsUnits			= "";						// 'metric' for kilometers and meters or 'imperial for miles and feet. Leave blank and it will default to the region or country of where directions are being obtained
+	public $directionsWaypointArray    = array();					// An array of waypoints. eg array("Boston, MA", "Times Square, NY");
+	public $directionsWaypointsOptimize= FALSE;					// Should the waypoints be optimised? If TRUE, waypoints will be re-ordered to provide the most efficient route.
     
-	var $drawing					= FALSE;					// Whether or not the drawing library tools will be loaded
-	var $drawingControl				= TRUE;						// If set to FALSE will hide the Drawing Manager control
-	var $drawingControlPosition		= 'TOP_CENTER';				// The position of the Drawing Manager control, eg. 'TOP_RIGHT'
-	var $drawingDefaultMode			= 'marker';					// The default mode for the Drawing Manager. Accepted values are marker, polygon, polyline, rectangle, circle, or null. null means that the user can interact with the map as normal when the map loads, and clicks do not draw anything.
-	var $drawingModes				= array();					// An array of modes available for use. Accepted values are marker, polygon, polyline, rectangle, circle
-	var $drawingOnComplete			= array();					// An array of JS to execute when shapes are completed, one array element per shape. For example: array('circle'=>'JS here', 'polygon'=>'JS here');
-	var $drawingOnEdit				= array();					// An array of JS to execute when shapes are changed/resized, one array element per shape. For example: array('circle'=>'JS here', 'polygon'=>'JS here');
+	public $drawing					= FALSE;					// Whether or not the drawing library tools will be loaded
+	public $drawingControl				= TRUE;						// If set to FALSE will hide the Drawing Manager control
+	public $drawingControlPosition		= 'TOP_CENTER';				// The position of the Drawing Manager control, eg. 'TOP_RIGHT'
+	public $drawingDefaultMode			= 'marker';					// The default mode for the Drawing Manager. Accepted values are marker, polygon, polyline, rectangle, circle, or null. null means that the user can interact with the map as normal when the map loads, and clicks do not draw anything.
+	public $drawingModes				= array();					// An array of modes available for use. Accepted values are marker, polygon, polyline, rectangle, circle
+	public $drawingOnComplete			= array();					// An array of JS to execute when shapes are completed, one array element per shape. For example: array('circle'=>'JS here', 'polygon'=>'JS here');
+	public $drawingOnEdit				= array();					// An array of JS to execute when shapes are changed/resized, one array element per shape. For example: array('circle'=>'JS here', 'polygon'=>'JS here');
 	
-	var $places						= FALSE;					// Whether or not the map will be used to show places
-	var $placesLocation				= '';						// A point (lat/long co-ordinate or address) on the map if the search for places is based around a central point
-	var $placesRadius				= 0;						// The radius (in meters) if search is based around a central position
-	var $placesLocationSW			= '';						// If preferring to search within bounds the South-West position (latitude/longitude coordinate OR address)
-	var $placesLocationNE			= '';						// If preferring to search within bounds the North-East position (latitude/longitude coordinate OR address)
-	var $placesTypes				= array();					// The types of places to search for. For a list of supported types see http://code.google.com/apis/maps/documentation/places/supported_types.html
-	var $placesName					= '';						// A term to be matched against when searching for places to display on the map
-	var $placesAutocompleteInputID	= '';						// The ID attribute of the textfield that the autocomplete should effect
-	var $placesAutocompleteTypes	= array();					// The types of places for the autocomplete to return. Options can be seen here https://developers.google.com/maps/documentation/javascript/places#places_autocomplete but include 'establishment' to only return business results, '(cities)', or '(regions)'
-	var $placesAutocompleteBoundSW	= '';						// By specifying an area in which to search for Places, the results are biased towards, but not restricted to, Places contained within these bounds.
-	var $placesAutocompleteBoundNE	= '';						// Both South-West (lat/long co-ordinate or address) and North-East (lat/long co-ordinate or address) values are required if wishing to set bounds
-	var $placesAutocompleteBoundsMap= FALSE;					// An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
-	var $placesAutocompleteOnChange	= '';						// The JavaScript action to perform when a place is selected
+	public $places						= FALSE;					// Whether or not the map will be used to show places
+	public $placesLocation				= '';						// A point (lat/long co-ordinate or address) on the map if the search for places is based around a central point
+	public $placesRadius				= 0;						// The radius (in meters) if search is based around a central position
+	public $placesLocationSW			= '';						// If preferring to search within bounds the South-West position (latitude/longitude coordinate OR address)
+	public $placesLocationNE			= '';						// If preferring to search within bounds the North-East position (latitude/longitude coordinate OR address)
+	public $placesTypes				= array();					// The types of places to search for. For a list of supported types see http://code.google.com/apis/maps/documentation/places/supported_types.html
+	public $placesName					= '';						// A term to be matched against when searching for places to display on the map
+	public $placesAutocompleteInputID	= '';						// The ID attribute of the textfield that the autocomplete should effect
+	public $placesAutocompleteTypes	= array();					// The types of places for the autocomplete to return. Options can be seen here https://developers.google.com/maps/documentation/javascript/places#places_autocomplete but include 'establishment' to only return business results, '(cities)', or '(regions)'
+	public $placesAutocompleteBoundSW	= '';						// By specifying an area in which to search for Places, the results are biased towards, but not restricted to, Places contained within these bounds.
+	public $placesAutocompleteBoundNE	= '';						// Both South-West (lat/long co-ordinate or address) and North-East (lat/long co-ordinate or address) values are required if wishing to set bounds
+	public $placesAutocompleteBoundsMap= FALSE;					// An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
+	public $placesAutocompleteOnChange	= '';						// The JavaScript action to perform when a place is selected
 	
 	function Googlemaps($config = array())
 	{
@@ -344,14 +345,13 @@ class __Googlemaps {
 			if ($marker['onclick']!="") { $marker_output .= $marker['onclick'].'
 			'; }
 			$marker_output .= '
-			});
-			';
-		}else{
-			if ($marker['onclick']!="") { 
-				$marker_output .= '
-				google.maps.event.addListener(marker_'.$marker_id.', "click", function(event) {
-					'.$marker['onclick'].'
-				});
+ 
+			/**
+			 * CodeIgniter Google Maps API V3 Class
+			 *
+			 * Note: API key removed from source; set via environment variable `GOOGLE_MAPS_KEY`
+			 *
+			 * @package	CodeIgniter
 				';
 			}
 		}
@@ -1740,8 +1740,9 @@ class __Googlemaps {
 				
 				$this->output_js_contents .= '
 				var autocompleteInput = document.getElementById(\''.$this->placesAutocompleteInputID.'\');
-				
-				placesAutocomplete = new google.maps.places.Autocomplete(autocompleteInput, autocompleteOptions);
+				// Ensure the element exists and is an input element before creating Autocomplete
+				if (autocompleteInput && (typeof HTMLInputElement === "undefined" || autocompleteInput instanceof HTMLInputElement || autocompleteInput.tagName === "INPUT")) {
+					placesAutocomplete = new google.maps.places.Autocomplete(autocompleteInput, autocompleteOptions);
 				';
 				
 				if ($this->placesAutocompleteBoundsMap)
@@ -1749,7 +1750,7 @@ class __Googlemaps {
 					$this->output_js_contents .= 'placesAutocomplete.bindTo(\'bounds\', map);
 					';
 				}
-				
+			
 				if ($this->placesAutocompleteOnChange != "")
 				{
 					$this->output_js_contents .= 'google.maps.event.addListener(placesAutocomplete, \'place_changed\', function() {
@@ -1757,6 +1758,8 @@ class __Googlemaps {
 					});
 					';
 				}
+				// close the input guard
+				$this->output_js_contents .= '}';
 			}
 			
 		}
@@ -1955,11 +1958,11 @@ class __Googlemaps {
 						start = position.coords.latitude+","+position.coords.longitude;
 						calcRoute(start, start);
 					}, function() { 
-						alert("Unable to get your current position. Please try again. Geolocation service failed."); 
+						if (typeof console !== "undefined") console.warn("Unable to get your current position. Please try again. Geolocation service failed."); 
 					});
 				// Browser doesn\'t support Geolocation
 				}else{
-					alert(\'Your browser does not support geolocation.\');
+					if (typeof console !== "undefined") console.warn(\'Your browser does not support geolocation.\');
 				}
 				';
             }else if ($this->directionsStart=="auto") {
@@ -2145,7 +2148,11 @@ class __Googlemaps {
 			';
 		}else{
 			$this->output_js_contents .= '
-			google.maps.event.addDomListener(window, "load", initialize_'.$this->map_name.');
+				if (window.addEventListener) {
+					window.addEventListener('load', initialize_'.$this->map_name.');
+				} else {
+					window.attachEvent && window.attachEvent('onload', initialize_'.$this->map_name.');
+				}
 			';
 		}
 		

@@ -167,7 +167,7 @@
 
                     <div class="form-group">
                         <label>Bore x Stroke (mm)</label>
-                        <input  type="text" class="form-control" name=" mot_bore_stroke_mm" value="<?php echo set_value('mot_bore_stroke_mm') != NULL ? set_value('mot_bore_stroke_mm') : $motorcycle['mot_bore_stroke_mm'] ?>">
+                        <input  type="text" class="form-control" name="mot_bore_stroke_mm" value="<?php echo set_value('mot_bore_stroke_mm') != NULL ? set_value('mot_bore_stroke_mm') : $motorcycle['mot_bore_stroke_mm'] ?>">
                     </div>
 
                     <div class="form-group">
@@ -192,7 +192,7 @@
 
                     <div class="form-group">
                         <label>Battery (Ebike)</label>
-                        <input  type="text" class="form-control" name="mot_battery" value="<?php echo set_value('mot_battery') != NULL ? set_value('mot_battery') : $motorcycle['mot_battery'] ?>">
+                        <input  type="text" class="form-control" name="mot_battery" value="<?php echo set_value('mot_battery') != NULL ? set_value('mot_battery') : ($motorcycle['mot_battery'] ?? '') ?>">
                     </div>
 
                     <div class="form-group">
@@ -202,7 +202,7 @@
 
                     <div class="form-group">
                         <label>Maximum Horse Power/ Speed</label>
-                        <input  type="text" class="form-control" name=" mot_maximum_horse_power" value="<?php echo set_value('  mot_maximum_horse_power') != NULL ? set_value('mot_maximum_horse_power') : $motorcycle['mot_maximum_horse_power'] ?>">
+                        <input  type="text" class="form-control" name="mot_maximum_horse_power" value="<?php echo set_value('mot_maximum_horse_power') != NULL ? set_value('mot_maximum_horse_power') : $motorcycle['mot_maximum_horse_power'] ?>">
                     </div>
 
                     <div class="form-group">
@@ -212,7 +212,7 @@
 
                     <div class="form-group">
                         <label>Range (Ebike)</label>
-                        <input  type="text" class="form-control" name="mot_range" value="<?php echo set_value('mot_range') != NULL ? set_value('mot_range') : $motorcycle['mot_range'] ?>">
+                        <input  type="text" class="form-control" name="mot_range" value="<?php echo set_value('mot_range') != NULL ? set_value('mot_range') : ($motorcycle['mot_range'] ?? '') ?>">
                     </div>
 
                 </div>
@@ -268,7 +268,7 @@
 
                     <div class="form-group">
                         <label>Alarm (Ebike)</label>
-                        <input  type="text" class="form-control" name="mot_alarm" value="<?php echo set_value('mot_alarm') != NULL ? set_value('mot_alarm') : $motorcycle['mot_alarm'] ?>">
+                        <input  type="text" class="form-control" name="mot_alarm" value="<?php echo set_value('mot_alarm') != NULL ? set_value('mot_alarm') : ($motorcycle['mot_alarm'] ?? '') ?>">
                     </div>
 
                 </div>
@@ -353,4 +353,4 @@
         </div>
 </div>
 </form>
-<?php endforeach; ?> 
+<?php endforeach; ?>

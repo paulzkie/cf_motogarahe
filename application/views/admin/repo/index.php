@@ -102,7 +102,7 @@
                                     <!-- <td><input type="checkbox"></td> -->
                                     <td><p><?php echo $current_count_start;?></p></td>
                                     <td>
-                                        <?php if ( $repos['mop_image'] == 'none' ):?>
+                                        <?php if ( empty($repos['mop_image']) || $repos['mop_image'] === 'none' ):?>
                                             <img src="https://dummyimage.com/620x485/4a4a4a/ffffff.jpg&text=No+Image" class="img-responsive">
                                         <?php else:?>
                                             <img src="<?php echo base_url() . $repos['mot_image'] ?>" class="img-responsive">
@@ -114,7 +114,7 @@
                                     <td><a href="<?php echo base_url() . 'admin/repo/view/' . $repos['mot_id']?>">
                                         <?php echo $repos['mot_model'] ?>
                                     </a></td>
-                                    <td><?php echo base_url() . $repos['mop_image'] ?></td>
+                                    <td><?php echo !empty($repos['mop_image']) ? base_url() . $repos['mop_image'] : '' ?></td>
                                     <td><?php echo date("F j, Y, g:i a",strtotime($repos['mot_created'])) ?></td>
                                     <td>
                                         <?php

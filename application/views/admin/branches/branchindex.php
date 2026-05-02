@@ -240,7 +240,7 @@ function isNumberKey(evt)
                                             data-cp="<?php echo $branch['cp'];?>"
                                             data-dea_name="<?php echo $branch['dea_name'];?>"
                                             data-name="<?php echo $branch['name'];?>"
-                                            data-repo_slot="<?php echo $branch['repo_slot'];?>">
+                                            data-repo_slot="<?php echo $branch['repo_slot'] ?? '';?>">
                                             <i class="fa fa-edit"></i></a>
                                             <a href=""><i class="fa fa-trash-o"></i></a>
                                         </div>

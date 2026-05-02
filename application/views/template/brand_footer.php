@@ -169,17 +169,12 @@ function loadData(pro_id){
   });
 }
 </script>
-
-<script>
-  var msg_success = "<?php echo $this->session->flashdata('msg_success') ?>";
-  if ( msg_success != "" ) {
-    toastr.success('Success!', msg_success );
-  }
-
-  var msg_error = "<?php echo $this->session->flashdata('msg_error') ?>";
-  if ( msg_error != "" ) {
-    toastr.error('Error!', msg_error );
-  }
+<?php if ($this->session->flashdata('msg_success')): ?>
+  <script>toastr.success('Success!', "<?php echo addslashes($this->session->flashdata('msg_success')); ?>");</script>
+<?php $this->session->unset_userdata('msg_success'); endif; ?>
+<?php if ($this->session->flashdata('msg_error')): ?>
+  <script>toastr.error('Error!', "<?php echo addslashes($this->session->flashdata('msg_error')); ?>");</script>
+<?php $this->session->unset_userdata('msg_error'); endif; ?>
 
   var div = document.getElementById("dom-target");
   var msg_error = div.textContent;

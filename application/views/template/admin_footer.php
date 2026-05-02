@@ -32,14 +32,14 @@
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo ADMIN_LTE_PATH?>bootstrap/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="<?php echo ADMIN_LTE_PATH?>update/raphael-min.js"></script>
-<script src="<?php echo ADMIN_LTE_PATH?>plugins/morris/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="<?php echo ADMIN_LTE_PATH?>plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="<?php echo ADMIN_LTE_PATH?>plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="<?php echo ADMIN_LTE_PATH?>plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- Morris.js charts (CDN fallback for local plugin files) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<!-- Sparkline (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+<!-- jvectormap (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/1.2.2/jquery-jvectormap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/1.2.2/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo ADMIN_LTE_PATH?>plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
@@ -191,17 +191,15 @@ function loadData(pro_id){
 }
 </script>
 
+</script>
+<?php if ($this->session->flashdata('msg_success')): ?>
+  <script>toastr.success('Success!', "<?php echo addslashes($this->session->flashdata('msg_success')); ?>");</script>
+<?php $this->session->unset_userdata('msg_success'); endif; ?>
+<?php if ($this->session->flashdata('msg_error')): ?>
+  <script>toastr.error('Error!', "<?php echo addslashes($this->session->flashdata('msg_error')); ?>");</script>
+<?php $this->session->unset_userdata('msg_error'); endif; ?>
+
 <script>
-  var msg_success = "<?php echo $this->session->flashdata('msg_success') ?>";
-  if ( msg_success != "" ) {
-    toastr.success('Success!', msg_success );
-  }
-
-  var msg_error = "<?php echo $this->session->flashdata('msg_error') ?>";
-  if ( msg_error != "" ) {
-    toastr.error('Error!', msg_error );
-  }
-
   var div = document.getElementById("dom-target");
   var msg_error = div.textContent;
   if ( msg_error != "" || msg_error == 'false') {

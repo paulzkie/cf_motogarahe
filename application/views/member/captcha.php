@@ -310,14 +310,13 @@ $(document).ready(function() {
     "todayHighlight":true,
     "autoclose": true
   });
+  <?php if ($this->session->flashdata('msg_success')): ?>
+    <script>toastr.success('Success!', "<?php echo addslashes($this->session->flashdata('msg_success')); ?>");</script>
+  <?php endif; ?>
 
-  var msg_success = "<?php echo $this->session->flashdata('msg_success') ?>";
-  if ( msg_success != "" ) {
-    toastr.success('Success!', msg_success );
-  }
-
-  var div = document.getElementById("dom-target");
-  var msg_error = div.textContent;
+  <script>
+    var div = document.getElementById("dom-target");
+    var msg_error = div ? div.textContent : "";
   if ( msg_error != "" || msg_error == 'false') {
     toastr.error('Error!', msg_error );
   }

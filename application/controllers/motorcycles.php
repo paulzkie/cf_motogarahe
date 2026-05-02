@@ -1972,7 +1972,7 @@ class Motorcycles extends CI_Controller {
 		}
 	}
 
-	public function dealers($slug, $dem_colors, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice,$promo , $filter="1")
+	public function dealers($slug = null, $dem_colors = null, $lat = null, $long = null, $km = null, $loc_lat = null, $loc_long = null, $dealer = null, $minprice = null, $maxprice = null, $promo = null, $filter = "1")
 	{
 		$this->session->set_userdata('current_url', current_url());
 
