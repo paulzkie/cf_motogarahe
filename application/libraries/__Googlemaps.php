@@ -1,11 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-		public $apiKey                        = ''; 					// API key removed; set via environment variable GOOGLE_MAPS_KEY
+/**
  * CodeIgniter Google Maps API V3 Class
  *
-			$this->initialize($config);
-			// Read API key from environment to avoid committing secrets
-			public $apiKey                        = '';
+ * Displays a Google Map
+ *
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Libraries
@@ -21,7 +20,7 @@ class __Googlemaps {
 	public $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
 	public $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
 	public $adsensePublisherID			= '';						// Your Google AdSense publisher ID
-	public $apiKey					= (getenv('GOOGLE_MAPS_KEY') !== false) ? getenv('GOOGLE_MAPS_KEY') : ''; 		// Read from env var `GOOGLE_MAPS_KEY`
+	public $apiKey						= ''; 						// Loaded from config or GOOGLE_MAPS_KEY environment variable
 	public $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
 	public $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
 	public $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
@@ -42,19 +41,19 @@ class __Googlemaps {
 	public $draggableCursor			= '';						// The name or url of the cursor to display on a draggable object
 	public $draggingCursor				= '';						// The name or url of the cursor to display when an object is being dragged
 	public $geocodeCaching				= FALSE;					// If set to TRUE will cache any geocode requests made when an address is used instead of a lat/long. Requires DB table to be created (see documentation)
-	public $https						= TRUE;					// If set to TRUE will load the Google Maps JavaScript API over HTTPS, allowing you to utilize the API within your HTTPS secure application 
+	public $https						= FALSE;					// If set to TRUE will load the Google Maps JavaScript API over HTTPS, allowing you to utilize the API within your HTTPS secure application 
 	public $navigationControlPosition	= '';						// The position of the Navigation control, eg. 'BOTTOM_RIGHT'
 	public $infowindowMaxWidth			= 0;						// The maximum width of the infowindow in pixels. Expecting an integer without units
 	public $keyboardShortcuts			= TRUE;						// If set to FALSE will disable to map being controlled via the keyboard
 	public $jsfile						= '';						// Set this to the path of an external JS file if you wish the JavaScript to be placed in a file rather than output directly into the <head></head> section. The library will try to create the file if it does not exist already. Please ensure the destination file is writeable
 	public $kmlLayerURL				= '';						// A URL to publicly available KML or GeoRSS data for displaying geographic information. Multiple KML layers can be passed in by using an array of URL's. Note, if using multiple you'll probably have to set $kmlLayerPreserveViewport to true and manually set map center and zoom
 	public $kmlLayerPreserveViewport	= FALSE;					// Specifies whether the map should be adjusted to the bounds of the KmlLayer's contents. By default the map is zoomed and positioned to show the entirety of the layer's contents
-	public $language					= '';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
+	public $language					= 'id';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
 	public $loadAsynchronously			= FALSE;					// Load the map and API asynchronously once the page has loaded
 	public $map_div_id					= "map_canvas";				// The ID of the <div></div> that is output which contains the map
-	public $map_height					= "300px";					// The height of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
+	public $map_height					= "450px";					// The height of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
 	public $map_name					= "map";					// The JS reference to the map. Currently not used but to be used in the future when multiple maps are supported
-	public $map_type					= "HYBRID";				// The default MapType. Values accepted are 'HYBRID', 'ROADMAP', 'SATELLITE' or 'TERRAIN'
+	public $map_type					= "ROADMAP";				// The default MapType. Values accepted are 'HYBRID', 'ROADMAP', 'SATELLITE' or 'TERRAIN'
 	public $map_types_available		= array();					// The other MapTypes available for selection on the map
 	public $map_width					= "100%";					// The width of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
 	public $maps_loaded				= 0;						// Counter which keeps track of how many maps have been created to avoid standard functions being output twice
@@ -86,7 +85,7 @@ class __Googlemaps {
 	public $region						= '';						// Country code top-level domain (eg "uk") within which to search. Useful if supplying addresses rather than lat/longs
 	public $scaleControlPosition		= '';						// The position of the Scale control, eg. 'BOTTOM_RIGHT'
 	public $scrollwheel				= TRUE;						// If set to FALSE will disable zooming by scrolling of the mouse wheel
-	public $sensor						= FALSE;					// Set to TRUE if being used on a device that can detect a users location
+	public $sensor						= TRUE;					// Set to TRUE if being used on a device that can detect a users location
 	public $streetViewAddressControl	= TRUE;						// If set to FALSE will hide the Address control
 	public $streetViewAddressPosition	= '';						// The position of the Address control, eg. 'BOTTOM'
 	public $streetViewControlPosition	= '';						// The position of the Street View control when viewing normal aerial map, eg. 'BOTTOM_RIGHT'
@@ -106,7 +105,7 @@ class __Googlemaps {
 	public $tilt						= 0;						// The angle of tilt. Currently only supports the values 0 and 45 in SATELLITE and HYBRID map types and at certain zoom levels
 	public $trafficOverlay				= FALSE;					// If set to TRUE will overlay traffic information onto the map by default 
 	public $version					= "3";						// Version of the API being used. Not currently used in the library
-	public $zoom						= "auto";						// The default zoom level of the map. If set to "auto" will autozoom/center to fit in all visible markers. If "auto", also overrides the $center parameter
+	public $zoom						= 13;						// The default zoom level of the map. If set to "auto" will autozoom/center to fit in all visible markers. If "auto", also overrides the $center parameter
 	public $zoomControlPosition		= '';						// The position of the Zoom control, eg. 'BOTTOM_RIGHT'
 	public $zoomControlStyle			= '';						// The size of the zoom control. blank, 'SMALL' or 'LARGE' values accepted.
 	
@@ -153,11 +152,17 @@ class __Googlemaps {
 	public $placesAutocompleteBoundsMap= FALSE;					// An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
 	public $placesAutocompleteOnChange	= '';						// The JavaScript action to perform when a place is selected
 	
-	function Googlemaps($config = array())
+	function __construct($config = array()) 
 	{
 		if (count($config) > 0)
 		{
 			$this->initialize($config);
+		}
+
+		$env_key = getenv('GOOGLE_MAPS_KEY');
+		if ($env_key !== false && $this->apiKey === '')
+		{
+			$this->apiKey = $env_key;
 		}
 
 		log_message('debug', "Google Maps Class Initialized");
@@ -345,13 +350,14 @@ class __Googlemaps {
 			if ($marker['onclick']!="") { $marker_output .= $marker['onclick'].'
 			'; }
 			$marker_output .= '
- 
-			/**
-			 * CodeIgniter Google Maps API V3 Class
-			 *
-			 * Note: API key removed from source; set via environment variable `GOOGLE_MAPS_KEY`
-			 *
-			 * @package	CodeIgniter
+			});
+			';
+		}else{
+			if ($marker['onclick']!="") { 
+				$marker_output .= '
+				google.maps.event.addListener(marker_'.$marker_id.', "click", function(event) {
+					'.$marker['onclick'].'
+				});
 				';
 			}
 		}
@@ -1154,7 +1160,7 @@ class __Googlemaps {
 			var '.$this->map_name.'; // Global declaration of the map
 			var lat_longs_'.$this->map_name.' = new Array();
 			var markers_'.$this->map_name.' = new Array();
-            var iw_'.$this->map_name.';
+			var iw_'.$this->map_name.';
 			';
 		if ($this->cluster) {
 			$this->output_js_contents .= 'var markerCluster;
@@ -1488,25 +1494,10 @@ class __Googlemaps {
 				if(navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(function(position) {
 						'.$this->map_name.'.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-					}, function() { 
-						// alert("Unable to get your location. Please turn on your GPS"); 
-						// $("#myPlaceTextBox").text("Unable to get your current location? Please turn on your GPS at mobile setting.");
-						// $("header").addClass("error")
-
-						
-					});
+					}, function() { if (typeof console !== "undefined") console.warn("Unable to get your current position. Please try again. Geolocation service failed."); });
 				// Browser doesn\'t support Geolocation
 				}else{
-					alert(\'Your browser does not support geolocation.\');
-				}
-
-				var to = url.lastIndexOf("/");
-				to = to == -1 ? url.length : to + 1;
-				pageURL = url.substring(0, to);;
-				console.log(pageURL)
-
-				if ("https://www.motogarahe.com/motorcycles/info/" == pageURL) {
-					// $("#locModal").modal("show"); 
+					if (typeof console !== "undefined") console.warn(\'Your browser does not support geolocation.\');
 				}
 			';
 		}
@@ -1957,12 +1948,10 @@ class __Googlemaps {
 					navigator.geolocation.getCurrentPosition(function(position) {
 						start = position.coords.latitude+","+position.coords.longitude;
 						calcRoute(start, start);
-					}, function() { 
-						if (typeof console !== "undefined") console.warn("Unable to get your current position. Please try again. Geolocation service failed."); 
-					});
+					}, function() { alert("Unable to get your current position. Please try again. Geolocation service failed."); });
 				// Browser doesn\'t support Geolocation
 				}else{
-					if (typeof console !== "undefined") console.warn(\'Your browser does not support geolocation.\');
+					alert(\'Your browser does not support geolocation.\');
 				}
 				';
             }else if ($this->directionsStart=="auto") {
@@ -1973,9 +1962,7 @@ class __Googlemaps {
 					navigator.geolocation.getCurrentPosition(function(position) {
 						start = position.coords.latitude+","+position.coords.longitude;
 						calcRoute(start, \''.$this->directionsEnd.'\');
-					}, function() { 
-						alert("Unable to get your current position. Please try again. Geolocation service failed."); 
-					});
+					}, function() { alert("Unable to get your current position. Please try again. Geolocation service failed."); });
 				// Browser doesn\'t support Geolocation
 				}else{
 					alert(\'Your browser does not support geolocation.\');
@@ -1989,9 +1976,7 @@ class __Googlemaps {
 					navigator.geolocation.getCurrentPosition(function(position) {
 						end = position.coords.latitude+","+position.coords.longitude;
 						calcRoute(\''.$this->directionsStart.'\', end);
-					}, function() { 
-						alert("Unable to get your current position. Please try again. Geolocation service failed."); 
-					});
+					}, function() { alert("Unable to get your current position. Please try again. Geolocation service failed."); });
 				// Browser doesn\'t support Geolocation
 				}else{
 					alert(\'Your browser does not support geolocation.\');
@@ -2149,9 +2134,9 @@ class __Googlemaps {
 		}else{
 			$this->output_js_contents .= '
 				if (window.addEventListener) {
-					window.addEventListener('load', initialize_'.$this->map_name.');
+					window.addEventListener(\'load\', initialize_'.$this->map_name.');
 				} else {
-					window.attachEvent && window.attachEvent('onload', initialize_'.$this->map_name.');
+					window.attachEvent && window.attachEvent(\'onload\', initialize_'.$this->map_name.');
 				}
 			';
 		}
