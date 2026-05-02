@@ -30,7 +30,7 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
       <!-- <meta name="robots" content="index, follow"> -->
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="language" content="English">
-      <meta name="author" content="aj nocolai garrigues">
+      <meta name="author" content="paul ezekhiele fradejas">
     
       <meta itemprop="image" content="https://www.motogarahe.com/resources/site/images/logo.jpg">
 

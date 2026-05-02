@@ -31,7 +31,7 @@ if ( round($kb / $deltat, 3) <= 2500 ) {
       <meta name="keywords" content="<?php echo $header_keywords?>">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="language" content="English">
-      <meta name="author" content="aj nocolai garrigues">
+      <meta name="author" content="paul ezekhiele fradejas">
       <meta itemprop="image" content="<?php echo $header_featured_img ? base_url($header_featured_img) : 'https://www.motogarahe.com/resources/site/images/logo.jpg' ?> ">
 
       <!-- Facebook Meta Tags -->

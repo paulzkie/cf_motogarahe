@@ -133,7 +133,7 @@
         			<form >
         				<div class="inner-addon left-addon col-md-2">
 						    <i class="glyphicon fa fa-search"></i>
-						   <input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>" inputmode="search">
+						   <input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?>" inputmode="search">
 						   
 						</div>
         				
@@ -221,7 +221,7 @@
             </div>
         <?php  else: ?>    
         	<div class="col-lg-12 col-md-12 col-xs-12">
-                <h4><strong>Results found for</strong> <?php echo $mot_model != 'all' ? $mot_model : ''?></h4>
+				<h4><strong>Results found for</strong> <?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?></h4>
             </div>
         <?php  endif; ?>
 		<!-- no result end -->

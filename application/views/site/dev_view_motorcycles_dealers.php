@@ -499,7 +499,7 @@
 											<form method="post">
 												<input type="hidden" id="lat" value="">
 												<input type="hidden" id="lng" value="">
-												<input type="hidden" id="lng" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>">
+												<input type="hidden" id="lng" value="<?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?>">
 												<div class="b-items__aside-main-body">
 													<div class="b-items__aside-main-body-item">
 														<label>Distance (km)</label>

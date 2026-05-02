@@ -12,6 +12,12 @@
                 </h1>
                 <hr class="mt-2 mb-3 hr-2"/>
                 <h5>Kindly fill-up the form below, and our customer service professionals will contact you as soon as possible.</h5>
+                <?php if (!empty($msg_error)) { ?>
+                    <div class="alert alert-danger"><?php echo $msg_error; ?></div>
+                <?php } ?>
+                <?php if ($this->session->flashdata('msg_error')) { ?>
+                    <div class="alert alert-danger"><?php echo $this->session->flashdata('msg_error'); ?></div>
+                <?php } ?>
                 <form id="inq-form"  method="post">
                     <input required type="hidden" name="mot_id" value="<?php echo $motorcycles[0]['mot_id']?>">
 

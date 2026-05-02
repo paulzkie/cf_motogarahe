@@ -74,6 +74,27 @@ if (defined('ENVIRONMENT'))
  */
 	$application_folder = 'application';
 
+	$dotenvPath = __DIR__ . DIRECTORY_SEPARATOR . '.env';
+	if (is_file($dotenvPath) && is_readable($dotenvPath)) {
+		$dotenvValues = @parse_ini_file($dotenvPath, FALSE, INI_SCANNER_RAW);
+		if (is_array($dotenvValues)) {
+			foreach ($dotenvValues as $dotenvKey => $dotenvValue) {
+				if (!is_string($dotenvKey) || $dotenvKey === '') {
+					continue;
+				}
+
+				if (getenv($dotenvKey) !== FALSE) {
+					continue;
+				}
+
+				$dotenvValue = is_string($dotenvValue) ? trim($dotenvValue) : $dotenvValue;
+				putenv($dotenvKey . '=' . $dotenvValue);
+				$_ENV[$dotenvKey] = $dotenvValue;
+				$_SERVER[$dotenvKey] = $dotenvValue;
+			}
+		}
+	}
+
 /*
  * --------------------------------------------------------------------
  * DEFAULT CONTROLLER

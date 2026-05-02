@@ -17,6 +17,168 @@ class Ebike extends CI_Controller {
 		
     }
 
+	private function sanitize_plain_text($value, $max_length = 255)
+	{
+		return public_input_plain_text($value, $max_length);
+	}
+
+	private function sanitize_multiline_text($value, $max_length = 1000)
+	{
+		$value = str_replace(array("\r\n", "\r"), "\n", (string) $value);
+		$value = strip_tags($value);
+		$value = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/u', '', $value);
+		$value = preg_replace("/\n{3,}/", "\n\n", $value);
+		$value = trim($value);
+
+		if (function_exists('mb_substr')) {
+			return mb_substr($value, 0, $max_length);
+		}
+
+		return substr($value, 0, $max_length);
+	}
+
+	private function sanitize_phone_value($value)
+	{
+		return public_input_phone($value);
+	}
+
+	private function sanitize_email_value($value)
+	{
+		return public_input_email($value);
+	}
+
+	private function sanitize_coordinate_value($value)
+	{
+		$value = trim((string) $value);
+		if ($value === '' || strtolower($value) === 'undefined') {
+			return '';
+		}
+
+		return preg_match('/^-?\d+(\.\d+)?$/', $value) ? $value : '';
+	}
+
+	private function normalize_payment_value($value)
+	{
+		$value = strtolower(trim((string) $value));
+
+		return ($value === 'cash') ? 'cash' : 'installment';
+	}
+
+	private function sanitize_registration_payload($post_data)
+	{
+		return public_input_registration_payload($post_data);
+	}
+
+	private function sanitize_login_payload($post_data)
+	{
+		return public_input_login_payload($post_data);
+	}
+
+	private function sanitize_search_redirect_payload($post_data)
+	{
+		$build_segment = function ($key, $default, $max_length = 80) use ($post_data) {
+			$value = $this->sanitize_plain_text(isset($post_data[$key]) ? $post_data[$key] : '', $max_length);
+
+			if ($value === '') {
+				return $default;
+			}
+
+			return $this->_slug($value);
+		};
+
+		$status = strtoupper($this->sanitize_plain_text(isset($post_data['status']) ? $post_data['status'] : '', 10));
+		if ($status !== 'USED') {
+			$status = 'NEW';
+		}
+
+		return array(
+			'brand' => 'brand',
+			'mot_model' => $build_segment('mot_model', 'all', 120),
+			'mot_brand' => $build_segment('mot_brand', 'brand'),
+			'mot_type' => $build_segment('mot_type', 'type'),
+			'mot_transmission' => $build_segment('mot_transmission', 'transmission'),
+			'mot_diplacement' => $build_segment('mot_diplacement', 'diplacement'),
+			'mot_engine_type' => $build_segment('mot_engine_type', 'engine-type'),
+			'status' => $status,
+		);
+	}
+
+	private function sanitize_location_payload($post_data)
+	{
+		return array(
+			'lat' => $this->sanitize_coordinate_value(isset($post_data['lat']) ? $post_data['lat'] : ''),
+			'long' => $this->sanitize_coordinate_value(isset($post_data['long']) ? $post_data['long'] : ''),
+			'dem_colors' => $this->_slug($this->sanitize_plain_text(isset($post_data['dem_colors']) ? $post_data['dem_colors'] : '', 100)),
+		);
+	}
+
+	private function sanitize_legacy_inquiry_payload($post_data)
+	{
+		return array(
+			'dem_id' => (int) $this->sanitize_phone_value(isset($post_data['dem_id']) ? $post_data['dem_id'] : 0),
+			'mot_id' => (int) $this->sanitize_phone_value(isset($post_data['mot_id']) ? $post_data['mot_id'] : 0),
+			'deb_id' => (int) $this->sanitize_phone_value(isset($post_data['deb_id']) ? $post_data['deb_id'] : 0),
+			'inq_color' => $this->sanitize_plain_text(isset($post_data['inq_color']) ? $post_data['inq_color'] : '', 100),
+			'inq_name' => $this->sanitize_plain_text(isset($post_data['inq_name']) ? $post_data['inq_name'] : '', 120),
+			'inq_address' => $this->sanitize_plain_text(isset($post_data['inq_address']) ? $post_data['inq_address'] : '', 255),
+			'inq_phone' => $this->sanitize_phone_value(isset($post_data['inq_phone']) ? $post_data['inq_phone'] : ''),
+			'inq_email' => $this->sanitize_email_value(isset($post_data['inq_email']) ? $post_data['inq_email'] : ''),
+			'inq_payment' => $this->normalize_payment_value(isset($post_data['inq_payment']) ? $post_data['inq_payment'] : ''),
+			'inq_tentative' => $this->sanitize_plain_text(isset($post_data['inq_tentative']) ? $post_data['inq_tentative'] : '', 64),
+			'inq_occupation' => $this->sanitize_plain_text(isset($post_data['inq_occupation']) ? $post_data['inq_occupation'] : '', 120),
+			'inq_position' => $this->sanitize_plain_text(isset($post_data['inq_position']) ? $post_data['inq_position'] : '', 120),
+			'inq_message' => $this->sanitize_multiline_text(isset($post_data['inq_message']) ? $post_data['inq_message'] : '', 1000),
+		);
+	}
+
+	private function sanitize_inquiry_payload($post_data, $color)
+	{
+		return array(
+			'mot_id' => (int) $this->sanitize_phone_value(isset($post_data['mot_id']) ? $post_data['mot_id'] : 0),
+			'inq_name' => $this->sanitize_plain_text(isset($post_data['inq_name']) ? $post_data['inq_name'] : '', 120),
+			'inq_address' => $this->sanitize_plain_text(isset($post_data['inq_address']) ? $post_data['inq_address'] : '', 255),
+			'inq_phone' => $this->sanitize_phone_value(isset($post_data['inq_phone']) ? $post_data['inq_phone'] : ''),
+			'inq_email' => $this->sanitize_email_value(isset($post_data['inq_email']) ? $post_data['inq_email'] : ''),
+			'inq_payment' => $this->normalize_payment_value(isset($post_data['inq_payment']) ? $post_data['inq_payment'] : ''),
+			'inq_buy_duration' => $this->sanitize_plain_text(isset($post_data['inq_buy_duration']) ? $post_data['inq_buy_duration'] : '', 40),
+			'inq_have_motor' => $this->sanitize_plain_text(isset($post_data['inq_have_motor']) ? $post_data['inq_have_motor'] : '', 3),
+			'inq_occupation' => $this->sanitize_plain_text(isset($post_data['inq_occupation']) ? $post_data['inq_occupation'] : '', 120),
+			'inq_position' => $this->sanitize_plain_text(isset($post_data['inq_position']) ? $post_data['inq_position'] : '', 120),
+			'inq_message' => $this->sanitize_multiline_text(isset($post_data['inq_message']) ? $post_data['inq_message'] : '', 1000),
+			'inq_color' => $this->sanitize_plain_text($color, 100),
+		);
+	}
+
+	private function build_inquiry_email_message($data, $dealer_motorcycle, $selected_color)
+	{
+		$rows = array(
+			'Name' => ucwords($data['inq_name']),
+			'Address' => ucwords($data['inq_address']),
+			'Phone #' => $data['inq_phone'],
+			'Email' => $data['inq_email'],
+			'Mode of payment' => ucwords($data['inq_payment']),
+			'Buy Duration' => $data['inq_buy_duration'],
+			'Occupation' => ucwords($data['inq_occupation']),
+			'Position' => ucwords($data['inq_position']),
+			'Have Motor' => strtoupper($data['inq_have_motor']),
+			'Message' => $data['inq_message'],
+			'Brand' => isset($dealer_motorcycle['mot_brand']) ? $dealer_motorcycle['mot_brand'] : '',
+			'Model' => isset($dealer_motorcycle['mot_model']) ? $dealer_motorcycle['mot_model'] : '',
+			'Color' => $selected_color,
+			'Price' => isset($dealer_motorcycle['mot_srp']) ? $dealer_motorcycle['mot_srp'] : '',
+			'Dealer' => isset($dealer_motorcycle['dea_name']) ? $dealer_motorcycle['dea_name'] : '',
+			'Branch' => isset($dealer_motorcycle['name']) ? $dealer_motorcycle['name'] : '',
+			'Date of Inquiry' => $data['inq_created'],
+		);
+
+		$table_rows = '';
+		foreach ($rows as $label => $value) {
+			$table_rows .= '<tr><td>' . html_escape($label) . ':</td><td>' . nl2br(html_escape((string) $value)) . '</td></tr>';
+		}
+
+		return 'Dear. Mr./Ms. ' . html_escape(ucwords($data['inq_name'])) . ' <br/><style>.im{color: black !important;}</style><p style="color: black !important;"> Thank you for using motogarahe.com in buying your dream motorcycle. You’re a few steps away to complete your purchase. <br/> Our Partner-dealer will call you within 24hrs to guide you in your buying journey.</p><table>' . $table_rows . '</table><br/><img style="background: black;" height="50px" with="300px" src="https://www.motogarahe.com/uploads/icon/new-hanapmototag.png"/><br/><br/><img style="background: white;" height="500px" width="1040px" src="https://www.motogarahe.com/uploads/guide/mailimgv2.png"/>';
+	}
+
 	public function index($slug="")
 	{
 		$brand = $this->uri->segment(2);
@@ -162,46 +324,18 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-				} else {
-					$data['mot_model'] = "all";
-				}
-				if ( empty($data['brand']) ) {
-					$data['brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 					// $this->godprintp($data);
@@ -411,46 +545,18 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-				} else {
-					$data['mot_model'] = "all";
-				}
-				if ( empty($data['brand']) ) {
-					$data['brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 					// $this->godprintp($data);
@@ -669,17 +775,14 @@ class Ebike extends CI_Controller {
 			// echo "test";
 			// echo print_r($this->input->post());
 
-			$this->form_validation->set_rules('lat', 'GPS Location', 'trim');
-			$this->form_validation->set_rules('long', 'GPS Location', 'trim');
-			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|decimal');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim|decimal');
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required|max_length[100]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['dealers_mode']);
-
-				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+				$data = $this->sanitize_location_payload($this->input->post(NULL, FALSE));
 				
 				$cur_loc = array();
 				$cur_loc["lat"] = $data["lat"];
@@ -695,8 +798,8 @@ class Ebike extends CI_Controller {
 				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
 
 				//$slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice
-				$data["lat"] = ($data["lat"] == "" || $data["lat"] == 0 || $data["lat"] == null) ? 0 : $data["lat"] ; // if lat null
-				$data["long"] = ($data["long"] == "" || $data["long"] == 0 || $data["long"] == null) ? 0 : $data["long"] ; // if long null
+				$data["lat"] = ($data["lat"] === '' || $data["lat"] === '0') ? 0 : $data["lat"] ; // if lat null
+				$data["long"] = ($data["long"] === '' || $data["long"] === '0') ? 0 : $data["long"] ; // if long null
 				redirect('motorcycles/dealers/' . $slug . '/' . $data['dem_colors'] . "/" . $data['lat'] . '/' . $data['long'] . '/' . 100 . '/' . 0 . '/' . 0 . '/' . 'dealer' . '/' . 0 . '/' . 0  ,'refresh');
 				
 			}
@@ -1773,25 +1876,24 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('fill_mode')) {
 
-			$this->form_validation->set_rules('dem_id', 'Dealer Motorcycles', 'trim|required');
-			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required');
-			$this->form_validation->set_rules('deb_id', 'Dealer', 'trim|required');
-			$this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required');
-			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required');
-			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required');
-			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|integer');
-			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email');
-			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required');
-			$this->form_validation->set_rules('inq_tentative', 'Tentative', 'trim|required');
-			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required');
-			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required');
-			$this->form_validation->set_rules('inq_message', 'Message', 'trim');
+			$this->form_validation->set_rules('dem_id', 'Dealer Motorcycles', 'trim|required|integer');
+			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required|integer');
+			$this->form_validation->set_rules('deb_id', 'Dealer', 'trim|required|integer');
+			$this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required|max_length[100]');
+			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required|max_length[255]');
+			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|max_length[20]|regex_match[/^[0-9]+$/]');
+			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email|max_length[254]');
+			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required|in_list[cash,installement,installment,Installment]');
+			$this->form_validation->set_rules('inq_tentative', 'Tentative', 'trim|required|max_length[64]');
+			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_message', 'Message', 'trim|max_length[1000]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['fill_mode']);
+				$data = $this->sanitize_legacy_inquiry_payload($this->input->post(NULL, FALSE));
 
 
 				$data['inq_tentative'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative']));
@@ -1966,34 +2068,28 @@ class Ebike extends CI_Controller {
 		if($this->input->post('fill_mode')) {
 
 			// $this->form_validation->set_rules('dem_id', 'Dealer Motorcycles', 'trim|required');
-			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required');
+			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required|integer');
 			// $this->form_validation->set_rules('deb_id', 'Dealer', 'trim|required');
 			// $this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required');
-			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required');
-			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required');
-			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|integer');
-			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email');
-			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required');
+			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required|max_length[255]');
+			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|max_length[20]|regex_match[/^[0-9]+$/]');
+			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email|max_length[254]');
+			$this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required|in_list[cash,installement,installment,Installment]');
 
-			$this->form_validation->set_rules('inq_buy_duration', 'Planning to buy', 'trim|required');
+			$this->form_validation->set_rules('inq_buy_duration', 'Planning to buy', 'trim|required|in_list[Within 30 days,1 - 3 months,3 - 6 months,6 - 12 months,Undecided]');
 
 			// $this->form_validation->set_rules('inq_tentative', 'start tentative date', 'trim|required');
 			// $this->form_validation->set_rules('inq_tentative2', 'end tentative date', 'trim|required');
-			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required');
-			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required');
-			$this->form_validation->set_rules('inq_message', 'Message', 'trim');
+			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_message', 'Message', 'trim|max_length[1000]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				// echo print_r($data);
-
-				unset($data['fill_mode']);
-
-
-				$data['inq_color'] = $color;
+				$data = $this->sanitize_inquiry_payload($this->input->post(NULL, FALSE), $color);
 				// $data['inq_tentative'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative']));
 				// $data['inq_tentative2'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative2']));
 				$data['inq_created'] = $this->getDatetimeNow();
@@ -2334,22 +2430,21 @@ class Ebike extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
+				$data = $this->sanitize_registration_payload($this->input->post(NULL, FALSE));
 
 				// echo "<pre>";
 				// print_r ($data);
@@ -2382,14 +2477,14 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('login_mode')) {
 
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'required|trim');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = $this->sanitize_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -2416,14 +2511,23 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_slug', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_slug', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('dea_name', 'Dealer', 'trim|max_length[120]');
+			$this->form_validation->set_rules('km', 'Distance', 'trim|integer');
+			$this->form_validation->set_rules('minprice', 'Minimum Price', 'trim|integer');
+			$this->form_validation->set_rules('maxprice', 'Maximum Price', 'trim|integer');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
+				$data = array(
+					'mot_slug' => $this->_slug($this->sanitize_plain_text($this->input->post('mot_slug', FALSE), 120)),
+					'dea_name' => $this->_slug($this->sanitize_plain_text($this->input->post('dea_name', FALSE), 120)),
+					'km' => (int) $this->sanitize_phone_value($this->input->post('km', FALSE)),
+					'minprice' => (int) $this->sanitize_phone_value($this->input->post('minprice', FALSE)),
+					'maxprice' => (int) $this->sanitize_phone_value($this->input->post('maxprice', FALSE)),
+				);
 
 				// if ( !empty($data['mot_model']) ) {
 				// 	$data['mot_model'] = $this->_slug($data['mot_model']);
@@ -2692,22 +2796,20 @@ class Ebike extends CI_Controller {
 			// echo "test";
 			// echo print_r($this->input->post());
 
-			$this->form_validation->set_rules('lat', 'GPS Location', 'trim');
-			$this->form_validation->set_rules('long', 'GPS Location', 'trim');
-			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|decimal');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim|decimal');
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required|max_length[100]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['dealers_mode']);
-				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+				$data = $this->sanitize_location_payload($this->input->post(NULL, FALSE));
 
 				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
 
 				//$slug, $lat, $long, $km, $loc_lat, $loc_long, $dealer, $minprice, $maxprice
-				$data["lat"] = ($data["lat"] == " " || $data["lat"] == "undefined" || $data["lat"] == 0 || $data["lat"] == null) ? 0 : $data["lat"] ; // if lat null
-				$data["long"] = ($data["long"] == " " || $data["long"] == "undefined" || $data["long"] == 0 || $data["long"] == null) ? 0 : $data["long"] ; // if long null
+				$data["lat"] = ($data["lat"] === '') ? 0 : $data["lat"] ; // if lat null
+				$data["long"] = ($data["long"] === '') ? 0 : $data["long"] ; // if long null
 				//redirect('motorcycles/dealers/' . $slug . '/' . $data['dem_colors'] . "/" . $data['lat'] . '/' . $data['long'] . '/' . 100 . '/' . 0 . '/' . 0 . '/' . 'dealer' . '/' . 0 . '/' . 0  ,'refresh');
 				
 			}
@@ -3109,18 +3211,17 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('dealers_mode')) {
 
-			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|required');
-			$this->form_validation->set_rules('long', 'GPS Location', 'trim|required');
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|decimal');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim|decimal');
 			
-			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required');
+			$this->form_validation->set_rules('dem_colors', 'Color', 'trim|required|max_length[100]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				//$data = $this->input->post();
-				unset($data['dealers_mode']);
-
-				$data['dem_colors'] =  $this->_slug($data['dem_colors']);
+				$data = $this->sanitize_location_payload($this->input->post(NULL, FALSE));
+				$data['lat'] = ($data['lat'] === '') ? 0 : $data['lat'];
+				$data['long'] = ($data['long'] === '') ? 0 : $data['long'];
 
 				// redirect('motorcycles/search/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
 
@@ -3649,22 +3750,21 @@ class Ebike extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
+				$data = $this->sanitize_registration_payload($this->input->post(NULL, FALSE));
 
 				// echo "<pre>";
 				// print_r ($data);
@@ -3694,14 +3794,14 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('login_mode')) {
 
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'required|trim');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = $this->sanitize_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -3744,46 +3844,18 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-				} else {
-					$data['mot_model'] = "all";
-				}
-				if ( empty($data['brand']) ) {
-					$data['brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 					// $this->godprintp($data);
@@ -3985,46 +4057,18 @@ class Ebike extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-				} else {
-					$data['mot_model'] = "all";
-				}
-				if ( empty($data['brand']) ) {
-					$data['brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 					// $this->godprintp($data);

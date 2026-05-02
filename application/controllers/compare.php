@@ -115,38 +115,21 @@ class Compare extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
-
-				// echo "<pre>";
-				// print_r ($data);
-				// echo "</pre>";
-
-				// break;
-
-				// $data_users['usr_username'] = $data['usr_username'];
-				$data_users['usr_password'] = $data['usr_password'];
-				$data_users['usr_fname'] = $data['usr_fname'];
-				// $data_users['usr_mname'] = $data['usr_mname'];
-				$data_users['usr_lname'] = $data['usr_lname'];
-				// $data_users['usr_address'] = $data['usr_address'];
-				// $data_users['usr_gender'] = $data['usr_gender'];
-				$data_users['usr_contact'] = $data['usr_contact'];
-				$data_users['usr_email'] = $data['usr_email'];
+				$data_users = public_input_registration_payload($this->input->post(NULL, FALSE));
 				$data_users['usr_created'] = $this->getDatetimeNow();
 		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
 		        $data_users['usr_session'] = $this->session->userdata('session_id');
@@ -170,7 +153,7 @@ class Compare extends CI_Controller {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = public_input_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');

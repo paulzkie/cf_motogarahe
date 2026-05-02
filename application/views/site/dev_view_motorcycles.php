@@ -385,7 +385,7 @@
 											<div class="b-items__aside-main-body">
 												<div class="b-items__aside-main-body-item">
 													<label>Model Name</label>
-													<input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>" inputmode="search">
+													<input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?>" inputmode="search">
 												</div>
 												<div class="b-items__aside-main-body-item">
 													<label>Brand</label>
@@ -504,7 +504,7 @@
 											<div class="b-items__aside-main-body">
 												<div class="b-items__aside-main-body-item">
 													<label>Model Name</label>
-													<input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>" inputmode="search">
+													<input autocomplete="off" placeholder="" type="text" name="mot_model" value="<?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?>" inputmode="search">
 												</div>
 												<div class="b-items__aside-main-body-item">
 													<label>Brand</label>
@@ -612,7 +612,7 @@
 					        <?php  else: ?>    
 					        	<div class="col-lg-12 col-md-12 col-xs-12">
 					        		<hr class="mt-2 mb-5 hide-xs">
-					                <h4><strong>Results found for</strong> <?php echo $mot_model != 'all' ? $mot_model : ''?></h4>
+					                <h4><strong>Results found for</strong> <?php echo html_escape($mot_model != 'all' ? $mot_model : ''); ?></h4>
 					            </div>
 					        <?php  endif; ?>
 

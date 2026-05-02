@@ -13,6 +13,67 @@ class Repo extends CI_Controller {
 		$this->load->model('model_login');
 	}
 
+	private function sanitize_coordinate_value($value)
+	{
+		$value = trim((string) $value);
+		if ($value === '' || strtolower($value) === 'undefined') {
+			return '';
+		}
+
+		return preg_match('/^-?\d+(\.\d+)?$/', $value) ? $value : '';
+	}
+
+	private function sanitize_repo_search_payload($post_data)
+	{
+		$build_segment = function ($key, $default, $max_length = 80) use ($post_data) {
+			$value = public_input_plain_text(isset($post_data[$key]) ? $post_data[$key] : '', $max_length);
+
+			if ($value === '') {
+				return $default;
+			}
+
+			return $this->_slug($value);
+		};
+
+		$status = strtoupper(public_input_plain_text(isset($post_data['status']) ? $post_data['status'] : '', 10));
+		if ($status !== 'USED') {
+			$status = 'NEW';
+		}
+
+		return array(
+			'mot_model' => $build_segment('mot_model', 'all', 120),
+			'mot_brand' => $build_segment('mot_brand', 'brand'),
+			'mot_type' => $build_segment('mot_type', 'type'),
+			'mot_transmission' => $build_segment('mot_transmission', 'transmission'),
+			'mot_diplacement' => $build_segment('mot_diplacement', 'diplacement'),
+			'mot_engine_type' => $build_segment('mot_engine_type', 'engine-type'),
+			'status' => $status,
+		);
+	}
+
+	private function sanitize_repo_location_payload($post_data)
+	{
+		return array(
+			'lat' => $this->sanitize_coordinate_value(isset($post_data['lat']) ? $post_data['lat'] : ''),
+			'long' => $this->sanitize_coordinate_value(isset($post_data['long']) ? $post_data['long'] : ''),
+		);
+	}
+
+	private function sanitize_repo_inquiry_payload($post_data)
+	{
+		return array(
+			'mot_id' => (int) public_input_phone(isset($post_data['mot_id']) ? $post_data['mot_id'] : 0),
+			'inq_name' => public_input_plain_text(isset($post_data['inq_name']) ? $post_data['inq_name'] : '', 120),
+			'inq_address' => public_input_plain_text(isset($post_data['inq_address']) ? $post_data['inq_address'] : '', 255),
+			'inq_phone' => public_input_phone(isset($post_data['inq_phone']) ? $post_data['inq_phone'] : ''),
+			'inq_email' => public_input_email(isset($post_data['inq_email']) ? $post_data['inq_email'] : ''),
+			'inq_tentative' => public_input_plain_text(isset($post_data['inq_tentative']) ? $post_data['inq_tentative'] : '', 64),
+			'inq_occupation' => public_input_plain_text(isset($post_data['inq_occupation']) ? $post_data['inq_occupation'] : '', 120),
+			'inq_position' => public_input_plain_text(isset($post_data['inq_position']) ? $post_data['inq_position'] : '', 120),
+			'inq_message' => public_input_plain_text(isset($post_data['inq_message']) ? $post_data['inq_message'] : '', 1000),
+		);
+	}
+
 	public function index($slug="all", $brand="brand", $type="type", $transmission="transmission", $diplacement="diplacement", $engine="engine-type", $filter="1" )
 	{
 
@@ -115,38 +176,21 @@ class Repo extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
-
-				// echo "<pre>";
-				// print_r ($data);
-				// echo "</pre>";
-
-				// break;
-
-				// $data_users['usr_username'] = $data['usr_username'];
-				$data_users['usr_password'] = $data['usr_password'];
-				$data_users['usr_fname'] = $data['usr_fname'];
-				// $data_users['usr_mname'] = $data['usr_mname'];
-				$data_users['usr_lname'] = $data['usr_lname'];
-				// $data_users['usr_address'] = $data['usr_address'];
-				// $data_users['usr_gender'] = $data['usr_gender'];
-				$data_users['usr_contact'] = $data['usr_contact'];
-				$data_users['usr_email'] = $data['usr_email'];
+				$data_users = public_input_registration_payload($this->input->post(NULL, FALSE));
 				$data_users['usr_created'] = $this->getDatetimeNow();
 		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
 		        $data_users['usr_session'] = $this->session->userdata('session_id');
@@ -167,7 +211,7 @@ class Repo extends CI_Controller {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = public_input_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -207,44 +251,19 @@ class Repo extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-				} else {
-					$data['mot_model'] = "all";
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_repo_search_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 
@@ -456,14 +475,13 @@ class Repo extends CI_Controller {
 
 		if($this->input->post('dealers_mode')) {
 
-			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|required');
-			$this->form_validation->set_rules('long', 'GPS Location', 'trim|required');
+			$this->form_validation->set_rules('lat', 'GPS Location', 'trim|required|decimal');
+			$this->form_validation->set_rules('long', 'GPS Location', 'trim|required|decimal');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['dealers_mode']);
+				$data = $this->sanitize_repo_location_payload($this->input->post(NULL, FALSE));
 
 				// redirect('motorcycles/index/' . $data['mot_model'] . '/' . $data['mot_brand'] . '/' . $data['mot_type'] . '/' . $data['mot_transmission'] . '/' . $data['mot_diplacement'] . '/' . $data['mot_engine_type'] ,'refresh');
 
@@ -587,24 +605,22 @@ class Repo extends CI_Controller {
 
 		if($this->input->post('fill_mode')) {
 
-			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required');
+			$this->form_validation->set_rules('mot_id', 'Model', 'trim|required|integer');
 			// $this->form_validation->set_rules('inq_color', 'Color Variant', 'trim|required');
-			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required');
-			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required');
-			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|integer');
-			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('inq_name', 'Name', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_address', 'Address', 'trim|required|max_length[255]');
+			$this->form_validation->set_rules('inq_phone', 'Phone', 'trim|required|max_length[20]|regex_match[/^[0-9]+$/]');
+			$this->form_validation->set_rules('inq_email', 'Email', 'trim|required|valid_email|max_length[254]');
 			// $this->form_validation->set_rules('inq_payment', 'Mode of Payment', 'trim|required');
-			$this->form_validation->set_rules('inq_tentative', 'Tentative', 'trim|required');
-			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required');
-			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required');
-			$this->form_validation->set_rules('inq_message', 'Message', 'trim');
+			$this->form_validation->set_rules('inq_tentative', 'Tentative', 'trim|required|max_length[64]');
+			$this->form_validation->set_rules('inq_occupation', 'Occupation', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_position', 'Position', 'trim|required|max_length[120]');
+			$this->form_validation->set_rules('inq_message', 'Message', 'trim|max_length[1000]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['fill_mode']);
-
+				$data = $this->sanitize_repo_inquiry_payload($this->input->post(NULL, FALSE));
 
 				$data['inq_tentative'] = date("Y\-m\-d\ H:i:s", strtotime($data['inq_tentative']));
 				$data['inq_created'] = $this->getDatetimeNow();

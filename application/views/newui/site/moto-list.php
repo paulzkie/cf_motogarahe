@@ -6,6 +6,16 @@
 <script src="<?php echo base_url() ?>resources/site/newui-js2/classie.js"></script>
 <script src="<?php echo base_url() ?>resources/site/newui-js2/modernizr.custom.js"></script>
 
+<?php
+$mot_model_value = ($mot_model !== 'all') ? (string) $mot_model : '';
+$mot_model_html = html_escape($mot_model_value);
+$mot_brand_value = (string) $mot_brand;
+$mot_type_value = (string) $mot_type;
+$mot_transmission_value = (string) $mot_transmission;
+$mot_diplacement_value = (string) $mot_diplacement;
+$mot_model_query = isset($_GET['model']) ? (string) $_GET['model'] : '';
+?>
+
 
 
 <style>
@@ -437,7 +447,7 @@ section.sticky-bottom {
                       <li class="has-search ">
                         <div class="wrap">
                         <span class="fa fa-search form-control-feedback"></span>
-                        <input  autocomplete="off" id="model-search" class="form-control search-mot"  autocomplete="off" type="text" name="mot_model" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>" placeholder="Search model" inputmode="search">
+                        <input  autocomplete="off" id="model-search" class="form-control search-mot"  autocomplete="off" type="text" name="mot_model" value="<?php echo $mot_model_html; ?>" placeholder="Search model" inputmode="search">
                         <!-- onfocus="inputIn()"  onfocusout="inputOut()" -->
                         <!-- <div class="suggestions-div">
                           <ul class="suggestions list-group" style="">
@@ -594,7 +604,7 @@ section.sticky-bottom {
          <div class="d-lg-none d-md-none">
             <div class="col-md-12 form-group has-search">
               <span class="fa fa-search form-control-feedback"></span>
-              <input id="mobile" class="form-control"  autocomplete="off" type="text" name="mot_model_mobile" value="<?php echo $mot_model != 'all' ? $mot_model : ''?>" placeholder="Search model" inputmode="search">
+              <input id="mobile" class="form-control"  autocomplete="off" type="text" name="mot_model_mobile" value="<?php echo $mot_model_html; ?>" placeholder="Search model" inputmode="search">
             </div>
             <div class="suggestions-div">
               <ul class="suggestions list-group" style="">
@@ -616,37 +626,41 @@ section.sticky-bottom {
   <section id="section-check" class="container">
   
     <span class="" id="brand-result">
-    <?php   if($mot_brand == 'brand'){ echo '<button type="button" onClick="display_remove_btn('.str_replace("-", "_", $mot_brand).')" class="btn res-btn m-2" data-value="'.$mot_brand.'">'. $mot_brand .'   <span >X</span></button>'; } ?>
+    <?php if ($mot_brand == 'brand'): ?>
+      <button type="button" onClick='display_remove_btn(<?php echo json_encode('#' . str_replace('-', '_', $mot_brand_value)); ?>)' class="btn res-btn m-2" data-value="<?php echo html_escape($mot_brand_value); ?>"><?php echo html_escape($mot_brand_value); ?> <span>X</span></button>
+    <?php endif; ?>
     </span>   
     <span class="" id="type-result">
-    <?php   if($mot_type != 'type' ){ echo '<button type="button"  onClick="display_remove_btn('.str_replace("-", "_", $mot_type).')" class="btn res-btn m-2" data-value="'.$mot_type.'">'. $mot_type .'   <span >X</span></button>'; } ?>
+    <?php if ($mot_type != 'type'): ?>
+      <button type="button" onClick='display_remove_btn(<?php echo json_encode('#' . str_replace('-', '_', $mot_type_value)); ?>)' class="btn res-btn m-2" data-value="<?php echo html_escape($mot_type_value); ?>"><?php echo html_escape($mot_type_value); ?> <span>X</span></button>
+    <?php endif; ?>
     </span>      
     <span class="" id="transmission-result">
-    <?php   if($mot_transmission != 'transmission' ){ echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn('.$mot_transmission.')"  data-value="'.$mot_transmission.'">'. $mot_transmission .'   <span >X</span></button>'; } ?>
+    <?php if ($mot_transmission != 'transmission'): ?>
+      <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#' . $mot_transmission_value); ?>)' data-value="<?php echo html_escape($mot_transmission_value); ?>"><?php echo html_escape($mot_transmission_value); ?> <span>X</span></button>
+    <?php endif; ?>
     </span>
     <span class="" id="displacement-result">
-    <?php   if($mot_diplacement != 'diplacement' ){
-
-          if($mot_diplacement == '100'){
-           echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc">0 - '. $mot_diplacement .'cc   <span >X</span></button>'; 
-          }
-          if($mot_diplacement == '200'){
-            echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc">101cc - '. $mot_diplacement .'cc   <span >X</span></button>'; 
-          }
-          if($mot_diplacement == '300'){
-            echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc">201cc - 400cc   <span >X</span></button>'; 
-          }
-          if($mot_diplacement == '500'){
-            echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc">401cc - 600cc   <span >X</span></button>'; 
-          }
-          if($mot_diplacement == '700'){
-            echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc">601cc - 1000cc   <span >X</span></button>'; 
-          }
-          if($mot_diplacement == '1000'){
-            echo '<button type="button" class="btn res-btn m-2" onClick="display_remove_btn(_'.$mot_diplacement.'cc)"  data-value="'.$mot_diplacement.'cc"> 1001cc up   <span >X</span></button>'; 
-          }
-       } 
-    ?>
+    <?php if ($mot_diplacement != 'diplacement'): ?>
+      <?php if ($mot_diplacement == '100'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">0 - <?php echo html_escape($mot_diplacement_value); ?>cc <span>X</span></button>
+      <?php endif; ?>
+      <?php if ($mot_diplacement == '200'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">101cc - <?php echo html_escape($mot_diplacement_value); ?>cc <span>X</span></button>
+      <?php endif; ?>
+      <?php if ($mot_diplacement == '300'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">201cc - 400cc <span>X</span></button>
+      <?php endif; ?>
+      <?php if ($mot_diplacement == '500'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">401cc - 600cc <span>X</span></button>
+      <?php endif; ?>
+      <?php if ($mot_diplacement == '700'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">601cc - 1000cc <span>X</span></button>
+      <?php endif; ?>
+      <?php if ($mot_diplacement == '1000'): ?>
+        <button type="button" class="btn res-btn m-2" onClick='display_remove_btn(<?php echo json_encode('#_' . $mot_diplacement_value . 'cc'); ?>)' data-value="<?php echo html_escape($mot_diplacement_value . 'cc'); ?>">1001cc up <span>X</span></button>
+      <?php endif; ?>
+    <?php endif; ?>
     </span>  
     <span class="" id="sort-result">
     </span>     
@@ -754,7 +768,7 @@ section.sticky-bottom {
     var typingTimer2;                //timer identifier
     var doneTypingInterval2 = 1000;  //time in ms, 5 second for example
     var key_search2 = $("input[name='mot_model_mobile']");
-    urlslug = "<?php if(empty($_GET['model'])){}else{ echo $_GET['model'];}?>";
+    urlslug = <?php echo json_encode($mot_model_query); ?>;
     //  desktop input search model start =========
 
     //on keyup, start the countdown
@@ -787,7 +801,7 @@ section.sticky-bottom {
       }else{
           slug = ''
       }
-      window.history.pushState('state', 'title','<?php echo base_url() ?>motorcycles?model='+val);
+      window.history.pushState('state', 'title','<?php echo base_url() ?>motorcycles?model='+encodeURIComponent(val));
       reload_data(load_data);
       
     }

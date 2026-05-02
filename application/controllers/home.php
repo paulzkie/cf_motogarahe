@@ -44,6 +44,34 @@ class Home extends CI_Controller {
 		return substr($keyword, 0, 80);
 	}
 
+	private function sanitize_search_redirect_payload($post_data)
+	{
+		$build_segment = function ($key, $default, $max_length = 80) use ($post_data) {
+			$value = public_input_plain_text(isset($post_data[$key]) ? $post_data[$key] : '', $max_length);
+
+			if ($value === '') {
+				return $default;
+			}
+
+			return $this->_slug($value);
+		};
+
+		$status = strtoupper(public_input_plain_text(isset($post_data['status']) ? $post_data['status'] : '', 10));
+		if ($status !== 'USED') {
+			$status = 'NEW';
+		}
+
+		return array(
+			'mot_model' => $build_segment('mot_model', 'all', 120),
+			'mot_brand' => $build_segment('mot_brand', 'brand'),
+			'mot_type' => $build_segment('mot_type', 'type'),
+			'mot_transmission' => $build_segment('mot_transmission', 'transmission'),
+			'mot_diplacement' => $build_segment('mot_diplacement', 'diplacement'),
+			'mot_engine_type' => $build_segment('mot_engine_type', 'engine-type'),
+			'status' => $status,
+		);
+	}
+
 	private function render_search_item($label, $javascript_argument)
 	{
 		echo '<li class="list-group-item moto-result" onmouseover="hoverInRes(event)" onmouseout="hoverOutRes(event)" onclick="pickResult(' . htmlspecialchars($javascript_argument, ENT_QUOTES, 'UTF-8') . ')">' . html_escape($label) . ' </li>';
@@ -152,38 +180,21 @@ class Home extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
-
-				// echo "<pre>";
-				// print_r ($data);
-				// echo "</pre>";
-
-				// break;
-
-				// $data_users['usr_username'] = $data['usr_username'];
-				$data_users['usr_password'] = $data['usr_password'];
-				$data_users['usr_fname'] = $data['usr_fname'];
-				// $data_users['usr_mname'] = $data['usr_mname'];
-				$data_users['usr_lname'] = $data['usr_lname'];
-				// $data_users['usr_address'] = $data['usr_address'];
-				// $data_users['usr_gender'] = $data['usr_gender'];
-				$data_users['usr_contact'] = $data['usr_contact'];
-				$data_users['usr_email'] = $data['usr_email'];
+				$data_users = public_input_registration_payload($this->input->post(NULL, FALSE));
 				$data_users['usr_created'] = $this->getDatetimeNow();
 		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
 		        $data_users['usr_session'] = $this->session->userdata('session_id');
@@ -204,7 +215,7 @@ class Home extends CI_Controller {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = public_input_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -228,48 +239,20 @@ class Home extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-
-				} else {
-					$data['mot_model'] = "all";
-				}
-				
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 
@@ -703,38 +686,21 @@ class Home extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
-
-				// echo "<pre>";
-				// print_r ($data);
-				// echo "</pre>";
-
-				// break;
-
-				// $data_users['usr_username'] = $data['usr_username'];
-				$data_users['usr_password'] = $data['usr_password'];
-				$data_users['usr_fname'] = $data['usr_fname'];
-				// $data_users['usr_mname'] = $data['usr_mname'];
-				$data_users['usr_lname'] = $data['usr_lname'];
-				// $data_users['usr_address'] = $data['usr_address'];
-				// $data_users['usr_gender'] = $data['usr_gender'];
-				$data_users['usr_contact'] = $data['usr_contact'];
-				$data_users['usr_email'] = $data['usr_email'];
+				$data_users = public_input_registration_payload($this->input->post(NULL, FALSE));
 				$data_users['usr_created'] = $this->getDatetimeNow();
 		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
 		        $data_users['usr_session'] = $this->session->userdata('session_id');
@@ -755,7 +721,7 @@ class Home extends CI_Controller {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = public_input_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -779,48 +745,20 @@ class Home extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-
-				if ( !empty($data['mot_model']) ) {
-
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-
-				} else {
-					$data['mot_model'] = "all";
-				}
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 
@@ -1049,38 +987,21 @@ class Home extends CI_Controller {
 		if($this->input->post('reg_mode')) {
 
 			// $this->form_validation->set_rules('usr_username', 'Username','trim|required|is_unique[users.usr_username]');  
-			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|is_unique[users.usr_email]');
+			$this->form_validation->set_rules('usr_email', 'Email', 'required|trim|valid_email|max_length[254]|is_unique[users.usr_email]');
 			$this->form_validation->set_rules('usr_password', 'Password', 'trim|required|matches[usr_password_conf]|min_length[8]|md5'); 
 			$this->form_validation->set_rules('usr_password_conf', 'Confirm Password', 'trim|required|md5');
-			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim');
+			$this->form_validation->set_rules('usr_fname', 'Firstname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_mname', 'Middlename', 'required|trim');
-			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim');
+			$this->form_validation->set_rules('usr_lname', 'Lastname', 'required|trim|max_length[120]');
 			// $this->form_validation->set_rules('usr_address', 'Address', 'required|trim');
 			// $this->form_validation->set_rules('usr_bday', 'Birthday', 'required|trim');
-			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim');
+			$this->form_validation->set_rules('usr_contact', 'Contact Number', 'required|trim|max_length[20]|regex_match[/^[0-9]+$/]');
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['reg_mode']);
-
-				// echo "<pre>";
-				// print_r ($data);
-				// echo "</pre>";
-
-				// break;
-
-				// $data_users['usr_username'] = $data['usr_username'];
-				$data_users['usr_password'] = $data['usr_password'];
-				$data_users['usr_fname'] = $data['usr_fname'];
-				// $data_users['usr_mname'] = $data['usr_mname'];
-				$data_users['usr_lname'] = $data['usr_lname'];
-				// $data_users['usr_address'] = $data['usr_address'];
-				// $data_users['usr_gender'] = $data['usr_gender'];
-				$data_users['usr_contact'] = $data['usr_contact'];
-				$data_users['usr_email'] = $data['usr_email'];
+				$data_users = public_input_registration_payload($this->input->post(NULL, FALSE));
 				$data_users['usr_created'] = $this->getDatetimeNow();
 		        // $data_users['usr_bday'] = date("Y\-m\-d\ H:i:s", strtotime($data['usr_bday']));
 		        $data_users['usr_session'] = $this->session->userdata('session_id');
@@ -1101,7 +1022,7 @@ class Home extends CI_Controller {
 				$content['msg_error'] = validation_errors();
 			} else {
 				// success
-				$data = $this->input->post();
+				$data = public_input_login_payload($this->input->post(NULL, FALSE));
 				$table = "users";
 
 				$this->db->select('usr_id, usr_fname, usr_lname, usr_mname, usr_email, usr_username, usr_session, uss_id, usr_status');
@@ -1125,48 +1046,20 @@ class Home extends CI_Controller {
 
 		if($this->input->post('search_mode')) {
 
-			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim');
+			$this->form_validation->set_rules('mot_model', 'Motorcycle', 'trim|max_length[120]');
+			$this->form_validation->set_rules('mot_brand', 'Brand', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_type', 'Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_transmission', 'Transmission', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_diplacement', 'Displacement', 'trim|max_length[80]');
+			$this->form_validation->set_rules('mot_engine_type', 'Engine Type', 'trim|max_length[80]');
+			$this->form_validation->set_rules('status', 'Status', 'trim|in_list[NEW,USED]');
 
 			
 
 			if ($this->form_validation->run() == FALSE) {
 				$content['msg_error'] = validation_errors();
 			} else {
-				$data = $this->input->post();
-				unset($data['search_mode']);
-
-				if ( !empty($data['mot_model']) ) {
-
-					$data['mot_model'] = $this->_slug($data['mot_model']);
-
-				} else {
-					$data['mot_model'] = "all";
-				}
-				
-
-				if ( empty($data['mot_brand']) ) {
-					$data['mot_brand'] = "brand";	
-				}
-
-				if ( empty($data['mot_type']) ) {
-					$data['mot_type'] = "type";	
-				}
-
-				if ( empty($data['mot_transmission']) ) {
-					$data['mot_transmission'] = "transmission";	
-				}
-
-				if ( empty($data['mot_diplacement']) ) {
-					$data['mot_diplacement'] = "diplacement";	
-				}
-
-				if ( empty($data['mot_engine_type']) ) {
-					$data['mot_engine_type'] = "engine-type";	
-				}
-
-				if ( empty($data['status']) ) {
-					$data['status'] = "NEW";	
-				}
+				$data = $this->sanitize_search_redirect_payload($this->input->post(NULL, FALSE));
 				
 				if ( $data['status'] == "NEW") {
 
