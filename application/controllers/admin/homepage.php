@@ -95,10 +95,6 @@ class Homepage extends CI_Controller {
  		if($this->input->post("addbanner")=="addbanner"){
 		if(empty($this->input->post("bannertitle"))) {
 			echo "Enter Banner Title";
-			// $msg = array(
-			// 	'stat' => 0,
-			// 	'msg' => "Enter Banenr Title"
-			// );
 		}else {	
 				$this->load->library('upload');
 				// $data = $this->input->post("");
