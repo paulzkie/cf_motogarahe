@@ -2961,28 +2961,6 @@ class Motorcycles extends CI_Controller {
         		$this->db->group_by('dealers_branches.deb_id');
         		$query = $this->db->get(); 
         		return $query->result_array(); 
-		// if ( $brand != 'brand' ) {
-		// 	// $this->db->like('title', $result);
-		// 	// $this->db->or_like('artist', $result);
-		// 	// $this->db->or_like('gen_name', $result);
-		// 	$this->db->where('mot_brand', $brand);
-		// }
-
-		// if ($type != "type") {
-		// 	$this->db->where('mot_type', $type);
-		// } 
-
-		// if ($transmission != "transmission") {
-		// 	$this->db->where('mot_transmission', $transmission);
-		// } 
-
-		// if ($diplacement != "diplacement") {
-		// 	$this->db->where('mot_diplacement >=', $diplacement);
-		// } 
-
-		// if ($engine != "engine-type") {
-		// 	$this->db->where('mot_engine_type', $engine);
-		// } 
 		}
 	}
 	public function clean_name($data){
