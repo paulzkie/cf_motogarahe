@@ -24,5 +24,6 @@ jobs:
           exclude: |
             **/.git*
             **/.github*
-            **/.git*/**
             **/node_modules/**
+            **/system_backup_*/**
+            **/backups/**
