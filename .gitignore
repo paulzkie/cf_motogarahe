@@ -1,0 +1,19 @@
+# Local environment
+.env
+
+# Runtime logs and caches
+/application/logs/log-*.php
+/application/cache/sessions/ci_session*
+/application/cache/rate_limits/*.json
+
+# Local debug artifacts
+/tmp_*.html
+/tmp_*.txt
+/tools/*_response.txt
+/system_backup_*/
+system_backup_*/
+backups/
+# Manually uploaded server files
+/application/config/email.php
+/application/config/database.php
+/application/helpers/public_input_helper.php
