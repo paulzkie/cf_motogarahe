@@ -45,6 +45,7 @@ if(in_array($_SERVER["REMOTE_ADDR"], $whitelist)){
     define('BASE_URL', "http://motogarahe.local/");
 }
 else{
+    define('BASE_URL', "https://motogarahe.free.nf/");
 }
 //define('BASE_URL', "http://localhost/cf_motogarahe/");
 //define('BASE_URL', "https://www.motogarahe.com/");
