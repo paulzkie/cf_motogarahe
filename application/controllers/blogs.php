@@ -53,7 +53,6 @@ class blogs extends CI_Controller {
 		$marker = array();
 		$marker['animation'] = 'BOUNCE';
 		$marker['draggable'] = 'true';
-		// $marker['ondragend'] = "showCoords(event.latLng.lat(), event.latLng.lng());";
 
 		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
             					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
