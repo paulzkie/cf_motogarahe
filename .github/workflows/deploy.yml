@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           server-dir: /htdocs/
-          dangerous-clean-slate: true
+          state-name: .ftp-deploy-sync-state-fresh.json
           exclude: |
             **/.git*
             **/.github*
