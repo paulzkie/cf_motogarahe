@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 $route['default_controller'] = 'home';
+$route['login'] = 'admin/login';
 $route['member'] = 'member/login';
 $route['admin'] = 'admin/login';
 $route['dealer'] = 'dealer/login';
 $route['merchant'] = 'merchant/login';
 $route['brand'] = 'brand/login';
 $route['tvs'] = 'tvs/mall';
-$route['404_override'] = 'pages/error';
+$route['404_override'] = 'home';
 $route['motorcycles/dealers/(:any)'] = 'motorcycles/dealers/$1/$2/$3/$4/$5/$6/$7/$8/$9/$10';
 $route['motorcycles/add_dealers/(:any)/(:any)/(:any)'] = 'motorcycles/add_dealers/$1/$2/$3';
 $route['motorcycles/remove_dealer/(:any)'] = 'motorcycles/remove_dealer/$1';

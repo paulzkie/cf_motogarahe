@@ -1,533 +1,369 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class blogs extends CI_Controller {
-	private $allowed_search_types = array('mot_model', 'dealers.dea_name', 'mot_brand');
+class Blogs extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url','date', 'form','breadcrumb'));
-		$this->load->library(array('form_validation', 'security', 'session', 'pagination'));
+		$this->load->library(array('form_validation', 'security', 'session','googlemaps', 'cart', 'pagination'));
 		$this->load->model('model_base');
-
-		if ( $this->have_sess_admin() != true ){
-			$this->logout_admin();	
-		}
-
-		$this->session->unset_userdata('selected_client');	
+		$this->load->model('model_login');
+		
 	}
 
-	public function index($search_type = "xallx", $search_val ="xallx", $filter = 1 )
+	public function index($filter="1")
 	{
-		$search_type = $this->normalize_search_type($search_type);
-		$search_val = $this->normalize_search_value($search_val);
+		$this->session->set_userdata('current_url', current_url());
 
 		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = '';
-		
 		$content = [];
+		$header['header_title'] = 'MG News';
+		$header['header_desc'] = "Motogarahe.com is an interactive website that helps you to search, compare and purchase the right motorcycle for you.";
+		$header['header_keywords'] = "";
+		$header['header_featured_img'] = "";
+		$header['mot_model'] = "";
 
-
-		if ( $this->input->post('search_mode') ) {
-			$this->form_validation->set_rules('search_type', 'Search Type', 'required|trim');
-			$this->form_validation->set_rules('search_val', 'Search Value', 'required|trim');
-
-			if ($this->form_validation->run() == FALSE) {
-				$this->session->set_flashdata('msg_error', validation_errors());	
-				redirect('admin/blogs/index/xallx/xallx', 'refresh');
-			} else {
-				$data = $this->input->post();
-
-				$search_val = $this->normalize_search_value($data['search_val']);
-				$search_type = $this->normalize_search_type($data['search_type']);
-
-
-				// $this->godprintp($data);
-
-				redirect('admin/blogs/index/' . $search_type . '/' . rawurlencode($search_val), 'refresh');
-
-			}	
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
 		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
 
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    // If the place has a geometry, then present it on a map.
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
 		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
+
+		$this->db->order_by('dem_id',"DESC");
+		$this->db->limit(4);
+		$this->db->join("dealers_branches", "dealers_branches.deb_id = dealers_motorcycles.deb_id");
+		$this->db->join("motorcycles", "motorcycles.mot_id = dealers_motorcycles.mot_id");
+		$footer['latest_motorcycles'] = $this->model_base->get_all('dealers_motorcycles');
+
 		$config = array();
-		$config["base_url"] = base_url() . "admin/blogs/index/". $search_type ."/". $search_val ."/";
-		$this->_sort($search_type, $search_val );
+		$config["base_url"] = base_url(). "/blogs/index";
+		$this->_sort();
 		$total_row = $this->model_base->count_data('blogs');
 		$config["total_rows"] = $total_row;
-		$config['per_page'] = 30;
-		$config['uri_segment'] = 6;
+		$config['per_page'] = 6;
+		$config['uri_segment'] = 3;
+
 		$config['num_links'] = $total_row;
 		$config['use_page_numbers'] = TRUE;
-		$config['full_tag_open'] = '<ul class="pagination">';
-		$config['full_tag_close'] = '</ul>';
-		$config['prev_link'] = 'Previous';
+		$config['full_tag_open'] = '<nav aria-label="..."> <ul class="pagination">';
+		$config['full_tag_close'] = '</ul> </nav>';
+		$config['prev_link'] = '<li class="page-item" ><span class="page-link">Previous</span></li>';
 		$config['prev_tag_open'] = '<li>';
 		$config['prev_tag_close'] = '</li>';
 		$config['next_tag_open'] = '<li>';
 		$config['next_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li class="active"><a href="">';
+		$config['next_link'] = '<li class="page-item" ><span class="page-link">Next</span></li>';
+		$config['cur_tag_open'] = '<li class="page-item active-link"> <a class="page-link" href="">';
 		$config['cur_tag_close'] = '</a></li>';
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['next_link'] = 'Next';
+		$config['num_tag_open'] = '<li class="page-item" ><span class="page-link">';
+		$config['num_tag_close'] = '</span></li>';
 
 		$this->pagination->initialize($config);
-
 		$offset = ($filter - 1) * $config["per_page"];
 		$this->db->limit( $config["per_page"] , $offset);
-		$content["current_count_start"] = $offset;
-		
-		
-
-		//validations
-
-		$this->_sort($search_type, $search_val );
+		$this->db->flush_cache();
+		$this->_sort();
 		$content['blogs'] = $this->model_base->get_all('blogs');
-		// $this->godprint($content['dealers_branches']);
 
-		$content['controller']=$this; 
-		$content['all'] = base_url('admin/blogs/index/xallx/xallx');
-		$content['published'] = base_url('admin/blogs/index/blo_status/published');
-		$content['draft'] = base_url('admin/blogs/index/blo_status/draft');
-		$content['deleted'] = base_url('admin/blogs/index/blo_status/deleted');
-		$content['create'] = base_url('admin/blogs/create');
-
-		$content['accomplished'] = base_url('admin/blogs/index/accomplished');
-		$content['ongoing'] = base_url('admin/blogs/index/ongoing');
-
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/index', $content);
-		$this->load->view("template/admin_footer");
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/blog-list', $content);
+		$this->load->view("newui/template/site_footer", $footer);
 	}
 
-	private function normalize_search_type($search_type)
-	{
-		if ($search_type === 'xallx') {
-			return 'xallx';
-		}
-
-		return in_array($search_type, $this->allowed_search_types, true) ? $search_type : 'xallx';
-	}
-
-	private function normalize_search_value($search_val)
-	{
-		if ($search_val === 'xallx') {
-			return 'xallx';
-		}
-
-		return trim(rawurldecode((string) $search_val));
-	}
-
-	public function _sort ($search_type, $search_val) {
-
-		if ( $search_type != 'xallx'  &&  $search_val != 'xallx' ) {
-			$this->db->like($search_type, $search_val);
-		}
-
+	public function _sort() {
 		$this->db->order_by('blo_created', 'DESC');
-		// $this->db->where('blo_status', 'published');
+		$this->db->where('blo_status', 'published');
 	}
 
-	public function create()
-	{
+	public function allblogs(){
+		$this->db->limit(6);
+		$this->db->order_by('blo_created', 'DESC');
+		$this->db->where('blo_status', 'published');
+		$landingpageblogs = $this->model_base->get_all('blogs');
+		foreach ($landingpageblogs as $blogs) {
+			echo '<a href='.base_url().'blogs/content/'.$blogs["blo_slug"].'>'.'</a> ';
+		}
+	}
+
+	public function landingpageblogs(){
+		$this->db->limit(3);
+		$this->db->order_by('blo_created', 'DESC');
+		$this->db->where('blo_status', 'published');
+		$landingpageblogs = $this->model_base->get_all('blogs');
+		foreach ($landingpageblogs as $blogs) {
+			if(empty($blogs["blo_image"])){
+				$img = 'No image';
+			}else{
+				$img = base_url().$blogs['blo_image'];
+			}
+			$stringCut = substr($blogs["blo_desc"], 0, 250);
+            $endPoint = strrpos($stringCut, ' ');
+            $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+			echo '<div class="col-lg-4 col-md-6">
+	                <div class="blog-hm-wrapper mb-40">
+	                    <div class="blog-img">
+	                        <a href='.base_url().'blogs/content/'.$blogs["blo_slug"].'> 
+	                        <img src='.$img.' alt='.$blogs["blo_title"].'></a>
+	                        <div class="blog-date">
+	                            <h4>'.date("F j, Y",strtotime($blogs["blo_created"])).'</h4>
+	                        </div>
+	                        <div class="blog-hm-social fb-share-button" data-href='.base_url().$blogs['blo_image'].' data-layout="button_count" data-size="small">
+	                        <ul>
+	                            <li><a rel="noopener" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='.base_url().'blogs/content/'.$blogs["blo_slug"].'  class="fb-xfbml-parse-ignore"><i class="fa fa-facebook"></i></a></li>
+	                            <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
+	                            </ul>
+	                        </div>
+	                        </div>
+	                        <div class="blog-hm-content">
+	                        <h3><a href='.base_url().'blogs/content/'.$blogs["blo_slug"].'>'.$blogs["blo_title"].'</a></h3>
+	                        <p><span>'.$blogs["blo_author"].'</span><br>'.$string.'...</p>
+	                        <a href='.base_url().'blogs/content/'.$blogs["blo_slug"].' class="btn btn-primary btnReadmore" style="background: #fff;color:#000;border-color: #000">Read More</a>
+	                    </div>
+	                </div>
+	            </div>';
+		}
+	}
+
+	public function content($slug)  {
+
+		$slug = $this->clean_input($slug);
+
+		$this->session->set_userdata('current_url', current_url());
+
+		if ( empty($slug) ) {
+			redirect('home');
+		}
 
 		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = 'Create';
-		
 		$content = [];
+		$footer = [];
+		$header['header_keywords'] = "";
+		$header['mot_model'] = "";
+		$this->db->where('blo_status','published');
+		$content['blogs'] = $this->model_base->get_one($slug, "blo_slug", "blogs");
+		$content['blogs'][0]['blo_content'] = stripcslashes( $content['blogs'][0]['blo_content'] );
+
+		$header['header_title'] = $content['blogs'][0]['blo_title'];
+		$header['header_desc'] = $content['blogs'][0]['blo_desc'];
+		$header['header_featured_img'] = $content['blogs'][0]['blo_image'];
+
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+			});
+		}
+		//document.getElementById("myPlaceTextBox2").value = mapCentre.lat();
+        //document.getElementById("myPlaceTextBox3").value = mapCentre.lng();
+
+        $("#myPlaceTextBox2").text(mapCentre.lat());
+        $("#myPlaceTextBox3").text(mapCentre.lng());
+
+        var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+		var location  = new google.maps.LatLng(mapCentre.lat(), mapCentre.lng());    // turn coordinates into an object          
+		geocoder.geocode({"latLng": location}, function (results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+				var add=results[0].formatted_address;         // if address found, pass to processing function
+				//document.getElementById("myPlaceTextBox").value = add;
+				$("#myPlaceTextBox").text(add);
+			}
+		});     
+		centreGot = true;';
+
+		$marker = array();
+		$marker['animation'] = 'BOUNCE';
+		$marker['draggable'] = 'true';
+
+		$marker['ondragend'] = 'document.getElementById("myPlaceTextBox2").value = event.latLng.lat();
+            					document.getElementById("myPlaceTextBox3").value = event.latLng.lng(); 
+
+            					var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+								var location  = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());    // turn coordinates into an object          
+								geocoder.geocode({"latLng": location}, function (results, status) {
+									if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+										var add=results[0].formatted_address;         // if address found, pass to processing function
+										// document.getElementById("myPlaceTextBox").value = add;
+										$("#myPlaceTextBox").text(add);
+									}
+								});     
+        ';
+
+		$config['zoom'] = 15;
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE;
+		$config['placesAutocompleteOnChange'] = "   markers_map[0].setVisible(false);
+												    var place = placesAutocomplete.getPlace();
+												    document.getElementById('myPlaceTextBox2').value = place.geometry.location.lat();
+            document.getElementById('myPlaceTextBox3').value = place.geometry.location.lng();
+												    if (!place.geometry) {
+												      return;
+												    }
+
+												    if (place.geometry.viewport) {
+												      map.fitBounds(place.geometry.viewport);
+												      map.setZoom(15);
+												    } else {
+												      map.setCenter(place.geometry.location);
+												      map.setZoom(15);
+												    }
+
+												    markers_map[0].setPosition(place.geometry.location);
+												    markers_map[0].setVisible(true);
+
+												    var address = '';
+												    if (place.address_components) {
+												      address = [
+												        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+												      ].join(' ');
+												    }";
+
+		$this->googlemaps->initialize($config);
+		
+		$header['map'] = $this->googlemaps->add_marker($marker);
+		$header['map'] = $this->googlemaps->create_map();
 
 		if($this->input->post()) {
 
-			// $this->form_validation->set_rules('mot_id', 'Model', 'required|trim');
-			// $this->form_validation->set_rules('deb_id', 'Dealer Branch', 'required|trim');
-			// $this->form_validation->set_rules('dem_price', 'Total Price', 'decimal|trim');
-			// $this->form_validation->set_rules('dem_dp', 'Downpayment', 'decimal|trim');
-			// $this->form_validation->set_rules('dem_installment', '36mos m.a.', 'decimal|trim');
-			// $this->form_validation->set_rules('dem_installment2', '24mos m.a.', 'decimal|trim');
-			// $this->form_validation->set_rules('dem_installment3', '12mos m.a.', 'decimal|trim');
-			// $this->form_validation->set_rules('dem_promo', 'Promos List', 'required|trim');
-			// $this->form_validation->set_rules('dem_colors', 'Color Variant List', 'required|trim');
-
-			// $this->form_validation->set_rules('blo_img', 'Image', 'required|trim');
-			$this->form_validation->set_rules('blo_desc', 'Description', 'required|trim');
-			$this->form_validation->set_rules('blo_content', 'Content', 'required|trim');
-
-			// $data = $this->input->post();
-
-			// $data['blo_content'] =  addslashes( $data['blo_content'] );
-
-		 //            $this->godprintp($data);
+			$this->form_validation->set_rules('new_email', 'Email', 'required|trim');
 
 			if ($this->form_validation->run() == FALSE) {
-				$content['msg_error'] = validation_errors();
+				$this->session->set_flashdata('msg_error', validation_errors() );
 			} else {
-				// success
+				$data = $this->input->post();
+				$data['new_email'] = $this->clean_input($data['new_email']);
+				$data['new_created'] = $this->getDatetimeNow();
+				$data['new_status'] = 'published';
 
-				$config['upload_path']   = './uploads/blogs'; 
-		  		//$config['allowed_types'] = 'jpg|png|jpeg|webp'; 
-		  		$config['allowed_types'] = '*';
-		  		$config['encrypt_name'] = TRUE; 
-		  		$config['max_size'] = "2048000"; // Can be set to particular file size , here it is 2 MB(2048 Kb)
+				$last_id = $this->model_base->insert_data($data, 'newsletter_emails');
+				$this->session->set_flashdata('msg_success', 'Sent');	
 
-		  		$this->load->library('upload', $config);
-					
-		  		if ( !$this->upload->do_upload('blo_image')) {
-		          	$error = array('error' => $this->upload->display_errors()); 
-		          	$content['msg_error'] = $error;
-				} else { 
-		            $upload = $this->upload->data();
-		            $data = $this->input->post();
-
-		            unset($data["_wysihtml5_mode"]);
-
-		            $data['blo_image'] = 'uploads/blogs/' . $upload['file_name'];
-		            $data['blo_created'] = $this->getDatetimeNow();
-		            $data['blo_slug'] = $this->_slug( $data['blo_title'] );
-		            $data['blo_content'] =  addslashes( $data['blo_content'] );
-
-		            // $this->godprintp($data);
-
-					$last_id = $this->model_base->insert_data($data, 'blogs');
-					$this->session->set_flashdata('msg_success', 'Added blog!');	
-					redirect('admin/blogs/view/' . $last_id,'refresh');
-		        } 
-
-	            
-
-
-	   //          $data['dem_created'] = $this->getDatetimeNow();
-				// $last_id = $this->model_base->insert_data($data, 'dealers_motorcycles');
-
-				// $this->db->flush_cache();
-
-				// $this->session->set_flashdata('msg_success', 'Added Dealers Motorcycles!');	
-				// redirect('admin/blogs/view/' . $last_id,'refresh');
-				// redirect('admin/blogs','refresh');
-		        
+				$current_url  =  $this->session->userdata('current_url');
+				redirect($current_url,'refresh');	
 			}
 		}
 
-		$content['back'] = base_url('admin/blogs');
 
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/create', $content);
-		$this->load->view("template/admin_footer");
+		$this->load->view("newui/template/site_header", $header);
+		$this->load->view('newui/site/blog-content', $content);
+		$this->load->view("newui/template/site_footer", $footer);	
 	}
-
-
-
-
-
-	public function edit($id)
-	{
-		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = 'Edit';
-		
-		$content = [];
-
-		$content['blogs'] = $this->model_base->get_one($id, "blo_id", "blogs");
-
-		$content['blogs'][0]['blo_content'] = stripcslashes( $content['blogs'][0]['blo_content'] );
-
-
-		if($this->input->post()) {
-
-			//validations
-			$this->form_validation->set_rules('blo_desc', 'Description', 'required|trim');
-			$this->form_validation->set_rules('blo_content', 'Content', 'required|trim');
-
-			if ($this->form_validation->run() == FALSE) {
-				$content['msg_error'] = validation_errors();
-			} else {
-				// success
-				$config['upload_path']   = './uploads/blogs'; 
-		  		//$config['allowed_types'] = 'jpg|png|jpeg|webp'; 
-		  		$config['allowed_types'] = '*';
-		  		$config['encrypt_name'] = TRUE; 
-		  		$config['max_size'] = "2048000"; // Can be set to particular file size , here it is 2 MB(2048 Kb)
-
-		  		$this->load->library('upload', $config);
-
-
-		  		$data = $this->input->post();
-
-		  		if ( !$this->upload->do_upload('blo_image')) {
-		  			$data["blo_image"] = $content['blogs'][0]['blo_image'];
-				} else { 
-					$upload = $this->upload->data();
-		            $data['blo_image'] = 'uploads/blogs/' . $upload['file_name'];
-				}
-
-				unset($data["_wysihtml5_mode"]);
-
-				$data['blo_updated'] = $this->getDatetimeNow();
-				$data['blo_slug'] = $this->_slug( $data['blo_title'] );
-				$data['blo_content'] =  addslashes( $data['blo_content'] );
-
-		        $this->model_base->update_data($id, 'blo_id', $data, 'blogs');
-				$this->session->set_flashdata('msg_success', 'Updated Blog!');	
-
-				redirect('admin/blogs/view/' . $id,'refresh');
-			}
-		}
-
-		
-
-		$content['back'] = base_url('admin/blogs');
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/edit', $content);
-		$this->load->view("template/admin_footer");
-	}
-
-	public function view($id)
-	{
-		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = 'View';
-		
-		$content = [];
-
-		$content['blogs'] = $this->model_base->get_one($id, "blo_id", "blogs");
-
-		$content['blogs'][0]['blo_content'] = stripcslashes( $content['blogs'][0]['blo_content'] );
-
-
-		// $this->godprint($content['dealers_motorcycles']);
-
-		$content['back'] = base_url('admin/blogs');
-		$content['edit'] = base_url() . 'admin/blogs/edit/' . $id;
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/view', $content);
-		$this->load->view("template/admin_footer");
-	}
-
-	private function set_upload_options()
-	{   
-	    //upload an image options
-	    $config = array();
-	    $config['upload_path'] = './uploads/dealers_motorcycles'; 
-	    //$config['allowed_types'] = 'jpg|png|webp';
-	    $config['allowed_types'] = '*';
-	    $config['max_size']      = '0';
-	    $config['overwrite']     = FALSE;
-	    return $config;
-	}
-
-	public function delete_picture($mop_id, $deb_id) {
-		$content['dealers_motorcycles'] = $this->model_base->delete_data($mop_id, 'mop_id', 'mop_status', 'motorcycles_pictures');
-
-
-		$this->session->set_flashdata('msg_success', 'Photo Deleted!');	
-		redirect('admin/blogs/view/' . $deb_id,'refresh');
-		
-	}
-
-	public function delete($id)
-	{
-		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = 'View';
-		
-		$content = [];
-
-		$content['blogs'] = $this->model_base->delete_data($id, 'blo_id', 'blo_status', 'blogs');
-
-		$this->session->set_flashdata('msg_success', 'Deleted Blog!');	
-
-		redirect('admin/blogs/','refresh');
-
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/view', $content);
-		$this->load->view("template/admin_footer");
-	}
-
-	public function get_stocks_counts ($deb_id, $bra_id, $status) {
-		$overall_stocks = 0;
-		$overall_stocks_sub = 0;
-		$inventory_draft = 0;
-		$sales_draft = 0;
-		$broken_product = 0;
-		$total = 0;
-
-		// SUM ALL ADDED motorcycles
-		// if ( $this->session->userdata('bra_id') == 1 ) {
-
-		// 	$this->db->flush_cache();
-			
-		// 	// gets sum of all stocks
-		// 	$this->db->select_sum('sti_qty');
-		// 	$this->db->where('deb_id', $deb_id);
-		// 	$this->db->where('bra_id', 1);
-		// 	$this->db->join('stocks', 'stocks.sto_id = stocks_info.sto_id');
-		// 	$warehouse = $this->db->get('stocks_info')->result_array();
-		// 	$overall_stocks = $overall_stocks + $warehouse[0]['sti_qty'];
-
-		// 	$this->db->flush_cache();
-
-		// 	//SUM ALL SUBTRACT motorcycles
-		// 	$this->db->select_sum('ini_qty');
-		// 	$this->db->where('deb_id', $deb_id);
-		// 	$this->db->where('ini_type', 'sub');
-		// 	$this->db->where('inventory_info.bra_id_from', 1);
-		// 	$this->db->where('int_status', 'published');
-		// 	$this->db->join('inventory', 'inventory.int_id = inventory_info.int_id');
-		// 	$inventory = $this->db->get('inventory_info')->result_array();
-		// 	$total = $overall_stocks - $inventory[0]['ini_qty'];
-		// } else {
-
-		$this->db->flush_cache();
-			
-		// gets sum of all inventory
-		$this->db->select_sum('ini_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('ini_type', 'add');
-		$this->db->where('inventory_info.bra_id_to', $bra_id);
-		$this->db->where('int_status', $status);
-		$this->db->join('inventory', 'inventory.int_id = inventory_info.int_id');
-		$inventory = $this->db->get('inventory_info')->result_array();
-		$overall_stocks = $overall_stocks + $inventory[0]['ini_qty'];
-
-		$this->db->flush_cache();
-
-		// SUM ALL SUBTRACT motorcycles
-		$this->db->select_sum('ini_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('ini_type', 'sub');
-		$this->db->where('inventory_info.bra_id_from', $bra_id);
-		$this->db->where('int_status', $status);
-		$this->db->join('inventory', 'inventory.int_id = inventory_info.int_id');
-		$inventory = $this->db->get('inventory_info')->result_array();
-		$overall_stocks_sub = $overall_stocks_sub + $inventory[0]['ini_qty'];
-		$total  = $overall_stocks - $overall_stocks_sub;
-
-		$this->db->flush_cache();
-		
-		// gets sum of all stocks
-		$this->db->select_sum('sti_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('stocks.bra_id', $bra_id);
-		$this->db->join('stocks', 'stocks.sto_id = stocks_info.sto_id');
-		$warehouse = $this->db->get('stocks_info')->result_array();
-		$total = $total + $warehouse[0]['sti_qty'];
-
-		$this->db->flush_cache();
-		$this->db->select_sum('sai_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('sales.bra_id', $bra_id);
-		$this->db->where('sales.sal_status', 'published');
-		$this->db->join('sales', 'sales.sal_id = sales_info.sal_id');
-		$sales = $this->db->get('sales_info')->result_array();
-		$total = $total - $sales[0]['sai_qty'];
-
-		// echo "<pre>";
-		// print_r ($total);
-		// echo "</pre>";
-		//get stocks pending transfer
-		$this->db->flush_cache();
-		$this->db->select_sum('ini_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('ini_type', 'add');
-		$this->db->where('inventory_info.bra_id_from', $bra_id);
-		$this->db->where('int_status', 'approved');
-		$this->db->join('inventory', 'inventory.int_id = inventory_info.int_id');
-		$inventory_draft = $this->db->get('inventory_info')->result_array();
-		// echo "<pre>";
-		// print_r ($inventory_draft[0]['ini_qty']);
-		// echo "</pre>";
-		$total = $total - $inventory_draft[0]['ini_qty'];
-
-		$this->db->flush_cache();
-		$this->db->select_sum('sai_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('sales.bra_id', $bra_id);
-		$this->db->where('sales.sal_status', 'draft');
-		$this->db->join('sales', 'sales.sal_id = sales_info.sal_id');
-		$sales_draft = $this->db->get('sales_info')->result_array();
-		// echo "<pre>";
-		// print_r ($sales_draft);
-		// echo "</pre>";
-		$total = $total - $sales_draft[0]['sai_qty'];
-
-		$this->db->flush_cache();
-		$this->db->select_sum('bro_qty');
-		$this->db->where('deb_id', $deb_id);
-		$this->db->where('bra_id', $bra_id);
-		$this->db->where('bro_status', 'published');
-		$broken_product = $this->db->get('broken_motorcycles')->result_array();
-		// echo "<pre>";
-		// print_r ($broken_product);
-		// echo "</pre>";
-		$total = $total - $broken_product[0]['bro_qty'];
-
-		// }
-
-		return $total;
-	}
-
-	public function history ($deb_id) {
-		$header = [];
-		$header['header_title'] = 'Blogs';
-		$header['header'] = 'Blogs';
-		$header['header_small'] = 'View';
-		
-		$content = [];
-
-		$this->db->where('motorcycles.deb_id', $deb_id);
-		$this->db->where('inventory.bra_id_to', $this->session->userdata('bra_id'));
-		$this->db->join("inventory_info", "inventory_info.int_id = inventory.int_id");
-		$this->db->join("branches", "branches.bra_id = inventory.bra_id_from");
-		$this->db->join("motorcycles", "motorcycles.deb_id = inventory_info.deb_id");
-		$this->db->join("categories", "categories.cat_id = motorcycles.cat_id");
-		$this->db->where('ini_type', 'add');	
-		$content['inventory'] = $this->model_base->get_all('inventory');
-
-		$this->db->flush_cache();
-
-		$this->db->where('motorcycles.deb_id', $deb_id);
-		$this->db->where('stocks.bra_id',  $this->session->userdata('bra_id'));
-		$this->db->join("stocks_info", "stocks_info.sto_id = stocks.sto_id");
-		$this->db->join("branches", "branches.bra_id = stocks.bra_id");
-		$this->db->join("motorcycles", "motorcycles.deb_id = stocks_info.deb_id");
-		$this->db->join("categories", "categories.cat_id = motorcycles.cat_id");
-		$content['stocks'] = $this->model_base->get_all('stocks');
-
-		$this->db->flush_cache();
-
-		$this->db->where('motorcycles.deb_id', $deb_id);
-		$this->db->where('sales.bra_id', $this->session->userdata('bra_id'));
-		$this->db->join("sales_info", "sales_info.sal_id = sales.sal_id");
-		$this->db->join("clients", "clients.cli_id = sales.cli_id");
-		$this->db->join("motorcycles", "motorcycles.deb_id = sales_info.deb_id");
-		$this->db->join("categories", "categories.cat_id = motorcycles.cat_id");
-		$this->db->join("branches", "branches.bra_id = sales.bra_id");
-		$content['sales'] = $this->model_base->get_all('sales');
-
-		$this->load->view("template/admin_header", $header);
-		$this->load->view('admin/blogs/history', $content);
-		$this->load->view("template/admin_footer");
-	}
-
 
 	public static function _slug($string){
-	    //Lower case everything
 	    $string = strtolower($string);
-	    //Make alphanumeric (removes all other characters)
 	    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-	    //Clean up multiple dashes or whitespaces
 	    $string = preg_replace("/[\s-]+/", " ", $string);
-	    //Convert whitespaces and underscore to dash
 	    $string = preg_replace("/[\s_]/", "-", $string);
 	    return $string;
 	} 
+
+	public function clean_input($data) {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+	public function scroll(){
+		$output = '';
+		$limit = intval($this->clean_input($this->input->post("limit")));
+		$start = intval($this->clean_input($this->input->post("start")));
+		$this->db->limit( $limit, $start );
+		$this->_sort();
+		$data = $this->model_base->get_all('blogs');
+		foreach($data as $result)
+		{
+			$output .= '
+			<div class="col-md-6">
+			<div class="blog-box">
+			<a href="'.base_url().''."blogs/content/" . $result['blo_slug'].'">
+			<div class="img-holder"     
+			style="background: url('. base_url().$result['blo_image'].');">
+			</div> 
+			</a>
+			<div class="blog-details">
+			<h3 class="blog-title">'.$result["blo_title"].'</h3>
+			<h6 class="blog-author">'.$result["blo_author"].' </h6>
+			<h6 class="blog-date">'.date("F j, Y",strtotime($result["blo_created"])).' </h6>
+			<p>'.$result["blo_desc"].'</p><a href="'.base_url().''."blogs/content/" . $result['blo_slug'].'" class="btn btn-outline-secondary"z>Read More</a></div></div></div>';
+		}
+		echo $output;
+	}
+
 }
