@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class dealers_motorcycles extends CI_Controller {
+class Dealers_motorcycles extends CI_Controller {
 	private $allowed_search_types = array('mot_model', 'dealers.dea_name', 'mot_brand');
 
 	public function __construct()

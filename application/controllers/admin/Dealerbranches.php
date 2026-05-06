@@ -2,7 +2,7 @@
 //dealerbranches
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class dealerbranches extends CI_Controller {
+class Dealerbranches extends CI_Controller {
 
 	public function __construct()
 	{
