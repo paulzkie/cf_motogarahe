@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -21,10 +22,17 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           server-dir: /htdocs/
-          state-name: .ftp-deploy-sync-state-fresh.json
+          state-name: .ftp-deploy-sync-state-v2.json
+          clean: false
           exclude: |
             **/.git*
-            **/.github*
+            **/.git*/**
+            .github/**
+            **/.github/**
             **/node_modules/**
+            **/tests/**
+            **/test/**
+            **/docs/**
+            **/*.md
             **/system_backup_*/**
             **/backups/**
